@@ -1,0 +1,15 @@
+# replacelist 额外要填充的变量
+版本:version=1.0
+名字:zhName=游戏名称
+英文名字:enName=GameName
+包名:buneleID=com.aoaogame.game61
+安卓AdMob-Banner:androidAdmobBanner=
+安卓AdMob-插屏:androidAdmobInterstitial=
+安卓Baidu广告:androidBaiduAd=df49eec7
+安卓统计ID:androidUMeng=53b8c81d56240b1d3405f238
+iOS-AdMob-Banner:iosAdmobBanner=ca-app-pub-3981702146870599/4421997815
+iOS-AdMob-插屏:iosAdmobInterstitial=ca-app-pub-3981702146870599/5898731011
+iOS-Baidu广告:iosBaiduAd=df49eec7
+iOS-统计ID:iosUMeng=53b8c86056240b32fb077c39
+:PicList=Pic1;Pic2;
+:PicOrder=1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30

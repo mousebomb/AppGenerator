@@ -1,0 +1,81 @@
+<?php
+/**
+ * 编辑App的数据／配置信息
+ * Created by PhpStorm.
+ * User: rhett
+ * Date: 15/1/20
+ * Time: 8:57
+ */
+require_once dirname(__FILE__) . "/inc.php";
+
+    $appID=input('id');
+
+$autoFillData= readSeedByAppID($appID);
+
+
+?><!DOCTYPE html>
+<html>
+<head>
+    <title>编辑App数据</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/general.css"/>
+    <link rel="stylesheet" href="css/extra.css"/>
+
+</head>
+<body>
+
+<div id="main-menu">
+<a href="edit.php?id=<?php echo $appID; ?>">1.基本信息</a>
+<a href="fill.php?id=<?php echo $appID; ?>">2.填入模板配置</a>
+<a href="upload.php?id=<?php echo $appID; ?>">3.上传素材文件</a>
+<a href="publish.php?id=<?php echo $appID; ?>">4.编译与发布</a>
+</div>
+
+<h1>基本信息</h1>
+<form action="create-handle.php" method="post">
+
+    <table>
+        <tr>
+            <td>aoaoAppID</td>
+            <td>
+                <input type="text" value="<?php echo $appID; ?>" disabled="disabled" />
+                <input type="hidden" name="appID"  value="<?php echo $appID; ?>"  />
+                <small>嗷嗷平台上申请的唯一id，统计、带量、广告管理都用</small>
+            </td>
+        </tr>
+        <tr>
+            <td>名字</td>
+            <td><input type="text" name="zhName" placeholder="水果三消大师" value="<?php echo $autoFillData['zhName']; ?>" /></td>
+        </tr>
+        <tr>
+            <td>使用模板</td>
+            <td>
+                <select name="template" id="">
+                    <?php
+                    $filesInTemplates = scandir(TEMPLATES_ROOT);
+                    foreach ($filesInTemplates as $eachTemplateFolder)
+                    {
+                        if($eachTemplateFolder == "." || $eachTemplateFolder=="..") continue;
+                        if(!is_dir(TEMPLATES_ROOT."/".$eachTemplateFolder)) continue;
+                        $templateName = $eachTemplateFolder;
+                        $isSelected = $eachTemplateFolder == $autoFillData['template'];
+                        ?>
+                        <option value="<?php echo $templateName; ?>" <?php  if($isSelected) echo "selected"; ?>><?php echo $templateName; ?></option>
+                    <?php
+                    }
+
+                    ?>
+                </select>
+
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="保存并下一步"/>
+
+
+
+</form>
+
+</body>
+</html>

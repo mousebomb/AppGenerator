@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://ns.adobe.com/air/application/15.0">
+  <id>${buneleID}</id>
+  <filename>PainterSea</filename>
+  <name>
+      <text xml:lang="zh_Hans">${zhName}</text>
+      <text xml:lang="zh_Hant">${zhName}</text>
+      <text xml:lang="zh-CN">${zhName}</text>
+      <text xml:lang="zh-TW">${zhName}</text>
+      <text xml:lang="en">${enName}</text>
+  </name>
+  <versionNumber>${version}</versionNumber>
+  <initialWindow>
+    <content>TianSe.swf</content>
+    <aspectRatio>landscape</aspectRatio>
+    <fullScreen>true</fullScreen>
+    <autoOrients>true</autoOrients>
+    <visible>true</visible>
+    <renderMode>auto</renderMode>
+  </initialWindow>
+  <iPhone>
+    <InfoAdditions><![CDATA[<key>UIDeviceFamily</key>
+  <array>
+    <string>1</string>
+    <string>2</string>
+  </array>
+  <key>UIStatusBarStyle</key>
+  <string>UIStatusBarStyleBlackOpaque</string>
+  <key>UIRequiresPersistentWiFi</key>
+  <string>YES</string>]]></InfoAdditions>
+    <requestedDisplayResolution>high</requestedDisplayResolution>
+  </iPhone>
+  <supportedProfiles>desktop extendedDesktop mobileDevice extendedMobileDevice</supportedProfiles>
+  <extensions>
+    <extensionID>com.juankpro.ane.LocalNotification</extensionID>
+    <extensionID>so.cuo.platform.baidu</extensionID>
+    <extensionID>com.milkmangames.extensions.AdMob</extensionID>
+    <extensionID>ane.ios.UMMobClickAne</extensionID>
+  </extensions>
+  <versionLabel>${version}</versionLabel>
+  <icon>
+    <image120x120>AppIcons/120x120-Icon-120.png</image120x120>
+    <image152x152>AppIcons/152x152-Icon-152.png</image152x152>
+    <image60x60>AppIcons/60x60-Icon-60.png</image60x60>
+    <image57x57>AppIcons/57x57-Icon-57.png</image57x57>
+    <image512x512>AppIcons/512x512-iTunesArtwork.png</image512x512>
+    <image144x144>AppIcons/144x144-Icon-144.png</image144x144>
+    <image80x80>AppIcons/80x80-Icon-80.png</image80x80>
+    <image76x76>AppIcons/76x76-Icon-76.png</image76x76>
+    <image40x40>AppIcons/40x40-Icon-40.png</image40x40>
+    <image1024x1024>AppIcons/1024x1024-iTunesArtwork%402x.png</image1024x1024>
+    <image114x114>AppIcons/114x114-Icon-114.png</image114x114>
+    <image72x72>AppIcons/72x72-Icon-72.png</image72x72>
+    <image50x50>AppIcons/50x50-Icon-50.png</image50x50>
+    <image58x58>AppIcons/58x58-Icon-58.png</image58x58>
+    <image29x29>AppIcons/29x29-Icon-29.png</image29x29>
+    <image100x100>AppIcons/100x100-Icon-100.png</image100x100>
+  </icon>
+</application>
+
