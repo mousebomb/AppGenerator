@@ -1,0 +1,92 @@
+<?php
+/**
+ * 桌面模拟机测试
+ * Created by PhpStorm.
+ * User: rhett
+ * Date: 15/1/19
+ * Time: 20:01
+ */
+
+require_once dirname(__FILE__) . "/inc.php";
+
+$appID=input('id');
+$size=input('size');
+    if(empty($size))
+    {
+        die('size 为空');
+    }
+    switch($size)
+    {
+        case 'iphone4':
+        case 'iphone4h':
+            $screensize = '640x920:640x960';
+            break;
+        case 'iphone5':
+        case 'iphone5h':
+            $screensize = '640x1096:640x1136';
+            break;
+        case 'ipad':
+        case 'ipadh':
+            $screensize = '768x1004:768x1024';
+            break;
+    }
+
+$autoFillData=readSeedByAppID($appID);
+$template=$autoFillData['template'];
+$bundleID = $autoFillData['bundleID'];
+
+#gen Folder
+$templ = TEMPLATES_ROOT."/".$template;
+$gen = GENERATOED_ROOT."/app".$appID;
+$icon = $gen."/icon";
+
+$type = 'desktop';
+$debug = 'true';
+
+?><!DOCTYPE html>
+<html>
+<head>
+    <title>模拟器执行</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/general.css"/>
+    <link rel="stylesheet" href="css/extra.css"/>
+
+</head>
+<body>
+
+<div id="main-menu">
+    <a href="edit.php?id=<?php echo $appID; ?>">1.基本信息</a>
+    <a href="fill.php?id=<?php echo $appID; ?>">2.填入模板配置</a>
+    <a href="upload.php?id=<?php echo $appID; ?>">3.上传素材文件</a>
+    <a href="finish.php?id=<?php echo $appID; ?>">4.编译与发布</a>
+</div>
+
+<?php
+
+/*
+ * 编译时会自动加入参数$type： 如 CONFIG::apk,true
+ */
+# 处理编译
+$compileSwfCmd = file_get_contents($gen."/compile_swf.txt");
+$output = $compileSwfCmd;
+$output = str_replace('${gen}',$gen,$output);
+$output = str_replace('${AMXMLC}',AMXMLC,$output);
+$output = str_replace('${FLEX_HOME}',FLEX_HOME,$output);
+$output = str_replace('${debug}',$debug,$output);
+$output = str_replace('${type}',$type,$output);
+$output = $output."-define+=CONFIG::desktop,true";
+execCmd($output,"编译游戏");
+
+# 执行ADL
+    $runDesktopCmd = file_get_contents($gen."/simulator.txt");
+    $output = $runDesktopCmd;
+    $output = str_replace('${gen}',$gen,$output);
+    $output = str_replace('${ADL}',ADL,$output);
+    $output = str_replace('${screensize}',$screensize,$output);
+    echo "执行桌面模拟，请截图";
+    exec($output);
+
+
+?>
+</body>
+</html>

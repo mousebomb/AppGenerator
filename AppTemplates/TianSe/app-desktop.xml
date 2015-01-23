@@ -32,7 +32,6 @@
   </iPhone>
   <supportedProfiles>desktop extendedDesktop mobileDevice extendedMobileDevice</supportedProfiles>
   <extensions>
-    <extensionID>com.juankpro.ane.LocalNotification</extensionID>
   </extensions>
   <versionLabel>${version}</versionLabel>
   <icon>

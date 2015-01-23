@@ -104,11 +104,18 @@ new CopyFile($templ,$gen);
 
 <h2>桌面测试</h2>
 <ul>
-    <li><a href="build.php?id=<?php echo $appID; ?>&type=desktop">发布桌面测试</a></li>
+    <li><a href="simulator.php?id=<?php echo $appID; ?>&size=iphone4h"> 模拟iPhone4
+        (3:2)</a>
+    </li>
+    <li><a href="simulator.php?id=<?php echo $appID; ?>&size=iphone5h">模拟iPhone5
+         (16:9)</a>
+    </li>
+    <li><a href="simulator.php?id=<?php echo $appID; ?>&size=ipadh">模拟iPad/miPad
+         (4:3)</a>
+    </li>
 </ul>
 <h2>手机版</h2>
 <ul>
-    <li></li>
     <li><a href="build.php?id=<?php echo $appID; ?>&type=apk">发布apk</a></li>
     <li><a href="build.php?id=<?php echo $appID; ?>&type=ipa">发布ipa</a></li>
 </ul>

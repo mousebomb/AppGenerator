@@ -10,6 +10,7 @@
 require_once dirname(__FILE__) . "/inc.php";
 
 $appID=input('id');
+$type=input('type');
 
 $autoFillData=readSeedByAppID($appID);
 $template=$autoFillData['template'];
@@ -21,12 +22,13 @@ $gen = GENERATOED_ROOT."/app".$appID;
 $icon = $gen."/icon";
 
 $debug = 'false';
-$type=input('type');
+    if($type == "desktop")
+    {$debug='true';}
 
 ?><!DOCTYPE html>
 <html>
 <head>
-    <title>上传素材文件</title>
+    <title>发布包</title>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/general.css"/>
     <link rel="stylesheet" href="css/extra.css"/>
@@ -184,15 +186,6 @@ switch($type)
 
         # 尝试安装到手机
             execCmd(APP_ROOT."/util/adb install -r ".$apkResultPath,"尝试安装到手机");
-
-        break;
-    case 'desktop':
-
-        $runDesktopCmd = file_get_contents($gen."/build_desktop.txt");
-        $output = $runDesktopCmd;
-        $output = str_replace('${gen}',$gen,$output);
-        $output = str_replace('${ADL}',ADL,$output);
-        execCmd($output,"桌面版");
 
         break;
 }
