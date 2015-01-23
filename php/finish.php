@@ -19,9 +19,10 @@ $template=$autoFillData['template'];
 $templ = TEMPLATES_ROOT."/".$template;
 $gen = GENERATOED_ROOT."/app".$appID;
 $icon = $gen."/icon";
+@mkdir($icon);
+//assets目录 目前定死会自动添加,应该是检测uploadlist
 $assets = $gen."/assets";
 @mkdir($assets);
-@mkdir($icon);
 
 new CopyFile($templ,$gen);
 
@@ -101,8 +102,12 @@ new CopyFile($templ,$gen);
 
 <h1>4.编译与发布</h1>
 
+<h2>桌面测试</h2>
 <ul>
     <li><a href="build.php?id=<?php echo $appID; ?>&type=desktop">发布桌面测试</a></li>
+</ul>
+<h2>手机版</h2>
+<ul>
     <li></li>
     <li><a href="build.php?id=<?php echo $appID; ?>&type=apk">发布apk</a></li>
     <li><a href="build.php?id=<?php echo $appID; ?>&type=ipa">发布ipa</a></li>

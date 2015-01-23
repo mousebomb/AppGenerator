@@ -2,3 +2,4 @@
 src/org/mousebomb/TianSeConf.as
 app-android.xml
 app-ios.xml
+app-desktop.xml

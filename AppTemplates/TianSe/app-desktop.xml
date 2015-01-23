@@ -33,9 +33,6 @@
   <supportedProfiles>desktop extendedDesktop mobileDevice extendedMobileDevice</supportedProfiles>
   <extensions>
     <extensionID>com.juankpro.ane.LocalNotification</extensionID>
-    <extensionID>so.cuo.platform.baidu</extensionID>
-    <extensionID>com.milkmangames.extensions.AdMob</extensionID>
-    <extensionID>ane.ios.UMMobClickAne</extensionID>
   </extensions>
   <versionLabel>${version}</versionLabel>
   <icon>

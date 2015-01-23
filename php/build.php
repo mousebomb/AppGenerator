@@ -19,16 +19,9 @@ $bundleID = $autoFillData['bundleID'];
 $templ = TEMPLATES_ROOT."/".$template;
 $gen = GENERATOED_ROOT."/app".$appID;
 $icon = $gen."/icon";
-$assets = $gen."/assets";
 
 $debug = 'false';
-#
-switch($type)
-{
-    case 'ipa':break;
-    case 'apk':break;
-    case 'desktop':break;
-}
+$type=input('type');
 
 ?><!DOCTYPE html>
 <html>
@@ -50,6 +43,9 @@ switch($type)
 
 <?php
 
+/*
+ * 编译时会自动加入参数$type： 如 CONFIG::apk,true
+ */
 # 处理编译
 $compileSwfCmd = file_get_contents($gen."/compile_swf.txt");
 $output = $compileSwfCmd;
@@ -57,112 +53,149 @@ $output = str_replace('${gen}',$gen,$output);
 $output = str_replace('${AMXMLC}',AMXMLC,$output);
 $output = str_replace('${FLEX_HOME}',FLEX_HOME,$output);
 $output = str_replace('${debug}',$debug,$output);
+$output = str_replace('${type}',$type,$output);
+$output = $output."-define+=CONFIG::$type,true";
 execCmd($output,"编译游戏");
 
-# 处理打包
-$buildApkCmd = file_get_contents($gen."/build_apk.txt");
-$output = $buildApkCmd;
-$output = str_replace('${gen}',$gen,$output);
-$output = str_replace('${KEYSTORE}',KEYSTORE,$output);
-$output = str_replace('${ADT}',ADT,$output);
-$output = str_replace('${icon}',$icon,$output);
-$output = str_replace('${assets}',$assets,$output);
-$output = str_replace('${debug}',$debug,$output);
-execCmd($output,"打包apk");
 
-# 打包百度广告extra
-    echo( date("H:i:s")." 执行 打包百度广告extra <pre>");
-    // 寻找apk
-    $srcPath = findAPK($gen);
-    // 路径
-    $apkResultPath = $srcPath . "-result.apk";
-    $extraApkPath = $srcPath.".extra.apk";
+#
+switch($type)
+{
+    case 'ipa':
+        $genipa = $gen.'/'.$template.'.ipa';
+        # 处理打包
+            $buildIpaCmd = file_get_contents($gen."/build_ipa.txt");
+            $output = $buildIpaCmd;
+            $output = str_replace('${ADT}',ADT,$output);
+            $output = str_replace('${gen}',$gen,$output);
+            $output = str_replace('${genipa}',$genipa,$output);
+            $output = str_replace('${KEYSTORE_IOS_DEV}',KEYSTORE_IOS_DEV,$output);
+            $output = str_replace('${DEVPROVISION}',DEVPROVISION,$output);
+            $output = str_replace('${icon}',$icon,$output);
+            $output = str_replace('${debug}',$debug,$output);
+            execCmd($output,"打包ipa");
+        echo "Done.结果保存在     ".$genipa."\n</pre>";
 
-    $tmpDir = WORK_FOLDER."/tmp";
-    $extraSrcPath = WORK_FOLDER ."/extra";
+        break;
+    case 'apk':
 
-    if(file_exists($tmpDir))
-    {dirDel($tmpDir);}
-    mkdir($tmpDir);
+        $genapk = $gen."/gen'.$template.'.apk";
+        # 处理打包
+            $buildApkCmd = file_get_contents($gen."/build_apk.txt");
+            $output = $buildApkCmd;
+            $output = str_replace('${gen}',$gen,$output);
+            $output = str_replace('${genapk}',$genapk,$output);
+            $output = str_replace('${KEYSTORE}',KEYSTORE,$output);
+            $output = str_replace('${ADT}',ADT,$output);
+            $output = str_replace('${icon}',$icon,$output);
+            $output = str_replace('${debug}',$debug,$output);
+            execCmd($output,"打包apk");
 
-    $zip = new ZipArchive();
-    if($zip->open($srcPath) !==true)
-    {
-        die("Open apk failed\n");
-    }
-    $zip->extractTo($tmpDir);
-    $zip->close();
+        # 打包百度广告extra
+            echo( date("H:i:s")." 执行 打包百度广告extra <pre>");
+            // 寻找apk
+            $srcPath = $genapk;
+            // 路径
+            $apkResultPath = $srcPath . "-result.apk";
+            $extraApkPath = $srcPath.".extra.apk";
 
-    $filesInTmp = scandir($tmpDir);
-    if(false !== array_search("extra",$filesInTmp))
-    {
-        dirDel($tmpDir);
-        die("APK已经是extra的了，无需重打包签名\n");
-    }
+            $tmpDir = WORK_FOLDER."/tmp";
+            $extraSrcPath = WORK_FOLDER ."/extra";
 
-    dirDel($tmpDir."/META-INF/");
+            if(file_exists($tmpDir))
+            {dirDel($tmpDir);}
+            mkdir($tmpDir);
 
-    # 压缩新apk
-    $zip = new ZipArchive();
-    if ($zip->open($extraApkPath, ZIPARCHIVE::CREATE)!==TRUE) {
-        exit("无法创建 <$extraApkPath>\n");
-    }
+            $zip = new ZipArchive();
+            if($zip->open($srcPath) !==true)
+            {
+                die("Open apk failed\n");
+            }
+            $zip->extractTo($tmpDir);
+            $zip->close();
 
-    ## 解压出的东西方如更目录
-    $basicFiles = listdir($tmpDir);
-    foreach ($basicFiles as $file) {
-        $localFile =         str_replace("./","",
-            str_replace("\\","/",
-                str_replace($tmpDir."/","",$file)
-            )
-        );
-        $zip->addFile($file,$localFile);
-    //    echo($file . " > $localFile \n");
-    }
+            $filesInTmp = scandir($tmpDir);
+            if(false !== array_search("extra",$filesInTmp))
+            {
+                dirDel($tmpDir);
+                die("APK已经是extra的了，无需重打包签名\n");
+            }
 
+            dirDel($tmpDir."/META-INF/");
 
-    ## extra 方如根目录
-    $files = listdir($extraSrcPath);
-    foreach($files as $filePath)
-    {
-        $localFile = str_replace("./","",str_replace("\\","/",str_replace(WORK_FOLDER."/","",$filePath)));
-        $zip->addFile($filePath,$localFile);
-    //    echo($filePath . " > $localFile \n");
-    }
-    $zip->close();
-    echo("嵌入extra完毕，下面开始签名\n");
+            # 压缩新apk
+            $zip = new ZipArchive();
+            if ($zip->open($extraApkPath, ZIPARCHIVE::CREATE)!==TRUE) {
+                exit("无法创建 <$extraApkPath>\n");
+            }
 
-
-    # sign
-    $signedAPKPath = $extraApkPath.".signed";
-    $cmd = sprintf("jarsigner -verbose -keystore %s -STOREPASS %s -signedjar %s %s %s -keypass %s -sigalg SHA1withRSA -digestalg SHA1 "
-        ,KEYSTORE_PATH
-        ,KEYSTORE_STOREPASS
-        ,$signedAPKPath
-        ,$extraApkPath
-        ,KEYSTORE_ALIAS
-        ,KEYSTORE_KEYPASS
-    );
-    echo "$cmd\n";
-    $javaResult = exec($cmd);
-
-    echo "签名完毕，下面开始对apk进行优化\n";
-    $alignedAPKPath = $signedAPKPath.".aligned";
-    echo exec(WORK_FOLDER."/bin/zipalign -v 4 $signedAPKPath $alignedAPKPath")."\n";
-    echo "apk  优化完成\n";
+            ## 解压出的东西方如更目录
+            $basicFiles = listdir($tmpDir);
+            foreach ($basicFiles as $file) {
+                $localFile =         str_replace("./","",
+                    str_replace("\\","/",
+                        str_replace($tmpDir."/","",$file)
+                    )
+                );
+                $zip->addFile($file,$localFile);
+            //    echo($file . " > $localFile \n");
+            }
 
 
-    # clean tmp files
-    dirDel($tmpDir);
-    rename($alignedAPKPath,$apkResultPath);
-    unlink($extraApkPath);
-    unlink($signedAPKPath);
-    unlink($srcPath);
+            ## extra 方如根目录
+            $files = listdir($extraSrcPath);
+            foreach($files as $filePath)
+            {
+                $localFile = str_replace("./","",str_replace("\\","/",str_replace(WORK_FOLDER."/","",$filePath)));
+                $zip->addFile($filePath,$localFile);
+            //    echo($filePath . " > $localFile \n");
+            }
+            $zip->close();
+            echo("嵌入extra完毕，下面开始签名\n");
 
-    echo "Done.结果保存在     ".$apkResultPath."\n</pre>";
 
-# 尝试安装到手机
-    execCmd(APP_ROOT."/util/adb install -r ".$apkResultPath,"尝试安装到手机");
+            # sign
+            $signedAPKPath = $extraApkPath.".signed";
+            $cmd = sprintf("jarsigner -verbose -keystore %s -STOREPASS %s -signedjar %s %s %s -keypass %s -sigalg SHA1withRSA -digestalg SHA1 "
+                ,KEYSTORE_PATH
+                ,KEYSTORE_STOREPASS
+                ,$signedAPKPath
+                ,$extraApkPath
+                ,KEYSTORE_ALIAS
+                ,KEYSTORE_KEYPASS
+            );
+            echo "$cmd\n";
+            $javaResult = exec($cmd);
+
+            echo "签名完毕，下面开始对apk进行优化\n";
+            $alignedAPKPath = $signedAPKPath.".aligned";
+            echo exec(WORK_FOLDER."/bin/zipalign -v 4 $signedAPKPath $alignedAPKPath")."\n";
+            echo "apk  优化完成\n";
+
+
+            # clean tmp files
+            dirDel($tmpDir);
+            rename($alignedAPKPath,$apkResultPath);
+            unlink($extraApkPath);
+            unlink($signedAPKPath);
+            unlink($srcPath);
+
+            echo "Done.结果保存在     ".$apkResultPath."\n</pre>";
+
+        # 尝试安装到手机
+            execCmd(APP_ROOT."/util/adb install -r ".$apkResultPath,"尝试安装到手机");
+
+        break;
+    case 'desktop':
+
+        $runDesktopCmd = file_get_contents($gen."/build_desktop.txt");
+        $output = $runDesktopCmd;
+        $output = str_replace('${gen}',$gen,$output);
+        $output = str_replace('${ADL}',ADL,$output);
+        execCmd($output,"桌面版");
+
+        break;
+}
 
 ?>
 </body>

@@ -32,7 +32,7 @@ define("AMXMLC",FLEX_HOME."/bin/amxmlc");
 define("KEYSTORE",APP_ROOT."/p12/MousebombAndroid.p12");
 define("KEYSTORE_IOS",APP_ROOT."/p12/aoaogame_release.p12");
 define("KEYSTORE_IOS_DEV",APP_ROOT."/p12/aoaogame_develop.p12");
-define("ADHOCPROVISION",APP_ROOT."/p12/aoaoDev.mobileprovision");
+define("DEVPROVISION",APP_ROOT."/p12/aoaoDev.mobileprovision");
 define("STOREPASS","ilikeasp");
 define("STOREPASS_IOS","aoaogame");
 
