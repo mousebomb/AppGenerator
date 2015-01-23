@@ -13,42 +13,74 @@ $appID=input('id');
 
 $autoFillData=readSeedByAppID($appID);
 
-    // 编译
-
-$androidBuneleID = $autoFillData['androidBuneleID'];
 $template=$autoFillData['template'];
-$debug = 'false';
 
 #gen Folder
 $templ = TEMPLATES_ROOT."/".$template;
 $gen = GENERATOED_ROOT."/app".$appID;
 $icon = $gen."/icon";
+$assets = $gen."/assets";
+@mkdir($assets);
+@mkdir($icon);
+
 new CopyFile($templ,$gen);
 
 //  替换内容 replacelist.txt ，检测上传的内容 uploadlist.txt 是否完整
 
 # 替换replacelist.txt 要求的内容
-$replaceList = getTemplateReplaceList($template);
-foreach ($replaceList as $eachReplaceFile)
-{
-    $output = file_get_contents($templ."/".$eachReplaceFile);
-    // 遍历 从填入的配置 替换到文件
-    foreach ($autoFillData as $autoFillKey => $autoFillVal)
+    $replaceList = getTemplateReplaceList($template);
+    foreach ($replaceList as $eachReplaceFile)
     {
-        $search = sprintf('${%s}',$autoFillKey);
-        $output = str_replace($search,$autoFillVal,$output);
+        $output = file_get_contents($templ."/".$eachReplaceFile);
+        // 遍历 从填入的配置 替换到文件
+        foreach ($autoFillData as $autoFillKey => $autoFillVal)
+        {
+            $search = sprintf('${%s}',$autoFillKey);
+            $output = str_replace($search,$autoFillVal,$output);
+        }
+        // 替换好的文本，存入gen下的路径
+        file_put_contents($gen."/".$eachReplaceFile,$output);
     }
-    // 替换好的文本，存入gen下的路径
-    file_put_contents($gen."/".$eachReplaceFile,$output);
-}
 
-# 处理编译
-$compileSwfCmd = file_get_contents($gen."/compile_swf.txt");
-$output = $compileSwfCmd;
-$output = str_replace('${gen}',$gen,$output);
-$output = str_replace('${AMXMLC}',AMXMLC,$output);
-$output = str_replace('${FLEX_HOME}',FLEX_HOME,$output);
-$output = str_replace('${debug}',$debug,$output);
+# 检测上传的内容
+    $uploadList = getTemplateUploadList($template);
+    // 列出所有已经录入的 在 $autoFillData  key=uploadLi  val=实际文件路径
+    foreach ($uploadList as $uploadLi)
+    {
+        $uploadFileKey = str_replace(".","_",$uploadLi);
+        $fromFile = $autoFillData[$uploadFileKey];
+        $toFile = $gen."/".$uploadLi;
+        if($fromFile=="") continue;
+        if(file_exists($toFile)) unlink($toFile);
+        copy($fromFile, $toFile);
+    }
+
+# Icon 1024生成各种
+    $input1024Png = $autoFillData['ico1024'];
+
+    $saveFolderPath = $srcFolderPath;
+    @mkdir($saveFolderPath);
+
+    // 生成各个平台尺寸 App Icon
+    $iconSet = array(
+        29, 40, 50, 57, 58, 60, 72, 76, 80, 100, 114, 120, 144, 152 ,512,1024
+        //android
+        ,36, 48, 72, 96,144, 512
+        // 小米
+        ,90, 136, 168, 192
+        // 腾讯
+        ,16
+    );
+
+    if(!empty($input1024Png))
+    {
+        foreach ($iconSet as $iconSize) {
+            $eachImagePath = $icon . "/".$iconSize . ".png";
+            smart_resize_image($input1024Png, $iconSize, $iconSize, false, $eachImagePath);
+        }
+    }
+
+
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -70,14 +102,12 @@ $output = str_replace('${debug}',$debug,$output);
 <h1>4.编译与发布</h1>
 
 <ul>
-    <li><a href="build.php?id=<?php echo $appID; ?>">编译</a></li>
+    <li><a href="build.php?id=<?php echo $appID; ?>&type=desktop">发布桌面测试</a></li>
+    <li></li>
+    <li><a href="build.php?id=<?php echo $appID; ?>&type=apk">发布apk</a></li>
+    <li><a href="build.php?id=<?php echo $appID; ?>&type=ipa">发布ipa</a></li>
 </ul>
 
-
-<?php
-execCmd($output);
-
-?>
 
 
 </body>

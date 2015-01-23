@@ -58,7 +58,7 @@ $autoFillData=readSeedByAppID($appID);
         //额外的 icon
         ?>
         <tr>
-            <td>1024的Icon</td>
+            <td>1024的Icon.png</td>
             <td><input type="text" name="ico1024" id="" style="width:50em;" value="<?php echo $autoFillData['ico1024']; ?>"/></td>
         </tr>
 
