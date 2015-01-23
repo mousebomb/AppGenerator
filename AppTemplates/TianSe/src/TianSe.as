@@ -143,25 +143,28 @@ package {
 
 		public function notificationTomorrow() : void
 		{
-			//
-			if (NotificationManager.isSupported)
-			{
-				notificationManager = new NotificationManager();
-				var notification : Notification = new Notification();
-				// 滑动来xx
-				notification.actionLabel = Localize.notificationAction;
-				// 通知内容
-				notification.body = Localize.notificationIntro;
-				notification.title = Localize.notificationTitle;
-				notification.fireDate = new Date((new Date()).time + (1000 * 60 * 60 * 24));
-				if (CONFIG::DEBUG)
-				{
-					notification.fireDate = new Date((new Date()).time + (10000));
-				}
-				notification.numberAnnotation = 1;
-				notificationManager.cancel(NOTIFICATION_CODE);
-				notificationManager.notifyUser(NOTIFICATION_CODE, notification);
-			}
+            if(!CONFIG::desktop)
+            {
+                //
+                if (NotificationManager.isSupported)
+                {
+                    notificationManager = new NotificationManager();
+                    var notification : Notification = new Notification();
+                    // 滑动来xx
+                    notification.actionLabel = Localize.notificationAction;
+                    // 通知内容
+                    notification.body = Localize.notificationIntro;
+                    notification.title = Localize.notificationTitle;
+                    notification.fireDate = new Date((new Date()).time + (1000 * 60 * 60 * 24));
+                    if (CONFIG::DEBUG)
+                    {
+                        notification.fireDate = new Date((new Date()).time + (10000));
+                    }
+                    notification.numberAnnotation = 1;
+                    notificationManager.cancel(NOTIFICATION_CODE);
+                    notificationManager.notifyUser(NOTIFICATION_CODE, notification);
+                }
+            }
 		}
 	}
 }

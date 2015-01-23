@@ -83,8 +83,7 @@ execCmd($output,"编译游戏");
     $output = str_replace('${gen}',$gen,$output);
     $output = str_replace('${ADL}',ADL,$output);
     $output = str_replace('${screensize}',$screensize,$output);
-    echo "执行桌面模拟，请截图";
-    exec($output);
+    execCmd($output,"执行桌面模拟");
 
 
 ?>

@@ -35,7 +35,7 @@
       <file leaf-file-name="build.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/build.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="35" selection-start="2310" selection-end="2379" vertical-scroll-proportion="-15.807693" vertical-offset="1119" max-vertical-offset="3618">
+            <state line="53" column="45" selection-start="1184" selection-end="1184" vertical-scroll-proportion="-14.5" vertical-offset="577" max-vertical-offset="3618">
               <folding>
                 <element signature="e#6#109#0" expanded="true" />
                 <element signature="e#999#1044#0" expanded="true" />
@@ -44,22 +44,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="simulator.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/simulator.txt">
+      <file leaf-file-name="build_apk.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/build_apk.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="24" selection-start="43" selection-end="53" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="162">
+            <state line="6" column="10" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="simulator.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="build_ipa.txt" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/build_ipa.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="33" selection-start="539" selection-end="539" vertical-scroll-proportion="0.38556933" vertical-offset="0" max-vertical-offset="887">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="simulator.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/simulator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="4" selection-start="2118" selection-end="2118" vertical-scroll-proportion="0.77003485" vertical-offset="831" max-vertical-offset="1710">
+            <state line="85" column="7" selection-start="2121" selection-end="2121" vertical-scroll-proportion="-25.5" vertical-offset="831" max-vertical-offset="1692">
               <folding>
                 <element signature="e#6#95#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app-desktop.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/app-desktop.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="65" selection-start="1051" selection-end="1051" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="1116">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="compile_swf.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/compile_swf.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="4" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,6 +137,7 @@
         <option value="$PROJECT_DIR$/AppTemplates/TianSe/simulator.txt" />
         <option value="$PROJECT_DIR$/php/build.php" />
         <option value="$PROJECT_DIR$/php/finish.php" />
+        <option value="$PROJECT_DIR$/AppTemplates/TianSe/src/TianSe.as" />
         <option value="$PROJECT_DIR$/php/simulator.php" />
       </list>
     </option>
@@ -202,6 +230,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Generated" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppGenerator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppGenerator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Generated" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppGenerator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppGenerator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="AppTemplates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -221,62 +281,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="TianSe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppGenerator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppGenerator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppTemplates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TianSe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src_adsaoao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mousebomb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adservice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppGenerator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppGenerator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppTemplates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TianSe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -584,43 +588,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/compile_swf.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="4" selection-start="296" selection-end="296" vertical-scroll-proportion="0.20833333" vertical-offset="0" max-vertical-offset="864">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/src_adsaoao/org/mousebomb/adservice/AdFactory.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1116">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/src/TianSe.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.25" vertical-offset="216" max-vertical-offset="2988">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/build_ipa.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="33" selection-start="539" selection-end="539" vertical-scroll-proportion="0.4105642" vertical-offset="0" max-vertical-offset="833">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/build_apk.txt">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="10" selection-start="114" selection-end="114" vertical-scroll-proportion="0.12175874" vertical-offset="0" max-vertical-offset="887">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -638,30 +611,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="33" selection-start="2210" selection-end="2210" vertical-scroll-proportion="-13.038462" vertical-offset="1119" max-vertical-offset="7326">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/upload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="23" selection-start="752" selection-end="752" vertical-scroll-proportion="-7.3461537" vertical-offset="439" max-vertical-offset="1476">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/app-desktop.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="33" selection-start="1227" selection-end="1227" vertical-scroll-proportion="0.7102593" vertical-offset="0" max-vertical-offset="1116">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/simulator.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="24" selection-start="43" selection-end="53" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="162">
           <folding />
         </state>
       </provider>
@@ -673,16 +625,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/build.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="35" selection-start="2310" selection-end="2379" vertical-scroll-proportion="-15.807693" vertical-offset="1119" max-vertical-offset="3618">
-          <folding>
-            <element signature="e#6#109#0" expanded="true" />
-            <element signature="e#999#1044#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/finish.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="108" column="9" selection-start="2805" selection-end="2805" vertical-scroll-proportion="-17.192308" vertical-offset="1497" max-vertical-offset="2358">
@@ -690,12 +632,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/compile_swf.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="4" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/src/TianSe.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="32" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.30439684" vertical-offset="0" max-vertical-offset="2718">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/app-desktop.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="65" selection-start="1051" selection-end="1051" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="1116">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/php/simulator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="4" selection-start="2118" selection-end="2118" vertical-scroll-proportion="0.77003485" vertical-offset="831" max-vertical-offset="1710">
+        <state line="85" column="7" selection-start="2121" selection-end="2121" vertical-scroll-proportion="-25.5" vertical-offset="831" max-vertical-offset="1692">
           <folding>
             <element signature="e#6#95#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="9" selection-start="2073" selection-end="2073" vertical-scroll-proportion="0.34262484" vertical-offset="1091" max-vertical-offset="6786">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/simulator.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="24" selection-start="43" selection-end="53" vertical-scroll-proportion="0.040586244" vertical-offset="0" max-vertical-offset="887">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/build.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="45" selection-start="1184" selection-end="1184" vertical-scroll-proportion="-14.5" vertical-offset="577" max-vertical-offset="3618">
+          <folding>
+            <element signature="e#6#109#0" expanded="true" />
+            <element signature="e#999#1044#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/build_apk.txt">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="10" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AppTemplates/TianSe/build_ipa.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="33" selection-start="539" selection-end="539" vertical-scroll-proportion="0.38556933" vertical-offset="0" max-vertical-offset="887">
+          <folding />
         </state>
       </provider>
     </entry>
