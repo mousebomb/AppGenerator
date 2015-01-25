@@ -52,7 +52,7 @@ $autoFillData=readSeedByAppID($appID);
 ?>
             <tr>
                 <td><?php echo $eachLabel; ?></td>
-                <td><input type="text" name="<?php echo $eachKey; ?>" placeholder="<?php echo $eachPlaceholder; ?>"
+                <td><input type="text" name="<?php echo $eachKey; ?>" placeholder="如：<?php echo $eachPlaceholder; ?>"
                            id="" value="<?php echo $autoFillData[$eachKey]; ?>" /></td>
             </tr>
 
