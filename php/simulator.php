@@ -42,6 +42,9 @@ $icon = $gen."/icon";
 
 $type = 'desktop';
 $debug = 'true';
+$isIpa= 'false';
+$isApk= 'false';
+$isDesktop= 'true';
 
 ?><!DOCTYPE html>
 <html>
@@ -74,8 +77,10 @@ $output = str_replace('${gen}',$gen,$output);
 $output = str_replace('${AMXMLC}',AMXMLC,$output);
 $output = str_replace('${FLEX_HOME}',FLEX_HOME,$output);
 $output = str_replace('${debug}',$debug,$output);
+$output = str_replace('${ipa}',$isIpa,$output);
+$output = str_replace('${apk}',$isApk,$output);
+$output = str_replace('${desktop}',$isDesktop,$output);
 $output = str_replace('${type}',$type,$output);
-$output = $output."-define+=CONFIG::desktop,true";
 execCmd($output,"编译游戏");
 
 # 执行ADL
