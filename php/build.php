@@ -79,8 +79,8 @@ execCmd($output,"编译游戏");
 switch($type)
 {
     case 'ipa':
-        $genipa = $gen.'/'.$template.'.ipa';
-        $genipaitc = $gen.'/'.$template.'-iTC.ipa';
+        $genipa = PUBLISH_PATH.'/'.$template.'.ipa';
+        $genipaitc = PUBLISH_PATH.'/'.$template.'-iTC.ipa';
         # 处理打包
             $buildIpaCmd = file_get_contents($gen."/build_ipa.txt");
             $output = $buildIpaCmd;
@@ -113,7 +113,7 @@ switch($type)
         break;
     case 'apk':
 
-        $genapk = $gen.'/'.$template.'.apk';
+        $genapk = PUBLISH_PATH.'/'.$template.'.apk';
         # 处理打包
             $buildApkCmd = file_get_contents($gen."/build_apk.txt");
             $output = $buildApkCmd;

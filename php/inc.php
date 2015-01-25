@@ -16,6 +16,12 @@ error_reporting(E_ALL ^ E_NOTICE);
 define("SERVER_CHARSET","");
 
 
+// 是否windows，以后做windows兼容性时候用
+if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN')
+    define("IS_WIN",true);
+else
+    define("IS_WIN",false);
+
 # 项目路径
 define("APP_ROOT",dirname(dirname(__FILE__)));
 define("PHP_ROOT",dirname(__FILE__));
