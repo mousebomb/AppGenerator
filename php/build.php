@@ -88,6 +88,8 @@ switch($type)
         $genipa = PUBLISH_PATH.'/'.$template.'.ipa';
         $genipaitc = PUBLISH_PATH.'/'.$template.'-iTC.ipa';
         # 处理打包
+        if(file_exists($gen."/build_ipa.txt"))
+        {
             $buildIpaCmd = file_get_contents($gen."/build_ipa.txt");
             $output = $buildIpaCmd;
             $output = str_replace('${ADT}',ADT,$output);
@@ -98,22 +100,25 @@ switch($type)
             $output = str_replace('${icon}',$icon,$output);
             $output = str_replace('${debug}',$debug,$output);
             execCmd($output,"打包ipa");
-        echo "<pre>Done.结果保存在     ".$genipa."\n</pre>";
-        //发布ipa-iTC
-        $buildIpaCmd = file_get_contents($gen."/build_ipa_itc.txt");
-        $provision = $gen.'/release.mobileprovision';
-        if(file_exists($provision))
-        {
-            $output = $buildIpaCmd;
-            $output = str_replace('${ADT}',ADT,$output);
-            $output = str_replace('${gen}',$gen,$output);
-            $output = str_replace('${genipa}',$genipaitc,$output);
-            $output = str_replace('${KEYSTORE_IOS}',KEYSTORE_IOS,$output);
-            $output = str_replace('${PROVISION}',$provision,$output);
-            $output = str_replace('${icon}',$icon,$output);
-            $output = str_replace('${debug}',$debug,$output);
-            execCmd($output,"打包ipa iTC版");
-            echo "<pre>Done.结果保存在     ".$genipaitc."\n</pre>";
+            echo "<pre>Done.结果保存在     ".$genipa."\n</pre>";
+                //发布ipa-iTC
+                $buildIpaCmd = file_get_contents($gen."/build_ipa_itc.txt");
+                $provision = $gen.'/release.mobileprovision';
+                if(file_exists($provision))
+                {
+                    $output = $buildIpaCmd;
+                    $output = str_replace('${ADT}',ADT,$output);
+                    $output = str_replace('${gen}',$gen,$output);
+                    $output = str_replace('${genipa}',$genipaitc,$output);
+                    $output = str_replace('${KEYSTORE_IOS}',KEYSTORE_IOS,$output);
+                    $output = str_replace('${PROVISION}',$provision,$output);
+                    $output = str_replace('${icon}',$icon,$output);
+                    $output = str_replace('${debug}',$debug,$output);
+                    execCmd($output,"打包ipa iTC版");
+                    echo "<pre>Done.结果保存在     ".$genipaitc."\n</pre>";
+                }
+        }else{
+            echo "<pre>本项目不支持ipa</pre>";
         }
 
         break;
