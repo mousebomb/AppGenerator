@@ -2,7 +2,7 @@
 assets/Default-568h@2x.png
 assets/Default@2x.png
 assets/Default~ipad.png
-assets/bgm.mp3
+bgm.mp3
 lib/pics.swc
 lib/base.swc
 lib/baseEn.swc

@@ -27,5 +27,5 @@ ${ADT}
 -e ${icon}/58.png AppIcons/58.png
 -e ${icon}/29.png AppIcons/29.png
 -e ${icon}/100.png AppIcons/100.png
--e ${gen}/assets/bgm.mp3 bgm.mp3
+-e ${gen}/bgm.mp3 bgm.mp3
 -extdir ${gen}/lib
