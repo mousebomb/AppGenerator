@@ -32,16 +32,15 @@ $autoFillData=readSeedByAppID($appID);
 <div id="main-menu">
     <a href="edit.php?id=<?php echo $appID; ?>">1.基本信息</a>
     <a href="fill.php?id=<?php echo $appID; ?>">2.填入模板配置</a>
-    <a href="upload.php?id=<?php echo $appID; ?>">3.上传素材文件</a>
+    <a href="upload.php?id=<?php echo $appID; ?>">3.绑定素材文件</a>
     <a href="finish.php?id=<?php echo $appID; ?>">4.编译与发布</a>
 </div>
 
 
-<h1>填入模板配置</h1>
+<h1>2.填入模板配置</h1>
 <form action="fill-handle.php" method="post">
 
     <input name="appID" type="hidden" value="<?php echo $appID; ?>"/>
-    <h2>模板变量</h2>
     <table>
         <?php
         $fillvarsList = getTemplateFillvarsList($autoFillData['template']);

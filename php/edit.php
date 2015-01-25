@@ -33,18 +33,18 @@ $autoFillData= readSeedByAppID($appID);
 <div id="main-menu">
 <a href="edit.php?id=<?php echo $appID; ?>">1.基本信息</a>
 <a href="fill.php?id=<?php echo $appID; ?>">2.填入模板配置</a>
-<a href="upload.php?id=<?php echo $appID; ?>">3.上传素材文件</a>
+<a href="upload.php?id=<?php echo $appID; ?>">3.绑定素材文件</a>
 <a href="finish.php?id=<?php echo $appID; ?>">4.编译与发布</a>
 </div>
 
-<h1>基本信息</h1>
+<h1>1.基本信息</h1>
 <form action="create-handle.php" method="post">
 
     <table>
         <tr>
             <td>aoaoAppID</td>
             <td>
-                <input type="text" value="<?php echo $appID; ?>" disabled="disabled" />
+                <input type="text" value="<?php echo $appID; ?>" disabled="disabled" class="short" />
                 <input type="hidden" name="appID"  value="<?php echo $appID; ?>"  />
                 <small>嗷嗷平台上申请的唯一id，统计、带量、广告管理都用</small>
             </td>

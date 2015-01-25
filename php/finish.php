@@ -100,7 +100,7 @@ new CopyFile($templ,$gen);
 <div id="main-menu">
     <a href="edit.php?id=<?php echo $appID; ?>">1.基本信息</a>
     <a href="fill.php?id=<?php echo $appID; ?>">2.填入模板配置</a>
-    <a href="upload.php?id=<?php echo $appID; ?>">3.上传素材文件</a>
+    <a href="upload.php?id=<?php echo $appID; ?>">3.绑定素材文件</a>
     <a href="finish.php?id=<?php echo $appID; ?>">4.编译与发布</a>
 </div>
 

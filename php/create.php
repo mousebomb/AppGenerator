@@ -27,7 +27,7 @@ require_once dirname(__FILE__) . "/inc.php";
     <table>
         <tr>
             <td>aoaoAppID</td>
-            <td><input type="text" name="appID" placeholder="100" value="" />
+            <td><input type="text" name="appID" placeholder="100" value="" class="short" />
                 <small>嗷嗷平台上申请的唯一id，统计、带量、广告管理都用</small>
             </td>
         </tr>
