@@ -11,6 +11,7 @@ require_once dirname(__FILE__) . "/inc.php";
 
 $appID=input('id');
 $type=input('type');
+$install=input('install');
 
 $autoFillData=readSeedByAppID($appID);
 $template=$autoFillData['template'];
@@ -217,7 +218,9 @@ switch($type)
             echo "Done.结果保存在     ".$apkResultPath."\n</pre>";
 
         # 尝试安装到手机
-            execCmd(APP_ROOT."/util/adb install -r ".$apkResultPath,"尝试安装到手机");
+        if($install==1)
+            execCmd(FLEX_HOME."/lib/android/bin/adb install -r ".$apkResultPath,"尝试安装到手机");
+//            execCmd(APP_ROOT."/util/adb install -r ".$apkResultPath,"尝试安装到手机");
 
         break;
 }
