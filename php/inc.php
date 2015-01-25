@@ -22,8 +22,8 @@ define("PHP_ROOT",dirname(__FILE__));
 define("GENERATOED_ROOT",APP_ROOT."/Generated");
 define("TEMPLATES_ROOT",APP_ROOT."/AppTemplates");
 
+require_once(PHP_ROOT.'/inc.conf.php');
 # SDK路径
-define("FLEX_HOME","/Users/rhett/MyWork/sdks/FlexSDK/4.6.0_air");
 define("AIR_SDK_HOME",FLEX_HOME);
 define("ADL",FLEX_HOME."/bin/adl");
 define("ADT_JAR",FLEX_HOME."/lib/adt.jar");
