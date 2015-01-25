@@ -93,5 +93,22 @@ execCmd($output,"编译游戏");
 
 
 ?>
+<h1>4.编译与发布</h1>
+
+<h2>桌面测试</h2>
+<ul>
+    <li><a href="simulator.php?id=<?php echo $appID; ?>&size=iphone4h"> 模拟iPhone4
+            (3:2)</a>
+    </li>
+    <li><a href="simulator.php?id=<?php echo $appID; ?>&size=iphone5h">模拟iPhone5
+            (16:9)</a>
+    </li>
+    <li><a href="simulator.php?id=<?php echo $appID; ?>&size=ipadh">模拟iPad/miPad
+            (4:3)</a>
+    </li>
+</ul>
+
+<a href="finish.php?id=<?php echo $appID; ?>">返回4.编译与发布</a>
+
 </body>
 </html>
