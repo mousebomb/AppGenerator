@@ -49,6 +49,11 @@ if($type == "desktop")
 
 </head>
 <body>
+<div id="project-menu">
+    <?php echo $autoFillData['zhName']; ?>
+    <a href="./create.php">创建新App</a>
+    <a href="./list.php">App列表</a>
+</div>
 
 <div id="main-menu">
     <a href="edit.php?id=<?php echo $appID; ?>">1.基本信息</a>
