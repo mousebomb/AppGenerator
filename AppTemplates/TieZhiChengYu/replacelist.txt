@@ -1,0 +1,6 @@
+# 程序要替换的文本文件
+src/org/mousebomb/TieZhiConf.as
+src/tiezhi/ChengYuTimu.as
+app-android.xml
+app-ios.xml
+app-desktop.xml
