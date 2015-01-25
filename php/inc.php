@@ -8,6 +8,7 @@
 
 date_default_timezone_set("PRC");
 mb_internal_encoding("UTF-8");
+error_reporting(E_ALL ^ E_NOTICE);
 
 # 需要配置 系统 android SDK,JAVA
 

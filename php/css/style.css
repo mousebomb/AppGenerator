@@ -1,0 +1,6 @@
+input[type='text']{
+    width:60em;
+}
+input[type='text'].short{
+    width:20em;
+}

@@ -22,12 +22,25 @@ $gen = GENERATOED_ROOT."/app".$appID;
 $icon = $gen."/icon";
 
 $debug = 'false';
-    if($type == "desktop")
-    {$debug='true';}
+$isIpa= 'false';
+$isApk= 'false';
+$isDesktop= 'false';
+if($type == "desktop")
+{
+    $debug='true';
+    $isDesktop='true';
+}else if($type == 'apk')
+{
+    $isApk='true';
+}else if ($type =='ipa')
+{
+    $isIpa = 'true';
+}
 
 ?><!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>发布包</title>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/general.css"/>
@@ -55,8 +68,10 @@ $output = str_replace('${gen}',$gen,$output);
 $output = str_replace('${AMXMLC}',AMXMLC,$output);
 $output = str_replace('${FLEX_HOME}',FLEX_HOME,$output);
 $output = str_replace('${debug}',$debug,$output);
+$output = str_replace('${ipa}',$isIpa,$output);
+$output = str_replace('${apk}',$isApk,$output);
+$output = str_replace('${desktop}',$isDesktop,$output);
 $output = str_replace('${type}',$type,$output);
-$output = $output."-define+=CONFIG::$type,true";
 execCmd($output,"编译游戏");
 
 
@@ -65,6 +80,7 @@ switch($type)
 {
     case 'ipa':
         $genipa = $gen.'/'.$template.'.ipa';
+        $genipaitc = $gen.'/'.$template.'-iTC.ipa';
         # 处理打包
             $buildIpaCmd = file_get_contents($gen."/build_ipa.txt");
             $output = $buildIpaCmd;
@@ -76,12 +92,28 @@ switch($type)
             $output = str_replace('${icon}',$icon,$output);
             $output = str_replace('${debug}',$debug,$output);
             execCmd($output,"打包ipa");
-        echo "Done.结果保存在     ".$genipa."\n</pre>";
+        echo "<pre>Done.结果保存在     ".$genipa."\n</pre>";
+        //发布ipa-iTC
+        $buildIpaCmd = file_get_contents($gen."/build_ipa_itc.txt");
+        $provision = $gen.'/release.mobileprovision';
+        if(file_exists($provision))
+        {
+            $output = $buildIpaCmd;
+            $output = str_replace('${ADT}',ADT,$output);
+            $output = str_replace('${gen}',$gen,$output);
+            $output = str_replace('${genipa}',$genipaitc,$output);
+            $output = str_replace('${KEYSTORE_IOS}',KEYSTORE_IOS,$output);
+            $output = str_replace('${PROVISION}',$provision,$output);
+            $output = str_replace('${icon}',$icon,$output);
+            $output = str_replace('${debug}',$debug,$output);
+            execCmd($output,"打包ipa iTC版");
+            echo "<pre>Done.结果保存在     ".$genipaitc."\n</pre>";
+        }
 
         break;
     case 'apk':
 
-        $genapk = $gen."/gen'.$template.'.apk";
+        $genapk = $gen.'/'.$template.'.apk';
         # 处理打包
             $buildApkCmd = file_get_contents($gen."/build_apk.txt");
             $output = $buildApkCmd;

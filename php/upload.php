@@ -16,6 +16,7 @@ $autoFillData=readSeedByAppID($appID);
 ?><!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>上传素材文件</title>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/general.css"/>
@@ -24,6 +25,11 @@ $autoFillData=readSeedByAppID($appID);
 </head>
 <body>
 
+<div id="project-menu">
+    <?php echo $autoFillData['zhName']; ?>
+    <a href="./create.php">创建新App</a>
+    <a href="./list.php">App列表</a>
+</div>
 <div id="main-menu">
     <a href="edit.php?id=<?php echo $appID; ?>">1.基本信息</a>
     <a href="fill.php?id=<?php echo $appID; ?>">2.填入模板配置</a>
@@ -44,7 +50,11 @@ $autoFillData=readSeedByAppID($appID);
         foreach ($uploadList as $uploadLi)
         {
             $slashIndex = strrpos($uploadLi , "/");
-            $filename = substr($uploadLi,$slashIndex+1);
+            if(false === $slashIndex)
+            {
+                $filename = $uploadLi;
+            }
+            else $filename = substr($uploadLi,$slashIndex+1);
             $uploadFileKey = str_replace(".","_",$uploadLi);
             ?>
             <tr>

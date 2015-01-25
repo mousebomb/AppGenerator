@@ -19,33 +19,41 @@ package org.mousebomb.adservice {
 		}
 
 		private function onAdConfigData(event : *) : void {
-			// 数据获得了 ， 如果已经请求了banner，则重新启动后台配置的广告
-			if (_isBannerRunning) {
-				AdManager.instance.hideBanner();
-				_isBannerRunning = false;
-				setTimeout(runBanner, 1000);
-			}
+            if (!CONFIG::DEBUG) {
+                // 数据获得了 ， 如果已经请求了banner，则重新启动后台配置的广告
+                if (_isBannerRunning) {
+                    AdManager.instance.hideBanner();
+                    _isBannerRunning = false;
+                    setTimeout(runBanner, 1000);
+                }
+            }
 		}
 
 		private var _isBannerRunning : Boolean = false;
 
 		public function runBanner() : void {
-			if(_isBannerRunning) {
-				refreshBanner(); return ;
-			}
-			AdManager.instance.showBanner(AdManager.IAB_LEADERBOARD, AdManager.CENTER, AdManager.TOP, 0, 0);
-			_isBannerRunning = true;
-			AdManager.instance.cacheInterstitial();
+            if (!CONFIG::DEBUG) {
+                if(_isBannerRunning) {
+                    refreshBanner(); return ;
+                }
+                AdManager.instance.showBanner(AdManager.IAB_LEADERBOARD, AdManager.CENTER, AdManager.TOP, 0, 0);
+                _isBannerRunning = true;
+                AdManager.instance.cacheInterstitial();
+            }
 		}
 
 		private function refreshBanner() : void {
 //			AdManager.instance.hideBanner();
-			AdManager.instance.showBanner(AdManager.IAB_LEADERBOARD, AdManager.CENTER, AdManager.TOP, 0, 0);
+            if (!CONFIG::DEBUG) {
+			    AdManager.instance.showBanner(AdManager.IAB_LEADERBOARD, AdManager.CENTER, AdManager.TOP, 0, 0);
+            }
 		}
 
 		public function runInterstitial() : void {
-			AdManager.instance.hideBanner();
-			AdManager.instance.showInterstitial();
+            if (!CONFIG::DEBUG) {
+                AdManager.instance.hideBanner();
+                try{AdManager.instance.showInterstitial();}catch(e:*){}
+            }
 		}
 	}
 }

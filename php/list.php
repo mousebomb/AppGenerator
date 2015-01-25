@@ -11,6 +11,7 @@ require_once dirname(__FILE__) . "/inc.php";
 ?><!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Aoao游戏创建工具</title>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/general.css"/>
@@ -19,12 +20,9 @@ require_once dirname(__FILE__) . "/inc.php";
 </head>
 <body>
 
-<h1>App 列表</h1>
-
-<a href="create.php">创建新App</a>
 
 <form action="" id="form2">
-    <h2>已有的App</h2>
+    <h2>App列表</h2>
 
 
     <?php
@@ -49,5 +47,8 @@ require_once dirname(__FILE__) . "/inc.php";
 
     ?>
 </form>
+
+<a href="create.php">创建新App</a>
+
 </body>
 </html>

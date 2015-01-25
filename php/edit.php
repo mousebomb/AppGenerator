@@ -16,6 +16,7 @@ $autoFillData= readSeedByAppID($appID);
 ?><!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>编辑App数据</title>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/general.css"/>
@@ -24,11 +25,16 @@ $autoFillData= readSeedByAppID($appID);
 </head>
 <body>
 
+<div id="project-menu">
+    <?php echo $autoFillData['zhName']; ?>
+    <a href="./create.php">创建新App</a>
+    <a href="./list.php">App列表</a>
+</div>
 <div id="main-menu">
 <a href="edit.php?id=<?php echo $appID; ?>">1.基本信息</a>
 <a href="fill.php?id=<?php echo $appID; ?>">2.填入模板配置</a>
 <a href="upload.php?id=<?php echo $appID; ?>">3.上传素材文件</a>
-<a href="publish.php?id=<?php echo $appID; ?>">4.编译与发布</a>
+<a href="finish.php?id=<?php echo $appID; ?>">4.编译与发布</a>
 </div>
 
 <h1>基本信息</h1>

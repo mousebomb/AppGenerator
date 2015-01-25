@@ -43,7 +43,7 @@ package org.mousebomb
 		//
 		/**  */
 		private static const _notificationTitle : Object = {"Cn":"填色时间", "En":"Painting time"};
-		private static const _notificationIntro : Object = {"Cn":"每天来填色，越来越聪明", "En":"We need to paint"};
+		private static const _notificationIntro : Object = {"Cn":"天天来填色，越填越快乐", "En":"We need to paint"};
 		private static const _notificationAction : Object = {"Cn":"填色", "En":"paint"};
 
 		public static function get notificationAction() : String

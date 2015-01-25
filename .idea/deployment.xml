@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="台式机">
+    <serverData>
+      <paths name="台式机">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/AppGenerator" local="$PROJECT_DIR$" web="/AppGenerator" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
+

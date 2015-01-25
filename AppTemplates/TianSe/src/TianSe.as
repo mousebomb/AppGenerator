@@ -87,8 +87,7 @@ package {
 				// }
 			}
 	        mogoAd = new AdFactory();
-   			mogoAd.runBanner();
-				
+
 			CONFIG::DEBUG{
 				// 桌面 debug ，，要截图功能
 				ScreenshotHelper.init(stage);
@@ -119,7 +118,7 @@ package {
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 			// setTimeout(start, 100);
 			start();
-			MyAdManager.init(TianSeConf.AOAO_APP_ID, this);
+			MyAdManager.init(TianSeConf.AOAO_APP_ID, stage);
 		}
 
 		private function onKeyDown(event : KeyboardEvent) : void

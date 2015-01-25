@@ -5,3 +5,5 @@ assets/Default~ipad.png
 assets/bgm.mp3
 lib/pics.swc
 lib/base.swc
+lib/baseEn.swc
+release.mobileprovision

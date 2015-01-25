@@ -11,6 +11,7 @@
 require_once dirname(__FILE__) . "/inc.php";
 
 $appID = input('appID');
+$zhName = input('zhName');
 
 $projectName = 'app'.$appID;
 if($appID == "")
@@ -21,6 +22,21 @@ if($appID == "")
 $projectOutFolder = GENERATOED_ROOT . '/' . $projectName;
 @mkdir($projectOutFolder);
 
+
+# 名称
+// 如果已经有名称，则删除
+$filesInOpFolder = scandir($projectOutFolder);
+$seedFilePattern = '(_(.*)_)';
+foreach($filesInOpFolder as $file)
+{
+    if( preg_match($seedFilePattern,$file) > 0)
+    {
+        unlink($projectOutFolder.'/'.$file);
+        break;
+    }
+}
+// 写入
+touch($projectOutFolder."/_".$zhName."_");
 
 #写入种子
 writeSeed($_POST,$projectOutFolder . "/_vars.inf");

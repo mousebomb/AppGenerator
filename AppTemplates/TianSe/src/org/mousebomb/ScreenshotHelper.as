@@ -26,7 +26,7 @@ package org.mousebomb {
 				sc.draw(game);
 
 				var jpg :JPGEncoder = new JPGEncoder();
-				var file : File = File.desktopDirectory.resolvePath("Game" + TianSeConf.AOAO_APP_ID + "-" + sc.width + "x" + sc.height + "-" + nextI + ".png");
+				var file : File = File.desktopDirectory.resolvePath("Game" + TianSeConf.AOAO_APP_ID + "-" + sc.width + "x" + sc.height + "-" + nextI + ".jpg");
 				nextI++;
 				var jpgData : ByteArray = jpg.encode(sc);
 				var fs : FileStream = new FileStream();

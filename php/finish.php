@@ -81,10 +81,10 @@ new CopyFile($templ,$gen);
         }
     }
 
-
 ?><!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>编译与发布</title>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/general.css"/>
@@ -92,6 +92,11 @@ new CopyFile($templ,$gen);
 
 </head>
 <body>
+<div id="project-menu">
+    <?php echo $autoFillData['zhName']; ?>
+    <a href="./create.php">创建新App</a>
+    <a href="./list.php">App列表</a>
+</div>
 <div id="main-menu">
     <a href="edit.php?id=<?php echo $appID; ?>">1.基本信息</a>
     <a href="fill.php?id=<?php echo $appID; ?>">2.填入模板配置</a>
