@@ -6,4 +6,5 @@ assets/bgm.mp3
 lib/pics.swc
 lib/base.swc
 lib/baseEn.swc
+lib/sfx.swc
 release.mobileprovision
