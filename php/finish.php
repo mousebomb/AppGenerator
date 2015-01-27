@@ -126,7 +126,7 @@ new CopyFile($templ,$gen);
     <li><a href="build.php?id=<?php echo $appID; ?>&type=apk&install=1">发布apk并安装</a></li>
 </ul>
 
-<p>提示：如果上传的素材文件有改动，请先刷新本页面(重新加载素材)再测试或发布</p>
+<p>提示：如果绑定的素材文件有改动，请先刷新本页面(重新加载素材)再测试或发布</p>
 
 
 </body>
