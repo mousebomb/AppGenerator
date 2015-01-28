@@ -37,7 +37,7 @@ require_once dirname(__FILE__) . "/inc.php";
                 $autoFillData = readSeed($seedFile);
                 $appID = $autoFillData['appID'];
                 $appName = $autoFillData['zhName'];
-                echo sprintf('<a href="edit.php?id=%d">%d : %s</a><br/>', $appID, $appID,$appName);
+                echo sprintf('<a href="edit.php?id=%d">%d : %s (%s)</a><br/>', $appID, $appID,$appName,$autoFillData['template']);
             }
 
         }
