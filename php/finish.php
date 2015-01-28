@@ -51,11 +51,25 @@ new CopyFile($templ,$gen);
         $uploadFileKey = str_replace(".","_",$uploadLi);
         $fromFile = $autoFillData[$uploadFileKey];
         $toFile = $gen."/".$uploadLi;
+        // 如果没有录入要传的文件，则跳过 即不覆盖模板的
         if($fromFile=="") continue;
-        if(file_exists($toFile)) unlink($toFile);
-        copy($fromFile, $toFile);
+        if(file_exists($toFile))
+        {
+            // 模板里已存在的
+            if(is_dir($toFile))
+            {
+                // 文件夹覆盖
+            }else{
+                unlink($toFile);
+            }
+        }
+        if(is_dir($fromFile))
+        {
+            new CopyFile($fromFile,$toFile);
+        }else{
+            copy($fromFile, $toFile);
+        }
     }
-
 # Icon 1024生成各种
     $input1024Png = $autoFillData['ico1024'];
 
