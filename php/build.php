@@ -262,5 +262,30 @@ switch($type)
 }
 
 ?>
+
+<h1>4.编译与发布</h1>
+
+<h2>手机版</h2>
+<ul>
+    <?php
+    if($type == 'apk')
+    {
+        ?>
+        <li><a href="build.php?id=<?php echo $appID; ?>&type=ipa">发布ipa</a></li>
+        <li><a href="build.php?id=<?php echo $appID; ?>&type=ipa&install=1">发布ipa并安装</a></li>
+    <?php
+    }
+    if ($type == 'ipa')
+    {
+    ?>
+        <li><a href="build.php?id=<?php echo $appID; ?>&type=apk">发布apk</a></li>
+        <li><a href="build.php?id=<?php echo $appID; ?>&type=apk&install=1">发布apk并安装</a></li>
+    <?php
+    }
+    ?>
+</ul>
+
+<a href="finish.php?id=<?php echo $appID; ?>">返回4.编译与发布</a>
+
 </body>
 </html>
