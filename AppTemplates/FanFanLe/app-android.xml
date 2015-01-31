@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://ns.adobe.com/air/application/15.0">
+  <id>${buneleID}</id>
+  <filename>FanFanLe</filename>
+  <name>
+      <text xml:lang="zh_Hans">${zhName}</text>
+      <text xml:lang="zh_Hant">${twName}</text>
+      <text xml:lang="zh-CN">${zhName}</text>
+      <text xml:lang="zh-TW">${twName}</text>
+      <text xml:lang="en">${enName}</text>
+  </name>
+  <versionNumber>${version}</versionNumber>
+  <versionLabel>${version}</versionLabel>
+  <initialWindow>
+    <content>FanFanLe.swf</content>
+    <aspectRatio>portrait</aspectRatio>
+    <fullScreen>true</fullScreen>
+    <autoOrients>false</autoOrients>
+    <visible>true</visible>
+    <renderMode>auto</renderMode>
+  </initialWindow>
+  <android>
+    <manifestAdditions><![CDATA[<manifest android:installLocation="preferExternal">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-configuration android:reqFiveWayNav="true" />
+    <supports-screens android:normalScreens="true" />
+    <uses-feature android:required="true" android:name="android.hardware.touchscreen.multitouch" />
+    <application android:enabled="true" android:debuggable="false">
+      <activity android:excludeFromRecents="false">
+        <intent-filter>
+          <action android:name="android.intent.action.MAIN" />
+          <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>
+      <!-- 友盟安卓key !!!!!!!!!!!!!! -->
+      <meta-data android:value="${androidUMeng}" android:name="UMENG_APPKEY" />
+      <meta-data android:value="UMChannel_Debug" android:name="UMENG_CHANNEL"/>
+                    <service android:name="com.juankpro.ane.localnotif.LocalNotificationIntentService"/>
+                    <receiver android:name="com.juankpro.ane.localnotif.AlarmIntentService" />
+                    <receiver android:name="com.juankpro.ane.localnotif.AlarmRestoreOnBoot" >
+                        <intent-filter>
+                            <action android:name="android.intent.action.BOOT_COMPLETED" />
+                        </intent-filter>
+                    </receiver>
+
+		<!-- AdMob -->
+		<activity android:name="com.google.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+        <!-- baidu -->
+        <activity android:name="com.baidu.mobads.AppActivity"
+                  android:configChanges="keyboard|keyboardHidden|orientation" />
+
+                    
+    </application>
+	    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        <uses-permission android:name="android.permission.VIBRATE"/>
+                
+        <uses-permission android:name="android.permission.INTERNET"/>
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+        <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+        
+    	<uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    
+  </manifest>]]></manifestAdditions>
+  </android>
+  <supportedProfiles>desktop extendedDesktop mobileDevice extendedMobileDevice</supportedProfiles>
+  <extensions>
+    <extensionID>com.juankpro.ane.LocalNotification</extensionID>
+    <extensionID>so.cuo.platform.baidu</extensionID>
+    <extensionID>com.milkmangames.extensions.AdMob</extensionID>
+    <extensionID>ane.ios.UMMobClickAne</extensionID>
+  </extensions>
+  <icon>
+    <image144x144>AppIcons/144x144-144.png</image144x144>
+    <image72x72>AppIcons/72x72-72.png</image72x72>
+    <image48x48>AppIcons/48x48-48.png</image48x48>
+    <image36x36>AppIcons/36x36-36.png</image36x36>
+    <image96x96>AppIcons/96x96-96.png</image96x96>
+  </icon>
+</application>
+
