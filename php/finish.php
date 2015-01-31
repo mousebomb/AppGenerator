@@ -135,10 +135,18 @@ new CopyFile($templ,$gen);
 </ul>
 <h2>手机版</h2>
 <ul>
+<?php
+    if(!empty($input1024Png)){
+?>
     <li><a href="build.php?id=<?php echo $appID; ?>&type=ipa">发布ipa</a></li>
     <li><a href="build.php?id=<?php echo $appID; ?>&type=ipa&install=1">发布ipa并安装</a></li>
     <li><a href="build.php?id=<?php echo $appID; ?>&type=apk">发布apk</a></li>
     <li><a href="build.php?id=<?php echo $appID; ?>&type=apk&install=1">发布apk并安装</a></li>
+<?php }else{
+    ?>
+    <li><a href="upload.php?id=<?php echo $appID; ?>">需要先提交Icon</a></li>
+<?php
+} ?>
 </ul>
 
 <p>提示：如果绑定的素材文件有改动，请先刷新本页面(重新加载素材)再测试或发布</p>
