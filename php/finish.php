@@ -50,6 +50,10 @@ new CopyFile($templ,$gen);
     {
         $uploadFileKey = str_replace(".","_",$uploadLi);
         $fromFile = $autoFillData[$uploadFileKey];
+        if(strpos($uploadLi,'..') !== false  || $gen == '')
+        {
+            die("上传地址有误");
+        }
         $toFile = $gen."/".$uploadLi;
         // 如果没有录入要传的文件，则跳过 即不覆盖模板的
         if($fromFile=="") continue;
@@ -59,6 +63,7 @@ new CopyFile($templ,$gen);
             if(is_dir($toFile))
             {
                 // 文件夹覆盖
+                delDirAndFile($toFile);
             }else{
                 unlink($toFile);
             }
