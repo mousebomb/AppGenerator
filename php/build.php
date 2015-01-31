@@ -134,7 +134,7 @@ switch($type)
                     $tabIndex = strpos($deviceRawData,"\t");
                     $deviceID = substr($deviceRawData,0,$tabIndex);
                     echo("<pre>已发现iOS设备".$deviceID ."</pre>");
-                    $installCmd = ADT." -installApp -platform ios -device ".$deviceID." -package /Users/rhett/Desktop/PinTie.ipa";
+                    $installCmd = ADT." -installApp -platform ios -device ".$deviceID." -package ".$genipa;
                     if(!empty($deviceID))
                         execCmd($installCmd);
                 }
