@@ -3,11 +3,11 @@
   <id>${buneleID}</id>
   <filename>game</filename>
   <name>
-    <text xml:lang="zh_Hans">${zhName}</text>
-    <text xml:lang="zh_Hant">${zhName}</text>
-    <text xml:lang="zh-CN">${zhName}</text>
-    <text xml:lang="zh-TW">${zhName}</text>
-    <text xml:lang="en">${enName}</text>
+      <text xml:lang="zh_Hans">${zhName}</text>
+      <text xml:lang="zh_Hant">${twName}</text>
+      <text xml:lang="zh-CN">${zhName}</text>
+      <text xml:lang="zh-TW">${twName}</text>
+      <text xml:lang="en">${enName}</text>
   </name>
   <versionNumber>${version}</versionNumber>
   <versionLabel>${version}</versionLabel>

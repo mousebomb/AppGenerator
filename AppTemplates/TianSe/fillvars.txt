@@ -1,6 +1,7 @@
 # replacelist 额外要填充的变量
 版本:version=1.0
 名字:zhName=游戏名称
+繁体名字:twName=游戏名
 英文名字:enName=GameName
 包名:buneleID=com.aoaogame.game61
 统计ID-iOS:iosUMeng=53b8c86056240b32fb077c39
