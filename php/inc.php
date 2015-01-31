@@ -99,6 +99,7 @@ function execCmd($cmd,$title="")
         echo $opLine."\n";
     }
     echo "</pre>";
+    return $op;
 }
 
 # 读取种子； 获得Gen目录下的inf记录的数据(Array)，已经存入的数据;

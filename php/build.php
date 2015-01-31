@@ -100,8 +100,8 @@ switch($type)
             $output = str_replace('${icon}',$icon,$output);
             $output = str_replace('${debug}',$debug,$output);
             execCmd($output,"打包ipa");
-            echo "<pre>Done.结果保存在     ".$genipa."\n</pre>";
-                //发布ipa-iTC
+            echo "<pre>ipa保存在     ".$genipa."\n</pre>";
+                ## 发布ipa-iTC
                 $buildIpaCmd = file_get_contents($gen."/build_ipa_itc.txt");
                 $provision = $gen.'/release.mobileprovision';
                 if(file_exists($provision))
@@ -115,8 +115,31 @@ switch($type)
                     $output = str_replace('${icon}',$icon,$output);
                     $output = str_replace('${debug}',$debug,$output);
                     execCmd($output,"打包ipa iTC版");
-                    echo "<pre>Done.结果保存在     ".$genipaitc."\n</pre>";
+                    echo "<pre>苹果官方版ipa保存在     ".$genipaitc."\n</pre>";
                 }
+
+            # 尝试安装到iOS设备
+            if($install==1)
+            {
+                $chkIOSDeviceCmd = ADT."  -devices -platform iOS";
+
+                $op = execCmd(ADT ."  -devices -platform iOS","查找iOS设备");
+
+                if(empty($op[2]))
+                {
+                    echo("<pre>无法发现ios设备</pre>");
+                }else{
+                    //有iOS设备
+                    $deviceRawData = $op[2];
+                    $tabIndex = strpos($deviceRawData,"\t");
+                    $deviceID = substr($deviceRawData,0,$tabIndex);
+                    echo("<pre>已发现iOS设备".$deviceID ."</pre>");
+                    $installCmd = ADT." -installApp -platform ios -device ".$deviceID." -package /Users/rhett/Desktop/PinTie.ipa";
+                    if(!empty($deviceID))
+                        execCmd($installCmd);
+                }
+            }
+
         }else{
             echo "<pre>本项目不支持ipa</pre>";
         }
