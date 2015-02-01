@@ -3,7 +3,7 @@ assets/Default-568h@2x.png
 assets/Default@2x.png
 assets/Default~ipad.png
 bgm.mp3
-lib/pics.swc
+lib/Cards.swc
 lib/design.swc
 lib/scenes.swc
 lib/Sfx.swc
