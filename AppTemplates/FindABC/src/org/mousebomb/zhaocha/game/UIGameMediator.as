@@ -52,6 +52,12 @@ public class UIGameMediator extends Mediator
 		timer.addEventListener(TimerEvent.TIMER, onTimer);
 	}
 
+    override public function preRemove():void
+    {
+        timer.removeEventListener(TimerEvent.TIMER, onTimer);
+        super.preRemove();
+    }
+
 	private var passedSeconds :int = 0;
 	private function onTimer(event : TimerEvent) : void 
 	{
