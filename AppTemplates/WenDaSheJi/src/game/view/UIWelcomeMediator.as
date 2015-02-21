@@ -67,6 +67,11 @@ package game.view {
 				ui.soundBtn.visible = true;
 				ui.muteBtn.visible = false;
 			}
+            //
+            if(!CONFIG::DEBUG)
+            {
+                AoaoGame.ad.runBanner();
+            }
 		}
 
 		public function savePlayerAvatar(id : int) : void
@@ -91,18 +96,33 @@ package game.view {
 			// MyAdManager.showAd();
 			SoundMan.playSfx(SoundMan.BTN);
 			dispatch(new SceneEvent(SceneEvent.SCENE_REPLACE, UICalendar));
+            //
+            if(!CONFIG::DEBUG)
+            {
+                AoaoGame.ad.runBanner();
+            }
 		}
 
 		private function onHelpClick(event : MouseEvent) : void
 		{
 			SoundMan.playSfx(SoundMan.BTN);
 			dispatch(new SceneEvent(SceneEvent.SCENE_REPLACE, UIHelp));
+            //
+            if(!CONFIG::DEBUG)
+            {
+                AoaoGame.ad.runBanner();
+            }
 		}
 
 		private function onStartClick(event : MouseEvent) : void
 		{
 			SoundMan.playSfx(SoundMan.BTN);
 			dispatch(new SceneEvent(SceneEvent.SCENE_REPLACE, UILevel));
+            //
+            if(!CONFIG::DEBUG)
+            {
+                AoaoGame.ad.runBanner();
+            }
 		}
 
 		[Inject]

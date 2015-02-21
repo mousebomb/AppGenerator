@@ -30,11 +30,6 @@ package game.view
 				if (ui.backBtn.x < eadgeLeft + 62)
 					ui.backBtn.x = eadgeLeft + 62;
 			}
-            //
-            if(!CONFIG::DEBUG)
-            {
-                AoaoGame.ad.runBanner();
-            }
 		}
 
 		private function onBackClick(event : MouseEvent) : void
