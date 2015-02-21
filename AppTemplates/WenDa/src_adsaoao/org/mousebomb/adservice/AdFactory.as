@@ -56,10 +56,10 @@ package org.mousebomb.adservice
 		}
 
 		public function runInterstitial() : void {
-//			AdManager.instance.hideBanner();
 
 			if(_isCached)
 				{
+			        AdManager.instance.hideBanner();
 					try{AdManager.instance.showInterstitial();
 					}catch(e:*){}
 				}

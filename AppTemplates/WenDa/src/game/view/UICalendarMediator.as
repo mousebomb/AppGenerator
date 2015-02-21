@@ -60,6 +60,11 @@ package game.view
 			ui.addChild(shelf);
 			var list : Vector.<DailyResultVO> = dailyResultModel.getRecent30DaysList();
 			shelf.setList(list);
+            //
+            if(!CONFIG::DEBUG)
+            {
+                AoaoGame.ad.runBanner();
+            }
 		}
 
 		private function onBackClick(event : MouseEvent) : void
