@@ -67,7 +67,8 @@ package org.mousebomb
 			li.gotoAndStop(2);
 			var color : uint=			li.vo;
 			var cIndex :int = colors.indexOf(color);
-			Sfx.color.gotoAndStop(cIndex+10);
+            Sfx.color.gotoAndStop(1);
+            Sfx.color.gotoAndStop(cIndex+10);
 //			var ct : ColorTransform = new ColorTransform();
 //			ct.color = li.vo;
 //			li.getChildByName("c2").transform.colorTransform = ct;
