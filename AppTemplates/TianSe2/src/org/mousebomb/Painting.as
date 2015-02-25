@@ -85,15 +85,14 @@ import org.mousebomb.interactive.KeyCode;
 			var pictureClassName : String = "Pic" + id;
 			var clazz : Class = getDefinitionByName(pictureClassName) as Class;
 			pic = new clazz();
+            // 从pic适应计算比例 suitScale最适合的
+			var picScaleX : Number = paintArea.width/pic.width ;
+			var picScaleY : Number =  paintArea.height/pic.height ;
+            var suitScale :Number = (picScaleX < picScaleY)? picScaleX: picScaleY;
+			pic.scaleX=pic.scaleY=suitScale;
 			// 最小缩放级别
-			minScale = 0.5;
-			maxScale = 2;
-			// var picScaleX : Number = screen.width/pic.width ;
-			// var picScaleY : Number =  screen.height/pic.height ;
-			// if(minScale<picScaleX) minScale=picScaleX;
-			// if(minScale<picScaleY) minScale=picScaleY;
-			// if(pic.scaleX<minScale || pic.scaleY<minScale)
-			// {pic.scaleX=pic.scaleY=minScale;}
+			minScale = 0.5 * suitScale;
+			maxScale = 2 * suitScale;
 
 			pic.y = paintArea.y + paintArea.height / 2;
 			pic.x = paintArea.width / 2;
