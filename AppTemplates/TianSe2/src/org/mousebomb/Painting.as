@@ -147,6 +147,8 @@ import org.mousebomb.interactive.KeyCode;
 			new GTween(this, 0.5, {y:TianSeConf.VISIBLE_SIZE_H}, {ease:Back.easeIn, onComplete:onFlyOutComp});
 			this.mouseEnabled = this.mouseChildren = false;
 			stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown, true);
+            Sfx.other.gotoAndStop(1);
+            Sfx.other.gotoAndStop("btn");
 		}
 
 		private function onFlyOutComp(gtw : GTween) : void

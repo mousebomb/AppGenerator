@@ -270,6 +270,8 @@ import org.mousebomb.interfaces.IDispose;
 			new GTween(this, 0.5, {y:-TianSeConf.VISIBLE_SIZE_H}, {ease:Back.easeIn, onComplete:onFlyOutComp});
 			this.mouseEnabled = this.mouseChildren = false;
 			// stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+            Sfx.other.gotoAndStop(1);
+            Sfx.other.gotoAndStop("btn");
 		}
 
 		public function flyIn() : void
