@@ -48,12 +48,13 @@ package org.mousebomb.adservice
 			}
 		}
 
+        private var nextInterstitialI:uint = 0;
 		public function runInterstitial() : void
 		{
 			if (!CONFIG::DESKTOP)
 			{
-				try{AdManager.instance.showInterstitial();
-                }catch(e:*){}
+                if(++nextInterstitialI % ${interstitialAdLevel} == 0)
+                { try{AdManager.instance.showInterstitial();}catch(e:*){} }
 			}
 		}
 	}
