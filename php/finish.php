@@ -90,6 +90,8 @@ new CopyFile($templ,$gen);
         ,90, 136, 168, 192
         // 腾讯
         ,16
+        // 联想
+        ,256
     );
 
     if(!empty($input1024Png))
