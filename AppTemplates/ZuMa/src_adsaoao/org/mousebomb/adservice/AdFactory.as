@@ -43,14 +43,14 @@ package org.mousebomb.adservice
 			if(_isBannerRunning) {
 				refreshBanner(); return ;
 			}
-			AdManager.instance.showBanner(AdManager.IAB_LEADERBOARD, AdManager.CENTER, AdManager.TOP, 0, 0);
+			AdManager.instance.showBanner(AdManager.IAB_LEADERBOARD, AdManager.CENTER, AdManager.BOTTOM, 0, 0);
 			_isBannerRunning = true;
 			AdManager.instance.cacheInterstitial();
 		}
 
 		private function refreshBanner() : void {
 //			AdManager.instance.hideBanner();
-			AdManager.instance.showBanner(AdManager.IAB_LEADERBOARD, AdManager.CENTER, AdManager.TOP, 0, 0);
+			AdManager.instance.showBanner(AdManager.IAB_LEADERBOARD, AdManager.CENTER, AdManager.BOTTOM, 0, 0);
 		}
 
         private var nextInterstitialI:uint = 0;
