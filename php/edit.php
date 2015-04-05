@@ -18,9 +18,8 @@ $autoFillData= readSeedByAppID($appID);
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>编辑App数据</title>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
     <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="css/general.css"/>
-    <link rel="stylesheet" href="css/extra.css"/>
 
 </head>
 <body>
@@ -56,7 +55,7 @@ $autoFillData= readSeedByAppID($appID);
         <tr>
             <td>使用模板</td>
             <td>
-                <select name="template" id="">
+                <select name="template" id="templateSel" onchange="validateDesc();">
                     <?php
                     $filesInTemplates = scandir(TEMPLATES_ROOT);
                     foreach ($filesInTemplates as $eachTemplateFolder)
@@ -82,6 +81,27 @@ $autoFillData= readSeedByAppID($appID);
 
 
 </form>
+<div id="descDiv">
+
+</div>
+
+
+<script type="text/javascript">
+    function validateDesc()
+    {
+        var $templateSel = document.getElementById("templateSel");
+        var $descDiv = $("#descDiv");
+        $descDiv.html("");
+        $.get("../AppTemplates/" + $templateSel.value+"/index.html",{},copyDesc);
+    }
+    function copyDesc(data ,status)
+    {
+        var $descDiv = $("#descDiv");
+        $descDiv.html(data);
+    }
+
+    validateDesc();
+</script>
 
 </body>
 </html>
