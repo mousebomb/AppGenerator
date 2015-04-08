@@ -117,12 +117,14 @@ public class Game extends AoaoGame
 
 		private function onInterstitial( event:Event ):void
 		{
-			adsMogo.runInterstitial();
+            if(!CONFIG::DESKTOP)
+			    adsMogo.runInterstitial();
 		}
 
 		private function onBanner( event:Event ):void
 		{
-			adsMogo.runBanner();
+            if(!CONFIG::DESKTOP)
+			    adsMogo.runBanner();
 		}
 
 		private function onGengDuo( event:Event ):void
