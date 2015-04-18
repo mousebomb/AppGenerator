@@ -42,10 +42,14 @@ package org.mousebomb.adservice
                 SsjjAdsManager.getInstance().preloadScreen(true);
             }
 		}
+        private var nextInterstitialI:uint = 0;
 
 		public function runInterstitial() : void {
             if (!CONFIG::DEBUG) {
-                try{            SsjjAdsManager.getInstance().showPauseScreen(); }catch(e:*){}
+                if(++nextInterstitialI % ${interstitialAdLevel} == 0)
+                {
+                    try{            SsjjAdsManager.getInstance().showPauseScreen(); }catch(e:*){}
+                }
             }
 		}
 	}

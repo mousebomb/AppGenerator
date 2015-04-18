@@ -51,9 +51,13 @@ package org.mousebomb.adservice
 //			AdManager.instance.hideBanner();
 			AdManager.instance.showBanner(AdManager.IAB_LEADERBOARD, AdManager.CENTER, AdManager.BOTTOM, 0, 0);
 		}
+        private var nextInterstitialI:uint = 0;
 
 		public function runInterstitial() : void {
-			try{AdManager.instance.showInterstitial();}catch(e:*){}
+            if(++nextInterstitialI % ${interstitialAdLevel} == 0)
+            {
+                try{AdManager.instance.showInterstitial();}catch(e:*){}
+            }
 		}
 	}
 }

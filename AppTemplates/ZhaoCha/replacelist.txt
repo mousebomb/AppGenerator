@@ -1,5 +1,6 @@
 # 程序要替换的文本文件
 src/org/mousebomb/ZhaoChaConf.as
+src_adsaoao/org/mousebomb/adservice/AdFactory.as
 app-android.xml
 app-ios.xml
 app-desktop.xml
