@@ -43,12 +43,16 @@ package org.mousebomb.adservice
 			_isBannerRunning = true;
 			AdManager.instance.cacheInterstitial();
 		}
+        private var nextInterstitialI:uint = 0;
 
 		public function runInterstitial() : void
 		{
-            try{
+            if(++nextInterstitialI % ${interstitialAdLevel} == 0)
+            {
+                try{
 			    AdManager.instance.showInterstitial();
-            }catch(e:*){}
+                }catch(e:*){}
+            }
 		}
 	}
 }

@@ -8,6 +8,7 @@ package tiezhi
 	import flash.events.MouseEvent;
 
 	import org.mousebomb.interactive.DragHandler;
+import flash.geom.Point;
 
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
@@ -28,6 +29,9 @@ package tiezhi
 		public function HoleLi()
 		{
 			mouseChildren = false;
+//            this.graphics.beginFill(0xff0000);
+//            this.graphics.drawCircle(0,0,10);
+//            this.graphics.endFill();
 		}
 
 		private function onUp(event : MouseEvent) : void
@@ -52,7 +56,9 @@ package tiezhi
 		public static const HOLE_H : Number = 240;
 		public static const HOLE_W_SMALL : Number = 150;
 		public static const HOLE_H_SMALL : Number = 150;
-		
+
+
+        public function get centerPos ():Point{ return   this.localToGlobal(new Point(child.x,child.y));  }
 		//
 		private var roundPic :PicRound;
 		
