@@ -22,7 +22,13 @@ $icon = $gen."/icon";
 @mkdir($icon);
 //assets目录 目前定死会自动添加,应该是检测uploadlist
 $assets = $gen."/assets";
+$lib = $gen."/lib";
 @mkdir($assets);
+// 如果有lib 先删除
+if(file_exists($lib) && is_dir($lib))
+{
+    delDirAndFile($lib);
+}
 
 new CopyFile($templ,$gen);
 
