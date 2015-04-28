@@ -13,7 +13,7 @@ package org.mousebomb
 	/**
 	 * @author Mousebomb
 	 */
-	public class TieZhiConf
+	public class GameConf
 	{
 
         // 友盟统计－iOS ： 修改引号里的内容!!!!
@@ -42,7 +42,13 @@ package org.mousebomb
         ${PicList}
 
 
-		// ----------- 要修改的内容结束		
+        //每N次调用才真正显示插屏
+        public static const INTERSTITIAL_AD_LEVEL : uint = ${interstitialAdLevel};
+
+
+        // ----------- 要修改的内容结束
+        // banner位置 true 下方
+        public static const IS_BANNER_BOTTOM: Boolean = true;
 		
 		public static var  PIC_NUM : uint = 0;
 
@@ -127,6 +133,9 @@ package org.mousebomb
 			trace("Pic量=" , PIC_NUM);
 			//
 //			MouseDrager.thresholdMoveDistance =   4*Capabilities.screenDPI / 72 * MouseDrager.thresholdMoveDistance;
+
+            new DebugHelper(s);
+            DebugHelper.log("APPID:"+AOAO_APP_ID + " INTERSTITIAL_AD_LEVEL="+INTERSTITIAL_AD_LEVEL);
 		}
 	}
 }

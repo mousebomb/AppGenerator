@@ -14,22 +14,22 @@ package org.mousebomb
 
 		public static function get notificationAction() : String
 		{
-			return _notificationAction[TieZhiConf.LANG];
+			return _notificationAction[GameConf.LANG];
 		}
 
 		static public function get notificationIntro() : String
 		{
-			return _notificationIntro[TieZhiConf.LANG];
+			return _notificationIntro[GameConf.LANG];
 		}
 
 		static public function get notificationTitle() : String
 		{
-			return _notificationTitle[TieZhiConf.LANG];
+			return _notificationTitle[GameConf.LANG];
 		}
 
 		public static function getClass(clazz : String) : Class
 		{
-			return getDefinitionByName(clazz + TieZhiConf.LANG) as Class;
+			return getDefinitionByName(clazz + GameConf.LANG) as Class;
 		}
 	}
 }

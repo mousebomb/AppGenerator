@@ -1,6 +1,6 @@
 package tiezhi
 {
-	import org.mousebomb.TieZhiConf;
+	import org.mousebomb.GameConf;
 
 	import flash.display.MovieClip;
 	import flash.net.SharedObject;
@@ -46,7 +46,7 @@ package tiezhi
 		public function initAllLevels() : void
 		{
 			levels = new Vector.<LevelVO>();
-			var so : SharedObject = SharedObject.getLocal(TieZhiConf.LOCAL_SO_NAME);
+			var so : SharedObject = SharedObject.getLocal(GameConf.LOCAL_SO_NAME);
 			if (so.data.levels == null)
 			{
 				so.data.levels = {};
@@ -56,12 +56,12 @@ package tiezhi
 			{
 //				var sample : MovieClip = new Scenes();
 //				levelCount = sample.totalFrames;
-				// TieZhiConf.MAX_LEVEL;
+				// GameConf.MAX_LEVEL;
 				levelCount = ChengYuTimu.getLevels();
 				trace("总关卡", levelCount);
 				// levelCount = 2;
 			}
-			// Math.floor(timuModel.questions.length / TieZhiConf.QUESTIONS_EACHLEVEL);
+			// Math.floor(timuModel.questions.length / GameConf.QUESTIONS_EACHLEVEL);
 			levelFinished = 0;
 			for (var i : int = 0; i < levelCount; i++)
 			{
@@ -88,7 +88,7 @@ package tiezhi
 		 */
 		public function saveLevel(level : int, star : int) : void
 		{
-			var so : SharedObject = SharedObject.getLocal(TieZhiConf.LOCAL_SO_NAME);
+			var so : SharedObject = SharedObject.getLocal(GameConf.LOCAL_SO_NAME);
 			if (so.data.levels == null)
 			{
 				so.data.levels = {};

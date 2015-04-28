@@ -3,7 +3,7 @@ package tiezhi
 	import com.aoaogame.sdk.adManager.MyAdManager;
 	import org.mousebomb.IFlyIn;
 	import org.mousebomb.SoundMan;
-	import org.mousebomb.TieZhiConf;
+	import org.mousebomb.GameConf;
 	import org.mousebomb.interfaces.IDispose;
 	import org.mousebomb.ui.Shelf;
 
@@ -30,11 +30,11 @@ package tiezhi
 			shelf.x = 15;
 			shelf.y = 138;
 			//
-			var shelfAndPageBtnH : Number = TieZhiConf.VISIBLE_SIZE_H - 100 - shelf.y;
+			var shelfAndPageBtnH : Number = GameConf.VISIBLE_SIZE_H - 100 - shelf.y;
 			var pageBtnH : Number = ui.nextBtn.height;
 			var pageBtnOffsetY : Number = pageBtnH / 2;
 			var shelfH : Number = shelfAndPageBtnH - pageBtnH - 50;
-			ui.prevBtn.y = ui.nextBtn.y = TieZhiConf.VISIBLE_SIZE_H - 120 - pageBtnOffsetY;
+			ui.prevBtn.y = ui.nextBtn.y = GameConf.VISIBLE_SIZE_H - 120 - pageBtnOffsetY;
 			//
 			var sample : DisplayObject = new LevelBtn();
 			shelf.autoConfig(610, shelfH, sample.width, sample.height, 5, 6, LevelBtn, onAddLi);

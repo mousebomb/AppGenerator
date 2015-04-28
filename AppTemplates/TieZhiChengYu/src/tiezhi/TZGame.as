@@ -6,7 +6,7 @@ package tiezhi
 	import org.mousebomb.SoundMan;
 	import org.mousebomb.IFlyIn;
 	import org.mousebomb.Math.MousebombMath;
-	import org.mousebomb.TieZhiConf;
+	import org.mousebomb.GameConf;
 	import org.mousebomb.interfaces.IDispose;
 	import org.mousebomb.ui.Shelf;
 
@@ -38,7 +38,7 @@ package tiezhi
 		{
 			//
 			ui = new UIGame();
-			ui.bottom.y = TieZhiConf.VISIBLE_SIZE_H;
+			ui.bottom.y = GameConf.VISIBLE_SIZE_H;
 			ui.win.visible = false;
 			this.addEventListener(MouseEvent.MOUSE_DOWN, onWinDown);
 			ui.bottom.nextBtn.visible = false;
@@ -163,7 +163,7 @@ private var _shine:MovieClip;
 				ui.win.x = this.mouseX ;
 				ui.win.y = this.mouseY ;
 				ui.win.scaleX = ui.win.scaleY = 0.01;
-				TweenLite.to(ui.win,0.5,{scaleX:1.0 , scaleY : 1.0 , x : TieZhiConf.DESIGN_SIZE_W/2, y : TieZhiConf.VISIBLE_SIZE_H_MINUS_AD/2 , ease:Back.easeOut});
+				TweenLite.to(ui.win,0.5,{scaleX:1.0 , scaleY : 1.0 , x : GameConf.DESIGN_SIZE_W/2, y : GameConf.VISIBLE_SIZE_H_MINUS_AD/2 , ease:Back.easeOut});
 				SoundMan.playChengYu(levelModel.level);
 			
 			
@@ -187,7 +187,7 @@ private var _shine:MovieClip;
 
 		private function makeAnimalDragSources() : void
 		{
-			choiceContainer.y = TieZhiConf.VISIBLE_SIZE_H_MINUS_AD - SELECTPANEL_HEIGHT;
+			choiceContainer.y = GameConf.VISIBLE_SIZE_H_MINUS_AD - SELECTPANEL_HEIGHT;
 			addChild(choiceContainer);
 		}
 
@@ -272,11 +272,11 @@ private var _shine:MovieClip;
 			holeShelf = new Shelf();
 
 			addChild(holeShelf);
-			var shelfW : Number = TieZhiConf.VISIBLE_SIZE_W * 0.5 + HOLE_W;
-			var shelfH : Number = (TieZhiConf.VISIBLE_SIZE_H_MINUS_AD -BOTTOM_HEIGHT - MENUPANEL_TOP) * 0.5 + HOLE_H;
+			var shelfW : Number = GameConf.VISIBLE_SIZE_W * 0.5 + HOLE_W;
+			var shelfH : Number = (GameConf.VISIBLE_SIZE_H_MINUS_AD -BOTTOM_HEIGHT - MENUPANEL_TOP) * 0.5 + HOLE_H;
 
-			holeShelf.x = (TieZhiConf.DESIGN_SIZE_W - shelfW) / 2 ;
-			holeShelf.y = ((TieZhiConf.VISIBLE_SIZE_H_MINUS_AD -BOTTOM_HEIGHT - MENUPANEL_TOP) - shelfH )/2 + MENUPANEL_TOP;
+			holeShelf.x = (GameConf.DESIGN_SIZE_W - shelfW) / 2 ;
+			holeShelf.y = ((GameConf.VISIBLE_SIZE_H_MINUS_AD -BOTTOM_HEIGHT - MENUPANEL_TOP) - shelfH )/2 + MENUPANEL_TOP;
 			holeShelf.autoConfig(shelfW, shelfH, HOLE_W, HOLE_H, 2, 2, HoleLi, onLiAdded);
 
 			// SELECTION_X 计算 跟这里统一
@@ -292,7 +292,7 @@ private var _shine:MovieClip;
 
 		private function onLiAdded(li : HoleLi, vo : int) : void
 		{
-			var picI:int=((nextI++) % TieZhiConf.PIC_NUM) + 1;
+			var picI:int=((nextI++) % GameConf.PIC_NUM) + 1;
 			newHoleLiFromPicI( picI, HoleLi.DRAG_TARGET, li);
 		}
 
