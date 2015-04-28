@@ -1,9 +1,0 @@
-# replacelist 额外要填充的变量
-版本:version=1.0
-名字:zhName=游戏名称
-英文名字:enName=GameName
-包名:buneleID=com.aoaogame.game61
-统计ID-安卓:androidUMeng=53b8c81d56240b1d3405f238
-4399AppKey:4399AppKey=100020
-:PicList=Pic1;Pic2;
-:ChengYuTiMu=白头到老-解释==天长地久-解释
