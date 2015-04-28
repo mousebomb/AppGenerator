@@ -285,10 +285,10 @@ fanTimes =0;
 					ui.nextBtn.visible = true;
 				}
 				levelModel.saveLevel(levelModel.level, 1);
-				// 前三关不出广告
+
 				if(!CONFIG::DESKTOP)
 				{
-					if(levelModel.level>3) AoaoGame.ad.runInterstitial();
+					AoaoGame.ad.runInterstitial();
 				}
 			}
 		}
