@@ -1,5 +1,5 @@
 # 程序要替换的文本文件
-src/org/mousebomb/TieZhiConf.as
+src/org/mousebomb/GameConf.as
 app-android.xml
 app-ios.xml
 app-desktop.xml
