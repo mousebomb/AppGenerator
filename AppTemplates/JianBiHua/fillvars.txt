@@ -12,4 +12,5 @@ AdMob-iOS-插屏:iosAdmobInterstitial=ca-app-pub-3981702146870599/5898731011
 安卓AdMob-插屏:androidAdmobInterstitial=
 Baidu广告-iOS:iosBaiduAd=df49eec7
 Baidu广告-安卓:androidBaiduAd=df49eec7
+每N次调用才真正显示插屏:interstitialAdLevel=1
 :PicList=Pic1;Pic2;

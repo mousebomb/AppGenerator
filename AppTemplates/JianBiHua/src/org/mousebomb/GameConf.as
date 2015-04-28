@@ -40,8 +40,13 @@ package org.mousebomb
         // 一定要改对 ！！！！ 图片可用的数量 如果有做Pic1 ~Pic30 就像这样:
         ${PicList}
 
+        //每N次调用才真正显示插屏
+        public static const INTERSTITIAL_AD_LEVEL : uint = ${interstitialAdLevel};
 
-		// ----------- 要修改的内容结束		
+
+        // ----------- 要修改的内容结束
+        // banner位置 true 下方
+        public static const IS_BANNER_BOTTOM: Boolean = true;
 		
 		public static var  PIC_NUM : uint = 0;
 
@@ -126,6 +131,9 @@ package org.mousebomb
 			trace("Pic量=" , PIC_NUM);
 			//
 //			MouseDrager.thresholdMoveDistance =   4*Capabilities.screenDPI / 72 * MouseDrager.thresholdMoveDistance;
+
+            new DebugHelper(s);
+            DebugHelper.log("APPID:"+AOAO_APP_ID + " INTERSTITIAL_AD_LEVEL="+INTERSTITIAL_AD_LEVEL);
 		}
 	}
 }
