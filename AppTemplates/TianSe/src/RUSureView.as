@@ -1,7 +1,7 @@
 package
 {
 	import org.mousebomb.Localize;
-	import org.mousebomb.TianSeConf;
+	import org.mousebomb.GameConf;
 	import org.mousebomb.Sfx;
 
 	import flash.display.Sprite;
@@ -22,8 +22,8 @@ package
 			container.addChild(confirmUI);
 			confirmUI['yes'].addEventListener(MouseEvent.CLICK, onYesClick);
 			confirmUI['no'].addEventListener(MouseEvent.CLICK, onNoClick);
-			confirmUI.x = TianSeConf.VISIBLE_SIZE_W/2;
-			confirmUI.y = TianSeConf.VISIBLE_SIZE_H/2;
+			confirmUI.x = GameConf.VISIBLE_SIZE_W/2;
+			confirmUI.y = GameConf.VISIBLE_SIZE_H/2;
 		}
 
 		private function onNoClick(event : MouseEvent) : void

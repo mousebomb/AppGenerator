@@ -72,14 +72,14 @@ package org.mousebomb
 			//
 			backBtn = new BackBtn();
 			backBtn.x = 50;
-			backBtn.y = TianSeConf.AD_H + 40;
+			backBtn.y = GameConf.AD_H + 40;
 			addChild(backBtn);
 			soundBtn = new SoundBtn();
 			soundBtn.x = 50;
-			soundBtn.y = TianSeConf.VISIBLE_SIZE_H - 50;
+			soundBtn.y = GameConf.VISIBLE_SIZE_H - 50;
 			addChild(soundBtn);
 
-			paintArea = new Rectangle(0, TianSeConf.AD_H, TianSeConf.VISIBLE_SIZE_W - brushSet.width, TianSeConf.VISIBLE_SIZE_H - TianSeConf.AD_H);
+			paintArea = new Rectangle(0, GameConf.AD_H, GameConf.VISIBLE_SIZE_W - brushSet.width, GameConf.VISIBLE_SIZE_H - GameConf.AD_H);
 			var pictureClassName : String = "Pic" + id;
 			var clazz : Class = getDefinitionByName(pictureClassName) as Class;
 			pic = new clazz();
@@ -143,7 +143,7 @@ package org.mousebomb
 		{
 			if (_painted.modified)
 				_painted.save(_id);
-			new GTween(this, 0.5, {y:TianSeConf.VISIBLE_SIZE_H}, {ease:Back.easeIn, onComplete:onFlyOutComp});
+			new GTween(this, 0.5, {y:GameConf.VISIBLE_SIZE_H}, {ease:Back.easeIn, onComplete:onFlyOutComp});
 			this.mouseEnabled = this.mouseChildren = false;
 			stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown, true);
 		}
@@ -277,7 +277,7 @@ package org.mousebomb
 
 		public function flyIn() : void
 		{
-			this.y = TianSeConf.VISIBLE_SIZE_H;
+			this.y = GameConf.VISIBLE_SIZE_H;
 			new GTween(this, 0.5, {y:0}, {ease:Back.easeOut});
 		}
 	}

@@ -40,8 +40,8 @@ package org.mousebomb
 			addChild(_shelf);
 			_shelf.setList(colors);
 			//
-			this.x = TianSeConf.VISIBLE_SIZE_W - cols * colorBtnSize;
-			this.y = TianSeConf.AD_H;//GameConf.VISIBLE_SIZE_H
+			this.x = GameConf.VISIBLE_SIZE_W - cols * colorBtnSize;
+			this.y = GameConf.AD_H;//GameConf.VISIBLE_SIZE_H
 		}
 
 		private var selectedBrush : ColorSample;

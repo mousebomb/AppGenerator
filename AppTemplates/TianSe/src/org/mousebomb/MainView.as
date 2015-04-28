@@ -46,17 +46,17 @@ package org.mousebomb {
 			var scRect : Rectangle = Screen.mainScreen.bounds;
 			const LISize : Number = 180.0;
 			const cols : int = 4;
-			const shelfW : Number = TianSeConf.VISIBLE_SIZE_W * 0.9;
+			const shelfW : Number = GameConf.VISIBLE_SIZE_W * 0.9;
 			// scRect.width * 0.7;
 			// trace('shelfW: ' + (shelfW));
 			const MARGINX : Number = (shelfW - (cols * LISize)) / (cols - 1) + LISize;
 			// trace('MARGINX: ' + (MARGINX));
 			_shelf = new Shelf();
 			_shelf.y = 190;
-			_shelf.x = _shelfX = (TianSeConf.VISIBLE_SIZE_W - shelfW) / 2 + LISize / 2;
+			_shelf.x = _shelfX = (GameConf.VISIBLE_SIZE_W - shelfW) / 2 + LISize / 2;
 			_shelf.config(MARGINX, 230, 8, cols, Localize.LevelItem, addLiCallback);
 
-			_shelf.setList(TianSeConf.LIST_IDS);
+			_shelf.setList(GameConf.LIST_IDS);
 			if (_lastPage != 1)
 			{
 				_shelf.showPage(_lastPage);
@@ -70,21 +70,21 @@ package org.mousebomb {
 			_nextBtn.name = "next";
 			_prevBtn.addEventListener(MouseEvent.CLICK, onPageBtnClick);
 			_nextBtn.addEventListener(MouseEvent.CLICK, onPageBtnClick);
-			_prevBtn.x = TianSeConf.VISIBLE_SIZE_W * 0.4;
-			_nextBtn.x = TianSeConf.VISIBLE_SIZE_W * 0.6;
-			_prevBtn.y = _nextBtn.y = TianSeConf.VISIBLE_SIZE_H * 0.9;
+			_prevBtn.x = GameConf.VISIBLE_SIZE_W * 0.4;
+			_nextBtn.x = GameConf.VISIBLE_SIZE_W * 0.6;
+			_prevBtn.y = _nextBtn.y = GameConf.VISIBLE_SIZE_H * 0.9;
 			addChild(_prevBtn);
 			addChild(_nextBtn);
 			validatePageBtns();
 			// replay
 			_replayBtn = new (Localize.getClass("ReplayBtn"))();
-			_replayBtn.x = TianSeConf.VISIBLE_SIZE_W - _replayBtn.width;
-			_replayBtn.y = TianSeConf.VISIBLE_SIZE_H * 0.9;
+			_replayBtn.x = GameConf.VISIBLE_SIZE_W - _replayBtn.width;
+			_replayBtn.y = GameConf.VISIBLE_SIZE_H * 0.9;
 			_replayBtn.addEventListener(MouseEvent.CLICK, onReplayClick);
 			addChild(_replayBtn);
 			_moreBtn = new (Localize.getClass("MoreBtn"))();
 			_moreBtn.x = _replayBtn.width;
-			_moreBtn.y = TianSeConf.VISIBLE_SIZE_H * 0.9;
+			_moreBtn.y = GameConf.VISIBLE_SIZE_H * 0.9;
 			_moreBtn.addEventListener(MouseEvent.CLICK, onMoreClick);
 			addChild(_moreBtn);
 			_moreBtn.visible = MyAdManager.showMoreBtn;
@@ -143,11 +143,11 @@ package org.mousebomb {
 			{
 				case "prev":
 					if (_shelf.curPage > 1)
-						pageGtw.setValues({x:_shelfX + TianSeConf.VISIBLE_SIZE_W});
+						pageGtw.setValues({x:_shelfX + GameConf.VISIBLE_SIZE_W});
 					break;
 				case "next":
 					if (_shelf.curPage < _shelf.totalPage)
-						pageGtw.setValues({x:_shelfX - TianSeConf.VISIBLE_SIZE_W});
+						pageGtw.setValues({x:_shelfX - GameConf.VISIBLE_SIZE_W});
 					break;
 			}
 			Sfx.other.gotoAndStop(1);
@@ -163,11 +163,11 @@ package org.mousebomb {
 			{
 				case "prev":
 					_shelf.prevPage();
-					_shelf.x = _shelfX - TianSeConf.VISIBLE_SIZE_W;
+					_shelf.x = _shelfX - GameConf.VISIBLE_SIZE_W;
 					break;
 				case "next":
 					_shelf.nextPage();
-					_shelf.x = _shelfX + TianSeConf.VISIBLE_SIZE_W;
+					_shelf.x = _shelfX + GameConf.VISIBLE_SIZE_W;
 					break;
 			}
 			pageGtw.onComplete = null;
@@ -249,14 +249,14 @@ package org.mousebomb {
 		{
 			selectedId = event.currentTarget.id;
 			_lastPage = _shelf.curPage;
-			new GTween(this, 0.5, {y:-TianSeConf.VISIBLE_SIZE_H}, {ease:Back.easeIn, onComplete:onFlyOutComp});
+			new GTween(this, 0.5, {y:-GameConf.VISIBLE_SIZE_H}, {ease:Back.easeIn, onComplete:onFlyOutComp});
 			this.mouseEnabled = this.mouseChildren = false;
 			// stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 		}
 
 		public function flyIn() : void
 		{
-			this.y = -TianSeConf.VISIBLE_SIZE_H;
+			this.y = -GameConf.VISIBLE_SIZE_H;
 			new GTween(this, 0.5, {y:0}, {ease:Back.easeOut,onComplete:onFlyInComp});
 		}
 

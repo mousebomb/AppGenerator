@@ -9,7 +9,7 @@ package {
 	import org.mousebomb.Localize;
 	import org.mousebomb.MainView;
 	import org.mousebomb.ScreenshotHelper;
-	import org.mousebomb.TianSeConf;
+	import org.mousebomb.GameConf;
 	import org.mousebomb.adservice.AdFactory;
 	import org.mousebomb.interfaces.IDispose;
 
@@ -63,14 +63,14 @@ package {
 			if(!CONFIG::DEBUG)
 			{
 				// aoao analysis
-	        	AnalysisManager.instance.setAnalytics(TianSeConf.AOAO_APP_ID, "com.aoaogame.game"+TianSeConf.AOAO_APP_ID+".analysis");
+	        	AnalysisManager.instance.setAnalytics(GameConf.AOAO_APP_ID, "com.aoaogame.game"+GameConf.AOAO_APP_ID+".analysis");
 				// UMAnalytics
 				var isIOS : Boolean = Capabilities.os.indexOf("iPhone") != -1;
 				if (Capabilities.os.indexOf("iPad") != -1)
 					isIOS = true;
 				if (isIOS)
 				{
-					UMAnalyticsManager.instance.startWithAppkey(TianSeConf.UMENG_APPID_IOS);
+					UMAnalyticsManager.instance.startWithAppkey(GameConf.UMENG_APPID_IOS);
 					UMAnalyticsManager.instance.startSession();
 				}
 				else
@@ -114,11 +114,11 @@ package {
 		private function onStage(event : Event) : void
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onStage);
-			TianSeConf.onStage(stage, this);
+			GameConf.onStage(stage, this);
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 			// setTimeout(start, 100);
 			start();
-			MyAdManager.init(TianSeConf.AOAO_APP_ID, stage);
+			MyAdManager.init(GameConf.AOAO_APP_ID, stage);
 		}
 
 		private function onKeyDown(event : KeyboardEvent) : void
@@ -142,7 +142,7 @@ package {
 
 		public function notificationTomorrow() : void
 		{
-            if(!CONFIG::desktop)
+            if(!CONFIG::DESKTOP)
             {
                 //
                 if (NotificationManager.isSupported)
