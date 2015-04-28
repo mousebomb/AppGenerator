@@ -77,7 +77,6 @@ public class AoaoGame extends Sprite
 		        }
 				//广告
 	            ad = new AdFactory();
-	            ad.runBanner();
 		}
 		CONFIG::DESKTOP{
 			// 桌面 debug ，，要截图功能
