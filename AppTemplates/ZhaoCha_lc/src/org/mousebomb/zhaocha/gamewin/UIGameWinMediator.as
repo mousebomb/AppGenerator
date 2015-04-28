@@ -3,7 +3,7 @@ package org.mousebomb.zhaocha.gamewin
 	import gs.TweenLite;
 	import gs.easing.Back;
 
-	import org.mousebomb.ZhaoChaConf;
+	import org.mousebomb.GameConf;
 	import org.mousebomb.SoundMan;
 	import org.mousebomb.zhaocha.common.SceneEvent;
 	import org.robotlegs.mvcs.Mediator;
@@ -24,8 +24,8 @@ package org.mousebomb.zhaocha.gamewin
 		{
 			(viewComponent as Sprite).addEventListener(MouseEvent.CLICK, onClick);
 			var ui :Sprite = (viewComponent as Sprite);
-			ui.x = ZhaoChaConf.VISIBLE_SIZE_W *.5;
-			ui.y = ZhaoChaConf.VISIBLE_SIZE_H *.5;
+			ui.x = GameConf.VISIBLE_SIZE_W *.5;
+			ui.y = GameConf.VISIBLE_SIZE_H *.5;
 			ui.scaleX = 2;
 			ui.scaleY = 2;
 			TweenLite.to(ui, 1.0, {scaleX:1.0,scaleY:1.0,ease:Back.easeInOut});

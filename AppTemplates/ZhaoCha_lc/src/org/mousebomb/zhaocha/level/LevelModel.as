@@ -3,7 +3,7 @@ package org.mousebomb.zhaocha.level
 	import flash.display.MovieClip;
 	import flash.net.SharedObject;
 
-	import org.mousebomb.ZhaoChaConf;
+	import org.mousebomb.GameConf;
 	import org.robotlegs.mvcs.Actor;
 
 	/**
@@ -29,7 +29,7 @@ package org.mousebomb.zhaocha.level
 		public function initAllLevels() : void
 		{
 			levels = new Vector.<LevelVO>();
-			var so : SharedObject = SharedObject.getLocal(ZhaoChaConf.LOCAL_SO_NAME);
+			var so : SharedObject = SharedObject.getLocal(GameConf.LOCAL_SO_NAME);
 			if (so.data.levels == null)
 			{
 				so.data.levels = {};
@@ -70,7 +70,7 @@ package org.mousebomb.zhaocha.level
 		 */
 		public function saveLevel(level : int, star : int) : void
 		{
-			var so : SharedObject = SharedObject.getLocal(ZhaoChaConf.LOCAL_SO_NAME);
+			var so : SharedObject = SharedObject.getLocal(GameConf.LOCAL_SO_NAME);
 			if (so.data.levels == null)
 			{
 				so.data.levels = {};

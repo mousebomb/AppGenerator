@@ -5,7 +5,7 @@ package org.mousebomb.zhaocha.game {
 	import gs.TweenLite;
 
 	import org.mousebomb.SoundMan;
-	import org.mousebomb.ZhaoChaConf;
+	import org.mousebomb.GameConf;
 	import org.mousebomb.zhaocha.common.SceneEvent;
 	import org.robotlegs.mvcs.Mediator;
 
@@ -44,7 +44,7 @@ public class UIGameMediator extends Mediator
         var ui:UIGame = (viewComponent as UIGame);
 		
 		// 不同分辨率
-		ui.maskB.y += (ZhaoChaConf.VISIBLE_SIZE_H - 960) /2;
+		ui.maskB.y += (GameConf.VISIBLE_SIZE_H - 960) /2;
 
 		picA = new Loader();
 		picB = new Loader();

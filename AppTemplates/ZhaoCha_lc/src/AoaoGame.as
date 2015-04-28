@@ -9,7 +9,7 @@ package
 	import org.mousebomb.Localize;
 	import org.mousebomb.ScreenshotHelper;
 	import org.mousebomb.SoundMan;
-	import org.mousebomb.ZhaoChaConf;
+	import org.mousebomb.GameConf;
 	import org.mousebomb.adservice.AdFactory;
 
 	import flash.desktop.NativeApplication;
@@ -57,16 +57,16 @@ public class AoaoGame extends Sprite
         SoundMixer.audioPlaybackMode = AudioPlaybackMode.AMBIENT;
         rootView = new Sprite();
         this.addChild(rootView);
-        ZhaoChaConf.onStage(stage, rootView);
+        GameConf.onStage(stage, rootView);
         SoundMan.init();
         stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyUp);
 		if(!CONFIG::DESKTOP)
 		{
 		        // aoao analysis
-		        AnalysisManager.instance.setAnalytics(ZhaoChaConf.AOAO_APP_ID, ZhaoChaConf.ANALYSIS_SO_NAME);
+		        AnalysisManager.instance.setAnalytics(GameConf.AOAO_APP_ID, GameConf.ANALYSIS_SO_NAME);
 		        // UMAnalytics
 		        CONFIG::IOS{
-		            UMAnalyticsManager.instance.startWithAppkey(ZhaoChaConf.UMENG_APPID_IOS);
+		            UMAnalyticsManager.instance.startWithAppkey(GameConf.UMENG_APPID_IOS);
 		            UMAnalyticsManager.instance.startSession();
 				}
 		        CONFIG::ANDROID{
@@ -82,7 +82,7 @@ public class AoaoGame extends Sprite
 		}
 
         // aoao Ad
-        MyAdManager.init(ZhaoChaConf.AOAO_APP_ID, stage);
+        MyAdManager.init(GameConf.AOAO_APP_ID, stage);
         // notification
         NativeApplication.nativeApplication.addEventListener(Event.ACTIVATE, onActive);
         notificationTomorrow();

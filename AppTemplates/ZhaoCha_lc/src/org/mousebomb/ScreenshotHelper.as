@@ -24,7 +24,7 @@ package org.mousebomb {
 				var sc : BitmapData = new BitmapData(game.stage.fullScreenWidth, game.stage.fullScreenHeight);
 				sc.draw(game);
 				var jpg :JPGEncoder = new JPGEncoder();
-				var file :File = File.desktopDirectory.resolvePath("Game"+ZhaoChaConf.AOAO_APP_ID+"-"+sc.width+"x"+sc.height+"-"+nextI+".jpg");
+				var file :File = File.desktopDirectory.resolvePath("Game"+GameConf.AOAO_APP_ID+"-"+sc.width+"x"+sc.height+"-"+nextI+".jpg");
 				nextI++;
 				var jpgData : ByteArray = jpg.encode(sc);
 				var fs :FileStream = new FileStream();

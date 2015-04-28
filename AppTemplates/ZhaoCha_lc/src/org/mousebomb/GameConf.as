@@ -11,7 +11,7 @@ package org.mousebomb
 	/**
 	 * @author Mousebomb
 	 */
-	public class ZhaoChaConf
+	public class GameConf
 	{
 
         // 友盟统计－iOS ： 修改引号里的内容!!!!
@@ -34,8 +34,14 @@ package org.mousebomb
         public static const BAIDU_IOS:String = "${iosBaiduAd}";
         // baidu android
         public static const BAIDU_ANDROID:String = "${androidBaiduAd}";
-		
-		// ----------- 要修改的内容结束		
+
+        //每N次调用才真正显示插屏
+        public static const INTERSTITIAL_AD_LEVEL : uint = ${interstitialAdLevel};
+
+
+        // ----------- 要修改的内容结束
+        // banner位置 true 下方
+        public static const IS_BANNER_BOTTOM: Boolean = true;
 
 
 		public static const LOCAL_SO_NAME : String = "com.aoaogame.game"+AOAO_APP_ID;
@@ -109,6 +115,9 @@ package org.mousebomb
 			}
 			//
 			MouseDrager.thresholdMoveDistance =   4*Capabilities.screenDPI / 72 * MouseDrager.thresholdMoveDistance;
+            //
+            new DebugHelper(s);
+            DebugHelper.log("APPID:"+AOAO_APP_ID + " INTERSTITIAL_AD_LEVEL="+INTERSTITIAL_AD_LEVEL);
 		}
 	}
 }
