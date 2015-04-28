@@ -224,7 +224,7 @@ import org.mousebomb.DebugHelper;
 					AdMob.setBannerAdUnitID(_adAdmobObj.bannerKey);
 				}
 
-				DebugHelper.log('ADMOB.bannerKey: ' + (_adAdmobObj.bannerKey));
+				DebugHelper.log('ADMOB keys: ' + (_adAdmobObj.bannerKey) +"," + _adAdmobObj.interstitialKey );
 				DebugHelper.log('BaiduSetKeys: ' + (_adBaiduObj.bannerKey) +"," + _adBaiduObj.interstitialKey);
                 BaiDu.getInstance().setKeys(_adBaiduObj.bannerKey, _adBaiduObj.interstitialKey);
 				BaiDu.getInstance().addEventListener(BaiDuAdEvent.onBannerLeaveApplication, onBaiduAdEvent);
@@ -238,8 +238,8 @@ import org.mousebomb.DebugHelper;
 				dispatchEvent(new Event(GET_DATA_FAIL));
 			}
 			DebugHelper.log('_errorCode: ' + (_errorCode));
-			if (_adObjArr[0] != null) DebugHelper.log(_adObjArr[0].adtype+" , "+ _adObjArr[0].bannerPercent);
-			if (_adObjArr[1] != null) DebugHelper.log(_adObjArr[1].adtype+" , "+ _adObjArr[1].bannerPercent);
+			if (_adObjArr[0] != null) DebugHelper.log(_adObjArr[0].adtype+" , "+ _adObjArr[0].bannerPercent+" , "+ _adObjArr[0].interstitialPercent);
+			if (_adObjArr[1] != null) DebugHelper.log(_adObjArr[1].adtype+" , "+ _adObjArr[1].bannerPercent+" , "+ _adObjArr[1].interstitialPercent);
 		}
 
 		/**
@@ -253,6 +253,11 @@ import org.mousebomb.DebugHelper;
 				// =========正常获得广告数据，目前因为只有百度和谷歌，所以直接进行ifelse判断，暂时不做循环智能判断=========
 //				DebugHelper.log('ADMOB.bannerPercent == 0: ' + (_adAdmobObj.bannerPercent == 0));
 //				DebugHelper.log('ADMOB.bannerPercent: ' + (_adAdmobObj.bannerPercent));
+                if(_adAdmobObj.bannerPercent == 0 && _adBaiduObj.bannerPercent == 0)
+                {
+                    return ;
+                }
+
 				if (_adAdmobObj.bannerPercent == 0) {
 					// 如果谷歌广告的百分比为0，就显示百度广告
 					AdMob.destroyAd();
@@ -348,6 +353,7 @@ import org.mousebomb.DebugHelper;
 		 */
 		public function cacheInterstitial() : void {
 			if (_errorCode == 0) {
+                if(_adAdmobObj.interstitialPercent == 0 && _adBaiduObj.interstitialPercent == 0) return;
 				if (_adAdmobObj.interstitialPercent == 0) {
 					// 如果谷歌广告的百分比为0，就显示百度广告
 					_baiduIsCache = true;
@@ -371,7 +377,7 @@ import org.mousebomb.DebugHelper;
 							if (BaiDu.getInstance().supportDevice) BaiDu.getInstance().cacheInterstitial();
 						}
 					} else {
-						if (Math.random() * 100 < _adBaiduObj.bannerPercent) {
+						if (Math.random() * 100 < _adBaiduObj.interstitialPercent) {
 							_baiduIsCache = true;
 							_admobIsCache = false;
 							trace("cacheBaiduFull");
