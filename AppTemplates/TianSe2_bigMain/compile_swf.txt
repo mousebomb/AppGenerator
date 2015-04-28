@@ -8,7 +8,7 @@ ${AMXMLC}
     -tools-locale=en
     -debug=${debug}
     -define+=CONFIG::DEBUG,${debug}
-    -define+=CONFIG::apk,${apk}
-    -define+=CONFIG::ipa,${ipa}
-    -define+=CONFIG::desktop,${desktop}
+    -define+=CONFIG::ANDROID,${apk}
+    -define+=CONFIG::IOS,${ipa}
+    -define+=CONFIG::DESKTOP,${desktop}
     ${gen}/src/TianSe.as

@@ -17,7 +17,7 @@ package org.mousebomb
 		LevelItemEn;
 		public static function getClass(clazz : String) : Class
 		{
-			return getDefinitionByName(clazz + TianSeConf.LANG) as Class;
+			return getDefinitionByName(clazz + GameConf.LANG) as Class;
 		}
 
 		public static function get LevelItem() : Class
@@ -48,17 +48,17 @@ package org.mousebomb
 
 		public static function get notificationAction() : String
 		{
-			return _notificationAction[TianSeConf.LANG];
+			return _notificationAction[GameConf.LANG];
 		}
 
 		static public function get notificationIntro() : String
 		{
-			return _notificationIntro[TianSeConf.LANG];
+			return _notificationIntro[GameConf.LANG];
 		}
 
 		static public function get notificationTitle() : String
 		{
-			return _notificationTitle[TianSeConf.LANG];
+			return _notificationTitle[GameConf.LANG];
 		}
 	}
 }

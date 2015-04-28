@@ -50,7 +50,7 @@ package org.mousebomb
 
 		public function save(picId : int) : void
 		{
-			so = SharedObject.getLocal(TianSeConf.LOCAL_SO_NAME);
+			so = SharedObject.getLocal(GameConf.LOCAL_SO_NAME);
 			var savKey : String = "pic" + picId;
 			so.data[savKey] = _data;
 			so.flush();
@@ -63,7 +63,7 @@ package org.mousebomb
 		public function read(picId : int) : Boolean
 		{
 			var end :Boolean = false;
-			so = SharedObject.getLocal(TianSeConf.LOCAL_SO_NAME);
+			so = SharedObject.getLocal(GameConf.LOCAL_SO_NAME);
 			var savKey : String = "pic" + picId;
 			if (null == so.data[savKey])
 			{
@@ -92,8 +92,8 @@ package org.mousebomb
  */
 		public function reset() : void
 		{
-			so = SharedObject.getLocal(TianSeConf.LOCAL_SO_NAME);
-			for each(var picId :int in TianSeConf.LIST_IDS)
+			so = SharedObject.getLocal(GameConf.LOCAL_SO_NAME);
+			for each(var picId :int in GameConf.LIST_IDS)
 			{var savKey : String = "pic" + picId;
 				so.data[savKey]=null;
 				

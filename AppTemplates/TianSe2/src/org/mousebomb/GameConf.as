@@ -10,7 +10,7 @@ package org.mousebomb {
 	/**
 	 * @author Mousebomb
 	 */
-	public class TianSeConf
+	public class GameConf
 	{
 		/* 填色 嗷嗷广告sdk版 */
 		
@@ -34,11 +34,18 @@ package org.mousebomb {
 		public static const BAIDU_IOS:String = "${iosBaiduAd}";
 		// baidu android
 		public static const BAIDU_ANDROID:String = "${androidBaiduAd}";
-		
-		// -------------------------------- 每次修改的内容结束
-		
-		
-		// 
+
+        //每N次调用才真正显示插屏
+        public static const INTERSTITIAL_AD_LEVEL : uint = 1;
+
+
+        // ----------- 要修改的内容结束
+        // banner位置 true 下方
+        public static const IS_BANNER_BOTTOM: Boolean = false;
+
+
+
+        //
 		public static const LOCAL_SO_NAME : String = "com.aoaogame.game" + AOAO_APP_ID;
 		
 		${PicList}
@@ -103,7 +110,10 @@ package org.mousebomb {
 			}
 			//
 			MouseDrager.thresholdMoveDistance =   4*Capabilities.screenDPI / 72 * MouseDrager.thresholdMoveDistance;
-			trace('MouseDrager.thresholdMoveDistance: ' + (MouseDrager.thresholdMoveDistance));
+//			trace('MouseDrager.thresholdMoveDistance: ' + (MouseDrager.thresholdMoveDistance));
+
+            new DebugHelper(s);
+            DebugHelper.log("APPID:"+AOAO_APP_ID + " INTERSTITIAL_AD_LEVEL="+INTERSTITIAL_AD_LEVEL);
 		}
 	}
 }
