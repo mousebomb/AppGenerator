@@ -45,9 +45,15 @@ package org.mousebomb
 		// 如果要显示怪物信息，那么res里面要有MI1.png~MI12.png的图 做怪物图鉴，EnemyIntro.png做图鉴的背景。大小任意，程序会自动居中显示。
 		// 是否显示怪物介绍信息 如果有图就显示，没有就不显示
 		// res/sfx目录里可以放MI1~MI12.mp3文件，怪物出现时会播放，没有的话不播放。
-		
 
-		// ----------- 要修改的内容结束		
+
+        //每N次调用才真正显示插屏
+        public static const INTERSTITIAL_AD_LEVEL : uint = 1;
+
+
+        // ----------- 要修改的内容结束
+        // banner位置 true 下方
+        public static const IS_BANNER_BOTTOM: Boolean = true;
 
 		public static const LOCAL_SO_NAME : String = "com.aoaogame.td"+AOAO_APP_ID;
 		public static const ANALYSIS_SO_NAME : String = "com.aoaogame.game"+AOAO_APP_ID+".analysis";
@@ -123,6 +129,9 @@ package org.mousebomb
 			}
 			//
 //			MouseDrager.thresholdMoveDistance =   4*Capabilities.screenDPI / 72 * MouseDrager.thresholdMoveDistance;
+            //
+            new DebugHelper(s);
+            DebugHelper.log("APPID:"+AOAO_APP_ID + " INTERSTITIAL_AD_LEVEL="+INTERSTITIAL_AD_LEVEL);
 		}
 	}
 }
