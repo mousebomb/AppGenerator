@@ -37,8 +37,15 @@ package org.mousebomb
 		
 		// 罗列出所有pic，有一个pic就有一个关卡； fla里的pic只需要导出数字分布，不要带背景图，背景图对应读取bin/pics/里相同序号的图
 		${PicList}
-		
-		// ----------- 要修改的内容结束		
+
+        //每N次调用才真正显示插屏
+        public static const INTERSTITIAL_AD_LEVEL : uint = ${interstitialAdLevel};
+
+
+        // ----------- 要修改的内容结束
+        // ----------- 要修改的内容结束
+        // banner位置 true 下方
+        public static const IS_BANNER_BOTTOM: Boolean = true;
 
 
 		public static const LOCAL_SO_NAME : String = "com.aoaogame.game"+AOAO_APP_ID;
@@ -111,6 +118,10 @@ package org.mousebomb
 			}
 			//
 			MouseDrager.thresholdMoveDistance =   4*Capabilities.screenDPI / 72 * MouseDrager.thresholdMoveDistance;
+
+
+            new DebugHelper(s);
+            DebugHelper.log("APPID:"+AOAO_APP_ID + " INTERSTITIAL_AD_LEVEL="+INTERSTITIAL_AD_LEVEL);
 		}
 	}
 }
