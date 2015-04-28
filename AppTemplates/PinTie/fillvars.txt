@@ -14,3 +14,4 @@ Baidu广告-iOS:iosBaiduAd=df49eec7
 Baidu广告-安卓:androidBaiduAd=df49eec7
 形状Masks:Masks=Mask1;Mask2;Mask3;Mask4;Mask5;Mask6;Mask7;Mask8;Mask9;Mask10;Mask11;Mask12;Mask13;
 形状总数:MaskNum=13
+每N次调用才真正显示插屏:interstitialAdLevel=1

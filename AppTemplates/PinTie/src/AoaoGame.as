@@ -1,5 +1,6 @@
 package {
 	import org.mousebomb.SystemHelper;
+	import org.mousebomb.DebugHelper;
 	import com.aoaogame.sdk.AoaoGameSDK;
 	import com.aoaogame.sdk.AnalysisManager;
 	import com.aoaogame.sdk.UMAnalyticsManager;
@@ -77,7 +78,6 @@ public class AoaoGame extends Sprite
 		        }
 				//广告
 	            ad = new AdFactory();
-	            ad.runBanner();
 		}
 		CONFIG::DESKTOP{
 			// 桌面 debug ，，要截图功能
