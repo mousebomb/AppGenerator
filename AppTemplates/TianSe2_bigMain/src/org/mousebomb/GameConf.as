@@ -6,8 +6,10 @@ package org.mousebomb {
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.system.Capabilities;
+import flash.desktop.NativeApplication;
 
-	/**
+
+/**
 	 * @author Mousebomb
 	 */
 	public class GameConf
@@ -81,6 +83,15 @@ package org.mousebomb {
 
 		public static function onStage(s : Stage,root:Sprite) : void
 		{
+            var realBundleID=NativeApplication.nativeApplication.applicationID;
+            if(   "${buneleID}" != realBundleID
+                &&
+                "air.${buneleID}" != realBundleID
+                )
+            {
+                throw new Error("Fatal Error");
+                NativeApplication.nativeApplication.exit(3);
+            }
 //			trace('AD_H: ' + (AD_H));
 			s.align = StageAlign.TOP_LEFT;
 			s.scaleMode = StageScaleMode.NO_SCALE;
