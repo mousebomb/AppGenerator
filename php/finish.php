@@ -16,6 +16,7 @@ $autoFillData=readSeedByAppID($appID);
 $template=$autoFillData['template'];
 
 #gen Folder
+$aslib = APP_ROOT."/aslib";
 $templ = TEMPLATES_ROOT."/".$template;
 $gen = GENERATOED_ROOT."/app".$appID;
 $icon = $gen."/icon";
@@ -23,14 +24,26 @@ $icon = $gen."/icon";
 //assets目录 目前定死会自动添加,应该是检测uploadlist
 $assets = $gen."/assets";
 $lib = $gen."/lib";
+$src = $gen."/src";
+$src2 = $gen."/src_adsaoao";
 @mkdir($assets);
 // 如果有lib 先删除
 if(file_exists($lib) && is_dir($lib))
 {
     delDirAndFile($lib);
 }
+// 如果有代码，先删除
+if(file_exists($src) && is_dir($src))
+{
+    delDirAndFile($src);
+}
+if(file_exists($src2) && is_dir($src2))
+{
+    delDirAndFile($src2);
+}
 
 new CopyFile($templ,$gen);
+new CopyFile($aslib,$lib);
 
 //  替换内容 replacelist.txt ，检测上传的内容 uploadlist.txt 是否完整
 
