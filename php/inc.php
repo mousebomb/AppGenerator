@@ -36,7 +36,10 @@ define("ADT_JAR",FLEX_HOME."/lib/adt.jar");
 define("ADT",FLEX_HOME."/bin/adt");
 define("AMXMLC",FLEX_HOME."/bin/amxmlc");
 
+# android p12
 define("KEYSTORE",APP_ROOT."/p12/MousebombAndroid.p12");
+define("KEYSTORE_567",APP_ROOT."/p12/a567.p12");
+# ios p12
 define("KEYSTORE_IOS",APP_ROOT."/p12/aoaogame_release.p12");
 define("KEYSTORE_IOS_DEV",APP_ROOT."/p12/aoaogame_develop.p12");
 define("DEVPROVISION",APP_ROOT."/p12/aoaoDev.mobileprovision");

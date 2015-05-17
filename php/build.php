@@ -17,6 +17,12 @@ $autoFillData=readSeedByAppID($appID);
 $template=$autoFillData['template'];
 $bundleID = $autoFillData['bundleID'];
 
+# 不同ID段不同默认keystore
+if($appID>=567)
+    $KEYSTORE = KEYSTORE_567;
+else
+    $KEYSTORE= KEYSTORE;
+
 #gen Folder
 $templ = TEMPLATES_ROOT."/".$template;
 $gen = GENERATOED_ROOT."/app".$appID;
@@ -156,7 +162,7 @@ switch($type)
             $output = $buildApkCmd;
             $output = str_replace('${gen}',$gen,$output);
             $output = str_replace('${genapk}',$genapk,$output);
-            $output = str_replace('${KEYSTORE}',KEYSTORE,$output);
+            $output = str_replace('${KEYSTORE}',$KEYSTORE,$output);
             $output = str_replace('${ADT}',ADT,$output);
             $output = str_replace('${icon}',$icon,$output);
             $output = str_replace('${debug}',$debug,$output);
