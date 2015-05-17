@@ -35,7 +35,6 @@ package org.mousebomb.zhaocha.game
 					if(!CONFIG::DEBUG)
 					{
 						AoaoGame.adsMogo.runInterstitial();
-						AoaoGame.adsMogo.runBanner();
 					}
 					}, 1000);
 			}else{

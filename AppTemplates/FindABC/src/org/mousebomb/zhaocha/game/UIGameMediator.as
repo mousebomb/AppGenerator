@@ -137,6 +137,8 @@ public class UIGameMediator extends Mediator
 		timer.start();
 		//
 		SoundMan.playSfx(SoundMan.GO);
+        //
+        AoaoGame.adsMogo.runBanner();
 	}
 	
 
