@@ -9,6 +9,7 @@ ${ADT}
 -C ${gen} FanFanLe.swf
 -C ${gen} pics
 -C ${gen} cards
+-C ${gen}/lib __pasys_remote_banner.jar
 -e ${icon}/36.png AppIcons/36x36-36.png
 -e ${icon}/48.png AppIcons/48x48-48.png
 -e ${icon}/72.png AppIcons/72x72-72.png

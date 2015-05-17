@@ -3,10 +3,11 @@
  */
 package org.mousebomb.adservice
 {
-
+import com.aoaogame.sdk.adManager.AdManager;
 import org.mousebomb.DebugHelper;
 import org.mousebomb.GameConf;
     import org.mousebomb.DebugHelper;
+import flash.system.Capabilities;
 
 	import flash.utils.setTimeout;
 
@@ -31,6 +32,7 @@ import org.mousebomb.GameConf;
         private var isAdConfigLoading:Boolean =true;
 		private function onAdConfigData(event : *) : void
 		{
+            DebugHelper.log("数据事件:"+event.type);
 			// 数据获得了 请求banner和预加载插屏
             isAdConfigLoading = false;
             runBanner();
@@ -44,10 +46,9 @@ import org.mousebomb.GameConf;
 
             AdManager.instance.showBanner
                 (
-                    AdManager.IAB_LEADERBOARD,
+                    AdManager.BANNER,
                     AdManager.CENTER,
-                    GameConf.IS_BANNER_BOTTOM?AdManager.BOTTOM:AdManager.TOP,
-                    0, 0
+                    GameConf.IS_BANNER_BOTTOM?AdManager.BOTTOM:AdManager.TOP
                 );
 		}
 
@@ -62,6 +63,8 @@ import org.mousebomb.GameConf;
             {
                 try{
                     AdManager.instance.showInterstitial();
+                    // 若是顶部banner，防止挡住插屏关闭按钮，要hide
+                    if(!GameConf.IS_BANNER_BOTTOM) AdManager.instance.hideBanner();
                 }catch(e:*){}
             }
 		}
