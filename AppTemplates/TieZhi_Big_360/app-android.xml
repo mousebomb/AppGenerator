@@ -34,7 +34,7 @@
           <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
-      <!-- 友盟安卓key !!!!!!!!!!!!!! -->
+      <!-- UMeng -->
       <meta-data android:value="${androidUMeng}" android:name="UMENG_APPKEY" />
       <meta-data android:value="AD_360" android:name="UMENG_CHANNEL"/>
                     <service android:name="com.juankpro.ane.localnotif.LocalNotificationIntentService"/>
@@ -89,6 +89,7 @@
     <image48x48>AppIcons/48x48-48.png</image48x48>
     <image36x36>AppIcons/36x36-36.png</image36x36>
     <image96x96>AppIcons/96x96-96.png</image96x96>
+      <image192x192>AppIcons/192x192-192.png</image192x192>
   </icon>
 </application>
 

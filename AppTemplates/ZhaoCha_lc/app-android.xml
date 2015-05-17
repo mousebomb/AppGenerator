@@ -34,7 +34,7 @@
           <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
-      <!-- 友盟安卓key !!!!!!!!!!!!!! -->
+      <!-- UMeng -->
       <meta-data android:value="${androidUMeng}" android:name="UMENG_APPKEY" />
       <meta-data android:value="UMChannel_Debug" android:name="UMENG_CHANNEL"/>
                     <service android:name="com.juankpro.ane.localnotif.LocalNotificationIntentService"/>
@@ -46,7 +46,8 @@
                     </receiver>
 
 		<!-- AdMob -->
-		<activity android:name="com.google.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+		<activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
         <!-- baidu -->
         <activity android:name="com.baidu.mobads.AppActivity"
                   android:configChanges="keyboard|keyboardHidden|orientation" />
@@ -82,6 +83,7 @@
     <image48x48>AppIcons/48x48-48.png</image48x48>
     <image36x36>AppIcons/36x36-36.png</image36x36>
     <image96x96>AppIcons/96x96-96.png</image96x96>
+      <image192x192>AppIcons/192x192-192.png</image192x192>
   </icon>
 </application>
 
