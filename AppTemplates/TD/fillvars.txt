@@ -8,7 +8,7 @@
 统计ID-安卓:androidUMeng=53b8c81d56240b1d3405f238
 AdMob-iOS-Banner:iosAdmobBanner=ca-app-pub-3981702146870599/4421997815
 AdMob-iOS-插屏:iosAdmobInterstitial=ca-app-pub-3981702146870599/5898731011
-安卓AdMob-Banner:androidAdmobBanner=
-安卓AdMob-插屏:androidAdmobInterstitial=
+AdMob-安卓-Banner:androidAdmobBanner=
+AdMob-安卓-插屏:androidAdmobInterstitial=
 Baidu广告-iOS:iosBaiduAd=df49eec7
 Baidu广告-安卓:androidBaiduAd=df49eec7
