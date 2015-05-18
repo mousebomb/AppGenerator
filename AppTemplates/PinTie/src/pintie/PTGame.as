@@ -152,6 +152,8 @@ package pintie
 			{
 				animalSelectionFlyIn();
 			}
+            if( !CONFIG::DESKTOP )
+                AoaoGame.ad.runBanner();
 		}
 
 		private function makePuzzle(cols : int, rows : int, w : Number, h : Number) : void
@@ -250,8 +252,6 @@ package pintie
 				if (!CONFIG::DESKTOP)
 				{
 					AoaoGame.ad.runInterstitial();
-
-					AoaoGame.ad.runBanner();
 				}
 			}
 			else

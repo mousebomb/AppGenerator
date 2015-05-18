@@ -101,6 +101,8 @@ package tiezhi
 			{
 				animalSelectionFlyIn();
 			}
+            if( !CONFIG::DESKTOP )
+                AoaoGame.ad.runBanner();
 		}
 
 		// 判定是否拖拽到合适地点
@@ -154,8 +156,6 @@ private var _shine:MovieClip;
 				if (!CONFIG::DEBUG)
 				{
 					AoaoGame.ad.runInterstitial();
-					
-					AoaoGame.ad.runBanner();
 				}
 			}
 			else

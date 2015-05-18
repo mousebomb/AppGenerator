@@ -155,6 +155,8 @@ public class PTGame extends Sprite implements IDispose,IFlyIn
             ui.backBtn.visible= true;
         } , 1000);
         unlock();
+        if( !CONFIG::DESKTOP )
+            AoaoGame.ad.runBanner();
     }
     private var thumb:MaskeredBitmap;
 
@@ -278,8 +280,6 @@ public class PTGame extends Sprite implements IDispose,IFlyIn
             if( !CONFIG::DESKTOP )
             {
                 AoaoGame.ad.runInterstitial();
-
-                AoaoGame.ad.runBanner();
             }
         }else{
             unlock();

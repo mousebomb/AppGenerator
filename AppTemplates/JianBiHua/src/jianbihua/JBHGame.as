@@ -126,7 +126,9 @@ package jianbihua {
 		private function onStage(event : Event) : void {
 			jbh.startPaint(levelModel.level);
 			this.removeEventListener(Event.ADDED_TO_STAGE, onStage);
-		}
+            if(!CONFIG::DESKTOP)
+                AoaoGame.ad.runBanner();
+        }
 
 		public function flyIn() : void {
 		}
@@ -135,8 +137,7 @@ package jianbihua {
 			jbh.proxy.dispose();
 			// 广告
 			if(!CONFIG::DESKTOP){
-			AoaoGame.ad.runBanner();
-			AoaoGame.ad.runInterstitial();
+			    AoaoGame.ad.runInterstitial();
 			}
 		}
 	}
