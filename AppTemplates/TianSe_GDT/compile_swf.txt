@@ -1,0 +1,14 @@
+${AMXMLC}
+    -output ${gen}/TianSe.swf
+    -source-path=${gen}/src
+    -source-path+=${gen}/src_adsaoao
+    -library-path+=${gen}/lib
+    -library-path+=${FLEX_HOME}/frameworks/locale/en_US
+    -target-player=17.0
+    -tools-locale=en
+    -debug=${debug}
+    -define+=CONFIG::DEBUG,${debug}
+    -define+=CONFIG::ANDROID,${apk}
+    -define+=CONFIG::IOS,${ipa}
+    -define+=CONFIG::DESKTOP,${desktop}
+    ${gen}/src/TianSe.as
