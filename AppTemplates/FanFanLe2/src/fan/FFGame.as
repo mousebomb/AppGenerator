@@ -16,6 +16,10 @@ package fan
 	import flash.utils.Timer;
 	import flash.utils.getDefinitionByName;
 	import flash.utils.getTimer;
+	import flash.utils.setTimeout;
+
+import com.greensock.TweenLite;
+import com.greensock.easing.Back;
 
 	/**
 	 * @author rhett
@@ -239,15 +243,11 @@ ui.timeTf.text ="0";
 			if (--puzzleLeft == 0)
 			{
 				SoundMan.playSfx(SoundMan.PRIZE);
-				ui.win.visible = true;
-				
+
 				ui.win.timeTf.text = ui.timeTf.text ;
 //				timer.reset();
 fanTimes =0;
-				if (levelModel.level < levelModel.levelCount)
-				{
-					ui.nextBtn.visible = true;
-				}
+                playWinAnimation (levelModel.level < levelModel.levelCount);
 				levelModel.saveLevel(levelModel.level, 1);
 				if(!CONFIG::DESKTOP)
 				{
@@ -255,6 +255,21 @@ fanTimes =0;
 				}
 			}
 		}
+
+    private function playWinAnimation( showNextBtn :Boolean ):void
+    {
+        ui.win.visible = true;
+        ui.win.scaleX = ui.win.scaleY = 0.01;
+
+        TweenLite.to(ui.win,1,{scaleX:1,scaleY:1,ease:Back.easeOut});
+        setTimeout(function():void
+        {
+            ui.nextBtn.visible = true;
+            var oldY:Number = ui.nextBtn.y;
+            ui.nextBtn.y -=100;
+            TweenLite.to(ui.nextBtn,.8,{y:oldY,ease:Back.easeOut});
+        },1200 );
+    }
 
 		private var isAnimationPlaying : Boolean = false;
 		// 之前选的卡
