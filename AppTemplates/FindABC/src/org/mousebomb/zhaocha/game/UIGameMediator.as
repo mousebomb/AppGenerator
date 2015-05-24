@@ -138,7 +138,8 @@ public class UIGameMediator extends Mediator
 		//
 		SoundMan.playSfx(SoundMan.GO);
         //
-        AoaoGame.adsMogo.runBanner();
+        if(!CONFIG::DEBUG)
+            AoaoGame.adsMogo.runBanner();
 	}
 	
 

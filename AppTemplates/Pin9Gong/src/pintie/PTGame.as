@@ -34,6 +34,10 @@ import flash.geom.Point;
 import flash.utils.getDefinitionByName;
 
 import pintie.PartShape;
+import flash.utils.setTimeout;
+
+import com.greensock.TweenLite;
+import com.greensock.easing.Back;
 
 /**
  * @author rhett
@@ -273,8 +277,7 @@ public class PTGame extends Sprite implements IDispose,IFlyIn
 
             levelModel.saveLevel( levelModel.level, 1 );
             // 根据是否还有下一关 出不出下一关按钮
-            ui.bottom.nextBtn.visible = (levelModel.levelCount > levelModel.level );
-            ui.win.visible = true;
+            playWinEffect(levelModel.levelCount > levelModel.level );
             SoundMan.playSfx( SoundMan.PRIZE );
 
             if( !CONFIG::DESKTOP )
@@ -284,6 +287,21 @@ public class PTGame extends Sprite implements IDispose,IFlyIn
         }else{
             unlock();
         }
+    }
+    private function playWinEffect( showNextBtn :Boolean ):void
+    {
+        ui.win.visible = true;
+        ui.win.scaleX = ui.win.scaleY = 0.01;
+
+        TweenLite.to(ui.win,1,{scaleX:1,scaleY:1,ease:Back.easeOut});
+        if(!showNextBtn) return;
+        setTimeout(function():void
+        {
+            ui.bottom.nextBtn.visible = true;
+            var oldY:Number = ui.bottom.nextBtn.y;
+            ui.bottom.nextBtn.y +=200;
+            TweenLite.to(ui.bottom.nextBtn,.8,{y:oldY,ease:Back.easeOut});
+        },1200 );
     }
 
     private function unlock():void

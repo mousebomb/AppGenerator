@@ -30,14 +30,13 @@ package org.mousebomb.zhaocha.game
 			levelModel.saveLevel(e.level, 1);
 			if(levelModel.levelCount>e.level)
 			{
+                if(!CONFIG::DEBUG)
+                {
+                    AoaoGame.adsMogo.runInterstitial();
+                }
 				// 还有下一关
 				setTimeout(function():void{gameDataModel.gotoLevel(e.level+1);
-					if(!CONFIG::DEBUG)
-					{
-						AoaoGame.adsMogo.runInterstitial();
-						AoaoGame.adsMogo.runBanner();
-					}
-					}, 1000);
+					}, 2000);
 			}else{
 				// 通关了
 				var winAllEvent : GameEvent = new GameEvent(GameEvent.GAME_ALL_WIN);

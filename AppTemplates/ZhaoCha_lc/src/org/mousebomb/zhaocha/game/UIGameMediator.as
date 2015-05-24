@@ -163,6 +163,9 @@ public class UIGameMediator extends Mediator
 					TweenLite.to(picB, 0.5, {x:oldXB});
 				//
 				SoundMan.playSfx(SoundMan.GO);
+                //
+                if(!CONFIG::DEBUG)
+                    AoaoGame.adsMogo.runBanner();
 			}
 		}
 
