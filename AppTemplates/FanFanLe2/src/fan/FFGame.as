@@ -262,6 +262,7 @@ fanTimes =0;
         ui.win.scaleX = ui.win.scaleY = 0.01;
 
         TweenLite.to(ui.win,1,{scaleX:1,scaleY:1,ease:Back.easeOut});
+        if(!showNextBtn) return;
         setTimeout(function():void
         {
             ui.nextBtn.visible = true;
