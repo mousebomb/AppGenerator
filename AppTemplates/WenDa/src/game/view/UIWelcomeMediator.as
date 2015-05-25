@@ -175,7 +175,7 @@ package game.view {
 			_bird.scaleX = -1.5;
 			_bird.scaleY = 1.5;
 			_bird.y = 268 - _bird.height / 2;
-			_bird.x = GameConf.VISIBLE_SIZE_W / 2;// + _bird.width / 2;
+			_bird.x = ui.center.x;//GameConf.VISIBLE_SIZE_W / 2;// + _bird.width / 2;
 			curBird = id;
 			ui.addChild(_bird);
 			gameModel.playerBird.birdId = this.curBird;
