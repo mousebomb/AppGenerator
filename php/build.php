@@ -17,11 +17,9 @@ $autoFillData=readSeedByAppID($appID);
 $template=$autoFillData['template'];
 $bundleID = $autoFillData['bundleID'];
 
-# 不同ID段不同默认keystore
-if($appID>=567)
-    $KEYSTORE = KEYSTORE_567;
-else
-    $KEYSTORE= KEYSTORE;
+# 根据配置读入keystore
+$p12Apk= getUserP12OrDefaultP12($autoFillData['p12Apk'],$appID);
+$KEYSTORE = P12_ROOT."/".$p12Apk;
 
 #gen Folder
 $templ = TEMPLATES_ROOT."/".$template;
@@ -69,10 +67,9 @@ if($type == "desktop")
 </div>
 
 <?php
-
-/*
- * 编译时会自动加入参数$type： 如 CONFIG::apk,true
- */
+    /*
+     * 编译时会自动加入参数$type： 如 CONFIG::apk,true
+     */
 # 处理编译
 $compileSwfCmd = file_get_contents($gen."/compile_swf.txt");
 $output = $compileSwfCmd;

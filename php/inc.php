@@ -27,6 +27,7 @@ define("APP_ROOT",dirname(dirname(__FILE__)));
 define("PHP_ROOT",dirname(__FILE__));
 define("GENERATOED_ROOT",APP_ROOT."/Generated");
 define("TEMPLATES_ROOT",APP_ROOT."/AppTemplates");
+define("P12_ROOT",APP_ROOT."/p12");
 
 require_once(PHP_ROOT.'/inc.conf.php');
 # SDK路径
@@ -37,12 +38,14 @@ define("ADT",FLEX_HOME."/bin/adt");
 define("AMXMLC",FLEX_HOME."/bin/amxmlc");
 
 # android p12
-define("KEYSTORE",APP_ROOT."/p12/MousebombAndroid.p12");
-define("KEYSTORE_567",APP_ROOT."/p12/a567.p12");
+define("DEFAULT_P12APK","MousebombAndroid.p12");
+define("DEFAULT_P12APK_567","a567.p12");
+define("KEYSTORE",P12_ROOT."/".DEFAULT_P12APK);
+define("KEYSTORE_567",P12_ROOT."/".DEFAULT_P12APK_567);
 # ios p12
-define("KEYSTORE_IOS",APP_ROOT."/p12/aoaogame_release.p12");
-define("KEYSTORE_IOS_DEV",APP_ROOT."/p12/aoaogame_develop.p12");
-define("DEVPROVISION",APP_ROOT."/p12/aoaoDev.mobileprovision");
+define("KEYSTORE_IOS",P12_ROOT."/aoaogame_release.p12");
+define("KEYSTORE_IOS_DEV",P12_ROOT."/aoaogame_develop.p12");
+define("DEVPROVISION",P12_ROOT."/aoaoDev.mobileprovision");
 define("STOREPASS","ilikeasp");
 define("STOREPASS_IOS","aoaogame");
 
@@ -105,6 +108,22 @@ function execCmd($cmd,$title="")
     return $op;
 }
 
+# 根据用户填入的或留空的p12返回真正的p12  ; ONLY FILENAME , NOT the PATH
+function getUserP12OrDefaultP12($p12ApkInFillData,$appID)
+{
+    $p12Apk = $p12ApkInFillData;
+    if(empty($p12Apk))
+    {
+        # 不同ID段不同默认keystore
+        if($appID>=567)
+            return DEFAULT_P12APK_567;
+        else
+            return DEFAULT_P12APK;
+    }else{
+        # 用用户选择的keystore
+        return $p12Apk;
+    }
+}
 # 读取种子； 获得Gen目录下的inf记录的数据(Array)，已经存入的数据;
 function readSeedByAppID($appID)
 {

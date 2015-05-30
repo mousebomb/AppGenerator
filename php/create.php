@@ -56,6 +56,35 @@ require_once dirname(__FILE__) . "/inc.php";
 
             </td>
         </tr>
+        <tr>
+            <td>使用签名（安卓）</td>
+            <td>
+                <select name="p12Apk" id="p12ApkSel" >
+                    <?php
+                    $p12sInFolder = scandir(P12_ROOT);
+                    foreach ($p12sInFolder as $eachP12)
+                    {
+                        if($eachP12 == "." || $eachP12=="..") continue;
+                        if(is_dir(P12_ROOT."/".$eachP12)) continue;
+                        $pointIndex = strrpos($eachP12,".");
+                        $basename=substr($eachP12,0,$pointIndex);
+                        $extname=substr($eachP12,$pointIndex);
+                        if($extname != '.p12') continue;
+                        if( P12_ROOT."/".$eachP12 == KEYSTORE_IOS
+                            || P12_ROOT."/".$eachP12 == KEYSTORE_IOS_DEV
+                        ) continue;
+                        $isSelected = ($eachP12 == DEFAULT_P12APK_567);
+                        ?>
+                        <option value="<?php echo $eachP12; ?>" <?php  if($isSelected) echo "selected"; ?>><?php echo $eachP12; ?></option>
+                    <?php
+                    }
+
+                    ?>
+                </select>
+
+            </td>
+        </tr>
+
     </table>
 
     <input type="submit" value="提交"/>
