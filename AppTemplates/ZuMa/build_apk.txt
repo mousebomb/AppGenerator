@@ -9,9 +9,9 @@ ${ADT}
 -C ${gen} game.swf
 -C ${gen} main.swf
 -C ${gen} levels
--C ${gen} Default-568h@2x.png
--C ${gen} Default@2x.png
--C ${gen} Default~ipad.png
+-C ${gen}/assets Default-568h@2x.png
+-C ${gen}/assets Default@2x.png
+-C ${gen}/assets Default~ipad.png
 -C ${gen}/lib __pasys_remote_banner.jar
 -e ${icon}/36.png AppIcons/36x36-36.png
 -e ${icon}/48.png AppIcons/48x48-48.png

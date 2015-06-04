@@ -9,9 +9,9 @@ ${ADT}
  ${gen}/app-ios.xml
 -C ${gen} game.swf
 -C ${gen} main.swf
--C ${gen} Default-568h@2x.png
--C ${gen} Default@2x.png
--C ${gen} Default~ipad.png
+-C ${gen}/assets Default-568h@2x.png
+-C ${gen}/assets Default@2x.png
+-C ${gen}/assets Default~ipad.png
 -e ${icon}/120.png AppIcons/120.png
 -e ${icon}/152.png AppIcons/152.png
 -e ${icon}/60.png AppIcons/60.png
