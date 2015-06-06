@@ -86,15 +86,23 @@ $output = str_replace('${ipa}',$isIpa,$output);
 $output = str_replace('${apk}',$isApk,$output);
 $output = str_replace('${desktop}',$isDesktop,$output);
 $output = str_replace('${type}',$type,$output);
-execCmd($output,"编译游戏");
-
-# 执行ADL
+$compileOp = execCmd($output,"编译游戏");
+$compileSucc = (count($compileOp)>1 && $compileOp[count($compileOp)-1]!="");
+if($compileSucc)
+{
+    //if编译成功
+    # 执行ADL
     $runDesktopCmd = file_get_contents($gen."/simulator.txt");
     $output = $runDesktopCmd;
     $output = str_replace('${gen}',$gen,$output);
     $output = str_replace('${ADL}',ADL,$output);
     $output = str_replace('${screensize}',$screensize,$output);
     execCmd($output,"执行桌面模拟");
+}else{
+    ?>
+<pre>编译主程序失败!</pre>
+<?php
+}
 
 
 ?>
