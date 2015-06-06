@@ -1,6 +1,6 @@
 ${ADT}
 -package
--target ipa-test
+-target ipa-app-store
 -storetype pkcs12
 -keystore ${KEYSTORE_IOS_DEV}
 -storepass aoaogame
