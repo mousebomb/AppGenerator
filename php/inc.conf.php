@@ -4,4 +4,5 @@
  * 注意如果是windows，不要使用空格／不要使用中文路径
  */
 define("FLEX_HOME","/Users/rhett/MyWork/sdks/FlexSDK/4.6.0_AIR17");
+define("FLEX_HOME_IOS","/Users/rhett/MyWork/sdks/FlexSDK/4.6.0_AIR17");
 define("PUBLISH_PATH","/Users/rhett/Desktop");

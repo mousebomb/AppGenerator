@@ -36,6 +36,7 @@ define("ADL",FLEX_HOME."/bin/adl");
 define("ADT_JAR",FLEX_HOME."/lib/adt.jar");
 define("ADT",FLEX_HOME."/bin/adt");
 define("AMXMLC",FLEX_HOME."/bin/amxmlc");
+define("ADT_IOS",FLEX_HOME_IOS."/bin/adt");
 
 # android p12
 define("DEFAULT_P12APK","MousebombAndroid.p12");

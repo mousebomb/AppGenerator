@@ -95,7 +95,7 @@ switch($type)
         {
             $buildIpaCmd = file_get_contents($gen."/build_ipa.txt");
             $output = $buildIpaCmd;
-            $output = str_replace('${ADT}',ADT,$output);
+            $output = str_replace('${ADT}',ADT_IOS,$output);
             $output = str_replace('${gen}',$gen,$output);
             $output = str_replace('${genipa}',$genipa,$output);
             $output = str_replace('${KEYSTORE_IOS_DEV}',KEYSTORE_IOS_DEV,$output);
@@ -112,7 +112,7 @@ switch($type)
                 if(file_exists($provision))
                 {
                     $output = $buildIpaCmd;
-                    $output = str_replace('${ADT}',ADT,$output);
+                    $output = str_replace('${ADT}',ADT_IOS,$output);
                     $output = str_replace('${gen}',$gen,$output);
                     $output = str_replace('${genipa}',$genipaitc,$output);
                     $output = str_replace('${KEYSTORE_IOS}',KEYSTORE_IOS,$output);
@@ -125,9 +125,9 @@ switch($type)
                 # 尝试安装到iOS设备
                 if($install==1)
                 {
-                    $chkIOSDeviceCmd = ADT."  -devices -platform iOS";
+                    $chkIOSDeviceCmd = ADT_IOS."  -devices -platform iOS";
 
-                    $op = execCmd(ADT ."  -devices -platform iOS","查找iOS设备");
+                    $op = execCmd(ADT_IOS ."  -devices -platform iOS","查找iOS设备");
 
                     if(empty($op[2]))
                     {
@@ -138,7 +138,7 @@ switch($type)
                         $tabIndex = strpos($deviceRawData,"\t");
                         $deviceID = substr($deviceRawData,0,$tabIndex);
                         echo("<pre>已发现iOS设备".$deviceID ."</pre>");
-                        $installCmd = ADT." -installApp -platform ios -device ".$deviceID." -package ".$genipa;
+                        $installCmd = ADT_IOS." -installApp -platform ios -device ".$deviceID." -package ".$genipa;
                         if(!empty($deviceID))
                             execCmd($installCmd);
                     }
