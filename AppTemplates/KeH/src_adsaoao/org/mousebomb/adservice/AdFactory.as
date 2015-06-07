@@ -47,8 +47,8 @@ import flash.system.Capabilities;
             AdManager.instance.showBanner
                 (
                     AdManager.BANNER,
-                    AdManager.RIGHT,
-                    GameConf.IS_BANNER_BOTTOM?AdManager.BOTTOM:AdManager.TOP
+                    GameConf.BANNER_POS_H,
+                    GameConf.BANNER_POS_V
                 );
 		}
 
@@ -64,7 +64,7 @@ import flash.system.Capabilities;
                 try{
                     AdManager.instance.showInterstitial();
                     // 若是顶部banner，防止挡住插屏关闭按钮，要hide
-                    if(!GameConf.IS_BANNER_BOTTOM) AdManager.instance.hideBanner();
+                    if(GameConf.BANNER_POS_V==AdManager.TOP) AdManager.instance.hideBanner();
                 }catch(e:*){}
             }
 		}

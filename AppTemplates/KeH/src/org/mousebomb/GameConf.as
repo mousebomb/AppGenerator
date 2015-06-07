@@ -45,7 +45,8 @@ package org.mousebomb
 
         // ----------- 要修改的内容结束
         // banner位置 true 下方
-        public static const IS_BANNER_BOTTOM: Boolean = false;
+        public static const BANNER_POS_V: String = "${bannerPosV}";
+        public static const BANNER_POS_H: String = "${bannerPosH}";
 
 
 
