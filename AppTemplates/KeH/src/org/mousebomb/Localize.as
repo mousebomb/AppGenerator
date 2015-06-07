@@ -8,9 +8,9 @@ package org.mousebomb
 	public class Localize
 	{
 		/**  */
-		private static const _notificationTitle : Object = {"Cn":"来开动脑筋吧", "En":"Let us play"};
-		private static const _notificationIntro : Object = {"Cn":"一起来动脑筋！", "En":"Let's find it"};
-		private static const _notificationAction : Object = {"Cn":"找一找", "En":"play"};
+		private static const _notificationTitle : Object = {"Cn":"${notificationTitle}", "En":"${notificationTitleEn}"};
+		private static const _notificationIntro : Object = {"Cn":"${notificationTitle}", "En":"${notificationTitleEn}"};
+		private static const _notificationAction : Object = {"Cn":"${notificationAction}", "En":"${notificationActionEn}"};
 
 		public static function get notificationAction() : String
 		{
