@@ -127,9 +127,9 @@ if($compileSucc)
                     # 尝试安装到iOS设备
                     if($install==1)
                     {
-                        $chkIOSDeviceCmd = ADT_IOS."  -devices -platform iOS";
+                        $chkIOSDeviceCmd = ADT."  -devices -platform iOS";
 
-                        $op = execCmd(ADT_IOS ."  -devices -platform iOS","查找iOS设备");
+                        $op = execCmd(ADT ."  -devices -platform iOS","查找iOS设备");
 
                         if(empty($op[2]))
                         {
@@ -140,7 +140,7 @@ if($compileSucc)
                             $tabIndex = strpos($deviceRawData,"\t");
                             $deviceID = substr($deviceRawData,0,$tabIndex);
                             echo("<pre>已发现iOS设备".$deviceID ."</pre>");
-                            $installCmd = ADT_IOS." -installApp -platform ios -device ".$deviceID." -package ".$genipa;
+                            $installCmd = ADT." -installApp -platform ios -device ".$deviceID." -package ".$genipa;
                             if(!empty($deviceID))
                                 execCmd($installCmd);
                         }
