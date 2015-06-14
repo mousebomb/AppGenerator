@@ -49,6 +49,7 @@ require_once dirname(__FILE__) . "/inc.php";
 </form>
 
 <a href="create.php">创建新App</a>
+<a href="install.php">安装App</a>
 
 </body>
 </html>
