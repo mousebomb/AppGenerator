@@ -41,6 +41,8 @@ package YP
 			//
 			ui.moreBtn.visible = MyAdManager.showMoreBtn;
 			ui.moreBtn.addEventListener(MouseEvent.CLICK, onMoreClick);
+            //
+            ui.titleTf.text = vo.mp3Name;
 			//
 			loadThumb(vo.thumbFile);
 			discAnim(true);

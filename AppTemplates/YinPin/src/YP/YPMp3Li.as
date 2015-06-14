@@ -23,6 +23,14 @@ package YP
 			addChild( ui );
 		}
 
+        public function set select(v :Boolean ):void
+        {
+            if(v){
+                ui.jiantou.gotoAndStop(2);
+            }else{
+                ui.jiantou.gotoAndStop(1);
+            }
+        }
 		private var imgLoader:Loader;
 
 		public function loadThumb(imgFile:File):void

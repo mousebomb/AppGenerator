@@ -4,7 +4,9 @@
 package YP
 {
 
-	import com.aoaogame.sdk.adManager.MyAdManager;
+import YP.MusicModel;
+
+import com.aoaogame.sdk.adManager.MyAdManager;
 
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
@@ -58,6 +60,7 @@ package YP
 		{
 			li.vo  = vo ;
 			li.addEventListener(MouseEvent.CLICK, onLiClick);
+            li.select = (vo.order == MusicModel.getInstance().curSelectedOrder);
 		}
 		private function onMoreClick(event : MouseEvent) : void
 		{
@@ -68,6 +71,7 @@ package YP
 
 		private function onLiClick( event:MouseEvent ):void
 		{
+            MusicModel.getInstance().curSelectedOrder = (event.currentTarget as YPMp3Li).vo.order;
 			Player.getInstance().play((event.currentTarget as YPMp3Li).vo.mp3File.url);
 			Game.instance.replaceScene(new YPListen((event.currentTarget as YPMp3Li).vo));
 			SoundMan.playSfx(SoundMan.BTN);

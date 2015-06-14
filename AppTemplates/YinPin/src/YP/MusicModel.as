@@ -81,6 +81,8 @@ package YP
 			return _list;
 		}
 
+        public var curSelectedOrder : int;
+
 	}
 }
 
