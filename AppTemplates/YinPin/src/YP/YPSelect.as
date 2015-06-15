@@ -24,6 +24,7 @@ import com.aoaogame.sdk.adManager.MyAdManager;
 		public var ui : SelectUI ;
 
 		public var picShelf :Shelf;
+        private static var lastPage : int = 0;
 
 
 		public function YPSelect(  )
@@ -46,6 +47,7 @@ import com.aoaogame.sdk.adManager.MyAdManager;
 			ui.addChild(picShelf);
 
 			picShelf.setList(MusicModel.getInstance().list);
+            if(lastPage>0) picShelf.showPage(lastPage);
 
 			ui.prevBtn.addEventListener(MouseEvent.CLICK, onLeftClick );
 			ui.nextBtn.addEventListener(MouseEvent.CLICK, onRightClick );
@@ -81,13 +83,15 @@ import com.aoaogame.sdk.adManager.MyAdManager;
 		private function onRightClick( event:MouseEvent ):void
 		{
 			SoundMan.playSfx(SoundMan.BTN);
-			picShelf.nextPage();
+            picShelf.nextPage();
+            lastPage = picShelf.curPage;
 		}
 
 		private function onLeftClick( event:MouseEvent ):void
 		{
 			SoundMan.playSfx(SoundMan.BTN);
-			picShelf.prevPage();
+            picShelf.prevPage();
+            lastPage = picShelf.curPage;
 		}
 
 		public function dispose():void
