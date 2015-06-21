@@ -48,7 +48,10 @@ package game.view {
 			ui.muteBtn.addEventListener(MouseEvent.CLICK, onMuteClick);
 			ui.soundBtn.addEventListener(MouseEvent.CLICK, onMuteClick);
 			ui.moreBtn.addEventListener(MouseEvent.CLICK, onMoreClick);
-			//
+            //
+            ui.soundBtn.visible = SoundMan.isMute;
+            ui.muteBtn.visible = !SoundMan.isMute;
+            //
             ui.moreBtn.visible = (MyAdManager.showMoreBtn);
 
 		}

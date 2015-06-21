@@ -66,7 +66,8 @@ package game.view {
 			var centerX:Number = GameConf.VISIBLE_SIZE_W/2;
 			ui.ship.x  = centerX;
 			ui.question.x = centerX;
-			
+            // 完成度
+            ui.qp.progBar.scaleX = 0;
 			
 			// BIRD radar 从10 ~ 208
 

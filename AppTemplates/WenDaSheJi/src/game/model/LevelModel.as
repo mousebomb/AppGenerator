@@ -61,6 +61,7 @@ package game.model
 		 */
 		public function saveLevel(level : int, star : int) : void
 		{
+            if(star < 1) return;
 			var so : SharedObject = SharedObject.getLocal(GameConf.LOCAL_SO_NAME);
 			if (so.data.levels == null)
 			{
