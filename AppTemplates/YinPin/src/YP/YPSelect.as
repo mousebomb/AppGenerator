@@ -12,7 +12,9 @@ import com.aoaogame.sdk.adManager.MyAdManager;
 	import flash.events.MouseEvent;
 	import flash.filesystem.File;
 
-	import org.mousebomb.GameConf;
+import org.mousebomb.GameConf;
+
+import org.mousebomb.GameConf;
 	import org.mousebomb.SoundMan;
 	import org.mousebomb.interfaces.IDispose;
 
@@ -37,10 +39,14 @@ import com.aoaogame.sdk.adManager.MyAdManager;
 			picShelf = new Shelf();
 			//
 			if(GameConf.HW_RATE>GameConf.HW_RATE_IPHONE4)
-				picShelf.autoConfig(640, GameConf.VISIBLE_SIZE_H - (1136-743),640,145,1,5,YPMp3Li,liVoGlue);
-			else if (GameConf.HW_RATE <= GameConf.HW_RATE_IPHONE4)
+            {
+                //iphone 5
+                picShelf.autoConfig(640, GameConf.VISIBLE_SIZE_H - (1136-743),640,145,1,5,YPMp3Li,liVoGlue);
+            }else if (GameConf.HW_RATE <= GameConf.HW_RATE_IPHONE4)
 			{
+                // iphone 4 / iPad
 				picShelf.autoConfig(640, GameConf.VISIBLE_SIZE_H - (1136-743),640,145,1,4,YPMp3Li,liVoGlue);
+                ui.prevBtn.y = ui.nextBtn.y = GameConf.VISIBLE_SIZE_H - GameConf.DESIGN_SIZE_H + ui.nextBtn.y;
 			}
 			picShelf.x=9;picShelf.y=160;
 
