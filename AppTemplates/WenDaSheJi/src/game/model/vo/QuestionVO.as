@@ -18,13 +18,32 @@ package game.model.vo
 
 		public function randomize() : void
 		{
-			allAwnsers.sort(randomSort);
+            while(true)
+            {
+                allAwnsers.sort(randomSort);
+
+                if(lastRightIndex > -1)
+                {
+                    var newIndex : int = allAwnsers.indexOf(rightAns);
+                    if(newIndex != lastRightIndex)
+                    {
+                        lastRightIndex = newIndex;
+                        break;
+                    }
+                }else{
+                    lastRightIndex = allAwnsers.indexOf(rightAns);
+                }
+            }
 		}
-		
+
 		/**
 		 * 提问
 		 */
 		public var question:String ;
+
+
+        // 上次正确答案的位置，为了 随机的时候，肯定不会随机到上一个位置
+        private static var lastRightIndex : int =-1;
 		
 	}
 }
