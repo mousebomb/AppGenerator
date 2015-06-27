@@ -44,6 +44,11 @@ import flash.desktop.NativeApplication;
         //每N次调用才真正显示插屏
         public static const INTERSTITIAL_AD_LEVEL : uint = 1;
 
+        //回答对几题算过关
+        public static var NUM_CORRECT2PASS:int = ${NUM_CORRECT2PASS};
+        //答题限时  陨石走完100%需要N毫秒
+        public static const YUNSHI_MOVE_TIME : int = ${LEVEL_TIME} * 1000;
+
 
         // ----------- 要修改的内容结束
         // banner位置 true 下方

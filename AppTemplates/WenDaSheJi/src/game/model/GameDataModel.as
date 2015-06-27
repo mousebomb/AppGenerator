@@ -10,6 +10,7 @@ package game.model
 
 	import org.mousebomb.Math.MousebombMath;
 	import org.robotlegs.mvcs.Actor;
+import org.mousebomb.GameConf;
 
 	import flash.utils.getDefinitionByName;
 	import flash.utils.getTimer;
@@ -37,7 +38,7 @@ package game.model
 		private static var _questionBeginFrom:int=0;
 
 		// 回答对几题算过关
-		public static var numCorrectToPass:int = 10;
+		public static var numCorrectToPass:int = GameConf.NUM_CORRECT2PASS;
 
 		// 陨石
 		public var yunShi1:YunShiVO = new YunShiVO(1);
@@ -94,7 +95,7 @@ package game.model
 //			trace('index: ' + (index));
 //			curQuestion = timuModel.questions[ index ];
 			curQuestion = timuModel.next();
-			if(!CONFIG::DEBUG)
+//			if(!CONFIG::DEBUG)
 			curQuestion.randomize();
 			++numQuestion;
 			dispatch(new LevelEvent(LevelEvent.QUESTION_CHANGED));
@@ -139,7 +140,7 @@ package game.model
 				// 是否胜利
 				resultVO.isWinner= !isHitYunShi;
 				// 计算玩家答题速度(每分钟) , 准确率(计算过程中统计的)
-				resultVO.numPerMin = resultVO.totalAnswer / (passedTime / 1000);
+				resultVO.numPerMin = resultVO.totalAnswer / (passedTime / 1000 / 60);
 				// 计算star
 				if(resultVO.isWinner)
 				{

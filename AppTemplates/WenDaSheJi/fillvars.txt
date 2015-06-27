@@ -12,3 +12,5 @@ AdMob-安卓-Banner:androidAdmobBanner=
 AdMob-安卓-插屏:androidAdmobInterstitial=
 Baidu广告-iOS:iosBaiduAd=df49eec7
 Baidu广告-安卓:androidBaiduAd=df49eec7
+答题限时(秒):LEVEL_TIME=45
+回答对几题算过关:NUM_CORRECT2PASS=10

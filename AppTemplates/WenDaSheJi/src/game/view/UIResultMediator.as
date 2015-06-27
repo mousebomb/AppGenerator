@@ -46,6 +46,10 @@ package game.view {
 			// 回答的效果汇总
 			ui.numPerMinTf.text = gameData.resultVO.numPerMin.toFixed(1);
 			ui.correctPerTf.text = gameData.resultVO.correctPer.toFixed(1);
+            // 星
+                ui.star1.visible = gameData.resultVO.star>0;
+                ui.star2.visible = gameData.resultVO.star>1;
+                ui.star3.visible = gameData.resultVO.star>2;
 //			for (i = 1; i <= 5 && i <= gameData.resultVO.wrongQnA.length; i++)
 //			{
 //				(ui.right['wrongTf' + i] as TextField).text = (gameData.resultVO.wrongQnA[i - 1]);

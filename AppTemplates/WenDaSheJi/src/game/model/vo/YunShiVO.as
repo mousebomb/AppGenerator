@@ -72,7 +72,7 @@ package game.model.vo
 		private var _pos:Point = new Point();
 
 		// 移动速度 走完100%需要N毫秒
-		public static var moveTimeMS : uint = 45 * 1000;
+		public static var moveTimeMS : uint = GameConf.YUNSHI_MOVE_TIME;
 		// 已移动毫秒
 		private var _movedMS : uint = 0;
 		private var _flyInMS:uint =0;
