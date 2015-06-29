@@ -8,6 +8,7 @@
 
 require_once dirname(__FILE__) . "/inc.php";
 $app=input('app');
+$app = trim($app);
 
 ?><!DOCTYPE html>
 <html>
