@@ -53,7 +53,7 @@ package YP
 		{
 			_vo = value;
 			ui.nameTf.text = vo.order + "."+vo.mp3Name;
-			loadThumb(vo.thumbFile);
+			if(vo.thumbFile!=null)loadThumb(vo.thumbFile);
 		}
 	}
 }
