@@ -27,6 +27,10 @@ package YP
 	import flash.ui.MultitouchInputMode;
 
 	import org.mousebomb.GameConf;
+
+	import org.mousebomb.GameConf;
+
+	import org.mousebomb.GameConf;
 	import org.mousebomb.SoundMan;
 
 	import org.mousebomb.interfaces.IDispose;
@@ -37,10 +41,13 @@ package YP
 		/** 当前页 0开始 */
 		private var curPage:int = 0;
 		private var _vo:MusicInfoVO;
+		private var offsetX : Number ;
 
 		public function YPListen( vo:MusicInfoVO ,showBackBtn:Boolean=true )
 		{
 			super();
+			offsetX = (GameConf.DESIGN_SIZE_W - GameConf.VISIBLE_SIZE_W) /2;
+			trace("offsetX",offsetX);
 			_vo = vo;
 			ui = new ListenUI();
 			ui.x = (GameConf.VISIBLE_SIZE_W - GameConf.DESIGN_SIZE_W) / 2;
@@ -48,8 +55,18 @@ package YP
 			ui.backBtn.visible = showBackBtn;
 			ui.backBtn.addEventListener( MouseEvent.CLICK, onBackClick );
 			ui.restartBtn.addEventListener( MouseEvent.CLICK, onRestartClick );
-			this.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
-			this.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+			ui.prevBtn.addEventListener(MouseEvent.CLICK, onPrevClick);
+			ui.nextBtn.addEventListener(MouseEvent.CLICK, onNextClick);
+			ui.prevBtn.x = ui.prevBtn.width/2 + 25 + offsetX;
+			ui.nextBtn.x = GameConf.VISIBLE_SIZE_W - ui.prevBtn.width/2 - 25 + offsetX;
+			ui.prevBtn.visible = ui.nextBtn.visible = (_vo.pages.length>1);
+			ui.restartBtn.y = GameConf.VISIBLE_SIZE_H_MINUS_AD - ui.restartBtn.height - 25;
+			ui.restartBtn.x = GameConf.VISIBLE_SIZE_W - ui.restartBtn.width - 25 +offsetX;
+			//			this.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+//			this.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+			//
+			ui.moreBtn.visible= MyAdManager.showMoreBtn;
+			ui.moreBtn.addEventListener(MouseEvent.CLICK,onMoreClick);
 			//
 			loadPage( 0 );
 
@@ -57,6 +74,21 @@ package YP
 			{
 				AoaoGame.ad.runBanner();
 			}
+		}
+
+		private function onMoreClick( event:MouseEvent ):void
+		{
+			MyAdManager.showAd(MyAdManager.RIGHT_TOP);
+		}
+
+		private function onNextClick( event:MouseEvent ):void
+		{
+loadPage(curPage+1);
+		}
+
+		private function onPrevClick( event:MouseEvent ):void
+		{
+loadPage(curPage-1);
 		}
 
 
@@ -118,10 +150,23 @@ package YP
 		{
 			imgLoader.mouseChildren = false;
 			imgLoader.mouseEnabled = false;
-			imgLoader.width = GameConf.VISIBLE_SIZE_W;
-			imgLoader.height = GameConf.VISIBLE_SIZE_H_MINUS_AD - 134;
-			imgLoader.y = 134;
-			addChild( imgLoader );
+			/** 强拉 */
+//			imgLoader.width = GameConf.VISIBLE_SIZE_W;
+//			imgLoader.height = GameConf.VISIBLE_SIZE_H_MINUS_AD - 134;
+//			imgLoader.y = 134;
+			/** 等比例 */
+			var maxW:Number = GameConf.VISIBLE_SIZE_W;
+			var maxH :Number = GameConf.VISIBLE_SIZE_H_MINUS_AD - 134;
+			var sw :Number = maxW/imgLoader.width ;
+			var sh :Number = maxH/imgLoader.height ;
+			var scale : Number = sw>sh?sh:sw;
+			imgLoader.width = scale * imgLoader.width;
+			imgLoader.height = scale * imgLoader.height;
+			imgLoader.y = 134 + (maxH - imgLoader.height)/2;
+			imgLoader.x = (maxW-imgLoader.width)/2 +offsetX;
+			//
+			var index : int = ui.getChildIndex(ui.backBtn);
+			ui.addChildAt( imgLoader , index);
 			var pageInf:PageInfoVO = _vo.pages[curPage];
 			if(pageInf.mp3File!=null)
 			{
@@ -138,38 +183,38 @@ package YP
 		}
 
 
-		//* ------------------- # touch 翻页 # ---------------- */
-
-		private function onMouseDown( event:MouseEvent ):void
-		{
-			touchBeginX = event.stageX;
-		}
-
-		private var touchBeginX:Number;
-
-		private function onMouseUp( event:MouseEvent ):void
-		{
-			if(event.stageY<134) return;
-			if( event.stageX < touchBeginX -HOLDSHELD )
-			{
-				// 左划  nextPage
-				loadPage(curPage+1);
-			} else if(event.stageX > touchBeginX+HOLDSHELD)
-			{
-				// 右划 prevPage
-				loadPage(curPage-1);
-			}else{
-				// 点击
-				if(event.stageX  > GameConf.VISIBLE_SIZE_W/2)
-				{
-					loadPage(curPage+1);
-				}else
-				{
-					loadPage(curPage-1);
-				}
-			}
-		}
-
-		public static const HOLDSHELD:uint = Capabilities.screenDPI;
+//		//* ------------------- # touch 翻页 # ---------------- */
+//
+//		private function onMouseDown( event:MouseEvent ):void
+//		{
+//			touchBeginX = event.stageX;
+//		}
+//
+//		private var touchBeginX:Number;
+//
+//		private function onMouseUp( event:MouseEvent ):void
+//		{
+//			if(event.stageY<134) return;
+//			if( event.stageX < touchBeginX -HOLDSHELD )
+//			{
+//				// 左划  nextPage
+//				loadPage(curPage+1);
+//			} else if(event.stageX > touchBeginX+HOLDSHELD)
+//			{
+//				// 右划 prevPage
+//				loadPage(curPage-1);
+//			}else{
+//				// 点击
+//				if(event.stageX  > GameConf.VISIBLE_SIZE_W/2)
+//				{
+//					loadPage(curPage+1);
+//				}else
+//				{
+//					loadPage(curPage-1);
+//				}
+//			}
+//		}
+//
+//		public static const HOLDSHELD:uint = Capabilities.screenDPI;
 	}
 }
