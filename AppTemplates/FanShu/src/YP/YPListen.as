@@ -158,20 +158,29 @@ loadPage(curPage-1);
 		{
 			imgLoader.mouseChildren = false;
 			imgLoader.mouseEnabled = false;
-			/** 强拉 */
-//			imgLoader.width = GameConf.VISIBLE_SIZE_W;
-//			imgLoader.height = GameConf.VISIBLE_SIZE_H_MINUS_AD - 134;
-//			imgLoader.y = 134;
-			/** 等比例 */
-			var maxW:Number = GameConf.VISIBLE_SIZE_W;
-			var maxH :Number = GameConf.VISIBLE_SIZE_H_MINUS_AD - 134;
-			var sw :Number = maxW/imgLoader.width ;
-			var sh :Number = maxH/imgLoader.height ;
-			var scale : Number = sw>sh?sh:sw;
-			imgLoader.width = scale * imgLoader.width;
-			imgLoader.height = scale * imgLoader.height;
-			imgLoader.y = 134 + (maxH - imgLoader.height)/2;
-			imgLoader.x = (maxW-imgLoader.width)/2 +offsetX;
+			if(GameConf.FIT_MODE == "0" || GameConf.FIT_MODE=="")
+			{
+				/** 强拉 */
+				imgLoader.width = GameConf.VISIBLE_SIZE_W;
+				imgLoader.height = GameConf.VISIBLE_SIZE_H_MINUS_AD - 134;
+				imgLoader.y = 134;
+				imgLoader.x = offsetX;
+			}else
+			{
+				/** 等比例 */
+				var maxW:Number = GameConf.VISIBLE_SIZE_W;
+				var maxH :Number = GameConf.VISIBLE_SIZE_H_MINUS_AD - 134;
+				var sw :Number = maxW/imgLoader.width ;
+				var sh :Number = maxH/imgLoader.height ;
+				var scale : Number = sw>sh?sh:sw;
+				imgLoader.width = scale * imgLoader.width;
+				imgLoader.height = scale * imgLoader.height;
+				if(GameConf.FIT_MODE == "1")
+					imgLoader.y = 134 ;
+				else if (GameConf.FIT_MODE == "2")
+					imgLoader.y = 134 + (maxH - imgLoader.height)/2;
+				imgLoader.x = (maxW-imgLoader.width)/2 +offsetX;
+			}
 			//
 			var index : int = ui.getChildIndex(ui.backBtn);
 			ui.addChildAt( imgLoader , index);

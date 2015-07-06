@@ -12,4 +12,5 @@ AdMob-安卓-Banner:androidAdmobBanner=
 AdMob-安卓-插屏:androidAdmobInterstitial=
 Baidu广告-iOS:iosBaiduAd=df49eec7
 Baidu广告-安卓:androidBaiduAd=df49eec7
+内容缩放模式:fitMode=0 ( 0撑满 1顶部居中 2居中居中 )
 每N次调用才真正显示插屏:interstitialAdLevel=1

@@ -42,6 +42,9 @@ import flash.desktop.NativeApplication;
 		public static var levelShelf:String = "${levelShelf}";
 
 
+        /** 内容适配缩放模式 0撑满 1顶部居中 2居中居中 */
+		public static const FIT_MODE :String = "${fitMode}";
+
         //每N次调用才真正显示插屏
         public static const INTERSTITIAL_AD_LEVEL : uint = ${interstitialAdLevel};
 
