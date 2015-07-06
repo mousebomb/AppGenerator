@@ -123,7 +123,11 @@ loadPage(curPage-1);
 
 		public function loadPage( page:int ):void
 		{
-
+            if(_vo.pages.length <= page)
+            {
+                //翻页循环
+                page = 0;
+            }
 			if(_vo.pages.length> page  && page >-1)
 			{
 				Player.getInstance().stop();
@@ -156,6 +160,7 @@ loadPage(curPage-1);
 
 		private function onImgLoaded( event:Event ):void
 		{
+			ui.moreBtn.visible= MyAdManager.showMoreBtn;
 			imgLoader.mouseChildren = false;
 			imgLoader.mouseEnabled = false;
 			if(GameConf.FIT_MODE == "0" || GameConf.FIT_MODE=="")
