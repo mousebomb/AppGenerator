@@ -84,11 +84,19 @@ package YP
 		private function onNextClick( event:MouseEvent ):void
 		{
 loadPage(curPage+1);
+			if( !CONFIG::DESKTOP )
+			{
+				AoaoGame.ad.runInterstitial();
+			}
 		}
 
 		private function onPrevClick( event:MouseEvent ):void
 		{
 loadPage(curPage-1);
+			if( !CONFIG::DESKTOP )
+			{
+				AoaoGame.ad.runInterstitial();
+			}
 		}
 
 
@@ -182,39 +190,5 @@ loadPage(curPage-1);
 			Player.getInstance().stop();
 		}
 
-
-//		//* ------------------- # touch 翻页 # ---------------- */
-//
-//		private function onMouseDown( event:MouseEvent ):void
-//		{
-//			touchBeginX = event.stageX;
-//		}
-//
-//		private var touchBeginX:Number;
-//
-//		private function onMouseUp( event:MouseEvent ):void
-//		{
-//			if(event.stageY<134) return;
-//			if( event.stageX < touchBeginX -HOLDSHELD )
-//			{
-//				// 左划  nextPage
-//				loadPage(curPage+1);
-//			} else if(event.stageX > touchBeginX+HOLDSHELD)
-//			{
-//				// 右划 prevPage
-//				loadPage(curPage-1);
-//			}else{
-//				// 点击
-//				if(event.stageX  > GameConf.VISIBLE_SIZE_W/2)
-//				{
-//					loadPage(curPage+1);
-//				}else
-//				{
-//					loadPage(curPage-1);
-//				}
-//			}
-//		}
-//
-//		public static const HOLDSHELD:uint = Capabilities.screenDPI;
 	}
 }
