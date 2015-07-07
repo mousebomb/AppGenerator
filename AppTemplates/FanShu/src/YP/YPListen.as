@@ -123,11 +123,11 @@ loadPage(curPage-1);
 
 		public function loadPage( page:int ):void
 		{
-            if(_vo.pages.length <= page)
-            {
-                //翻页循环
-                page = 0;
-            }
+			if(_vo.pages.length <= page)
+			{
+				//翻页循环
+				page = 0;
+			}
 			if(_vo.pages.length> page  && page >-1)
 			{
 				Player.getInstance().stop();
@@ -177,10 +177,19 @@ loadPage(curPage-1);
 				var maxH :Number = GameConf.VISIBLE_SIZE_H_MINUS_AD - 134;
 				var sw :Number = maxW/imgLoader.width ;
 				var sh :Number = maxH/imgLoader.height ;
-				var scale : Number = sw>sh?sh:sw;
+				var scale : Number;
+				if(GameConf.FIT_MODE == "1" || GameConf.FIT_MODE == "2")
+				{
+					scale = sw > sh ? sh : sw;
+				}else if(GameConf.FIT_MODE == "3")
+				{
+					scale = sw < sh ? sh : sw;
+				}else{
+					scale = sw > sh ? sh : sw;
+				}
 				imgLoader.width = scale * imgLoader.width;
 				imgLoader.height = scale * imgLoader.height;
-				if(GameConf.FIT_MODE == "1")
+				if(GameConf.FIT_MODE == "1" || GameConf.FIT_MODE == "3")
 					imgLoader.y = 134 ;
 				else if (GameConf.FIT_MODE == "2")
 					imgLoader.y = 134 + (maxH - imgLoader.height)/2;
