@@ -62,7 +62,8 @@ package YP
 			ui.prevBtn.visible = ui.nextBtn.visible = (_vo.pages.length>1);
 			ui.restartBtn.y = GameConf.VISIBLE_SIZE_H_MINUS_AD - ui.restartBtn.height - 25;
 			ui.restartBtn.x = GameConf.VISIBLE_SIZE_W - ui.restartBtn.width - 25 +offsetX;
-			//			this.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+            if(ui.titleTf) ui.titleTf.text = _vo.mp3Name;
+//			this.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
 //			this.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
 			//
 			ui.moreBtn.visible= MyAdManager.showMoreBtn;
