@@ -9,7 +9,10 @@
 require_once dirname(__FILE__) . "/inc.php";
 $app=input('app');
 $app = trim($app);
-
+if(IS_WIN)
+{
+    $app = iconv("UTF-8", "GBK", $app);
+}
 ?><!DOCTYPE html>
 <html>
 <head>
