@@ -4,4 +4,5 @@ assets/Default@2x.png
 assets/Default~ipad.png
 lib/Sfx.swc
 lib/design.swc
+bgm.mp3
 release.mobileprovision
