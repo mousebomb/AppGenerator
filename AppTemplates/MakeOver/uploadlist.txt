@@ -1,0 +1,7 @@
+# 需要上传的文件
+assets/Default-568h@2x.png
+assets/Default@2x.png
+assets/Default~ipad.png
+lib/Sfx.swc
+lib/design.swc
+release.mobileprovision
