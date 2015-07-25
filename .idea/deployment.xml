@@ -7,6 +7,10 @@
           <mappings>
             <mapping deploy="/AppGenerator" local="$PROJECT_DIR$" web="/AppGenerator" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/Generated" />
+            <excludedPath local="true" path="$PROJECT_DIR$/_UniqFile" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>
