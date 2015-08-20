@@ -5,6 +5,9 @@ package
 	import YP.YPListen;
 	import YP.YPSelect;
 
+	import flash.desktop.NativeApplication;
+	import flash.desktop.SystemIdleMode;
+
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
 	import flash.filesystem.File;
@@ -47,6 +50,8 @@ package
 
 			}
 			rootView.addChild( _scene );
+			NativeApplication.nativeApplication.systemIdleMode = SystemIdleMode.KEEP_AWAKE;
+
 		}
 
 		private var _scene:DisplayObject;
