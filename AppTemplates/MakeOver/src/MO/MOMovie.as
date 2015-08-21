@@ -42,12 +42,27 @@ package MO
 					{
 						// 胜利
 						ui.addFrameScript( frameLabel.frame - 1, enterWin );
+					}else if (0 == frameLabel.name.indexOf( "ad" ))
+					{
+						//插屏
+						ui.addFrameScript( frameLabel.frame - 1, enterAd );
 					}
 				}
 
 			}
 
 		}
+
+		private function enterAd():void
+		{
+			trace("MOMovie/enterAd() inter");
+			if( !CONFIG::DESKTOP )
+			{
+				AoaoGame.ad.runInterstitial();
+			}
+			isInterstitialHiddenBanner = true;
+		}
+		private var isInterstitialHiddenBanner:Boolean = false;
 
 		private function enterWin():void
 		{
@@ -110,6 +125,16 @@ package MO
 		{
 			SoundMan.playSfx(SoundMan.BTN);
 			ui.play();
+
+			if(isInterstitialHiddenBanner)
+			{
+				trace("MOMovie/clickNext() bnr");
+				isInterstitialHiddenBanner = false;
+                if( !CONFIG::DESKTOP )
+                {
+                    AoaoGame.ad.runBanner();
+                }
+            }
 		}
 
 		public function dispose():void
