@@ -60,17 +60,17 @@ public class Game extends AoaoGame
 			var longLenOffset:Number;
 			if( whrate >= RATE_16_9 )
 			{
-				request.url = "Default-568h@2x.png";
+				request.url = (CONFIG::DESKTOP?"assets/":"")+"Default-568h@2x.png";
 				scale = shortLen / 640;
 				longLenOffset = (longLen - 1136 * scale) / 2;
 			} else if( whrate >= RATE_3_2 )
 			{
-				request.url = "Default@2x.png";
+				request.url = (CONFIG::DESKTOP?"assets/":"")+"Default@2x.png";
 				scale = shortLen / 640;
 				longLenOffset = (longLen - 960 * scale) / 2;
 			} else if( whrate >= RATE_4_3 )
 			{
-				request.url = "Default~ipad.png";
+				request.url = (CONFIG::DESKTOP?"assets/":"")+"Default~ipad.png";
 				scale = shortLen / 768;
 				longLenOffset = (longLen - 1024 * scale) / 2;
 			}
