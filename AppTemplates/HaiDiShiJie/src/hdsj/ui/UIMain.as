@@ -138,7 +138,11 @@ import ui.TopBar;
 		{
 			popupUI = ui;
 			addChild( ui );
-			popupUI.x = 100;
+			var deltaX:Number = (GameConf.VISIBLE_SIZE_W - GameConf.DESIGN_SIZE_W) /2;
+			if(deltaX>0)
+				popupUI.x = 100 + deltaX;
+			else
+				popupUI.x = 100;
 		}
 
 		public function close():void
