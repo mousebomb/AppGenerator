@@ -5,6 +5,7 @@ package hdsj
 {
 
 	import hdsj.ui.UIMain;
+	import org.mousebomb.GameConf;
 
 	import org.mousebomb.framework.GlobalFacade;
 	import org.mousebomb.framework.Notify;
@@ -62,21 +63,21 @@ package hdsj
 			vo.percent = foodNumLevel;
 			ownShengjiList[INDEX_FOODNUM] = vo;
 			vo = new OwnShengJiVO();
-			vo.name = "扩大渔场";
-			vo.intro = "扩大渔场的面积养更多的鱼";
+			vo.name = "扩大"+GameConf.YUCHANG_LABEL;
+			vo.intro = "扩大"+GameConf.YUCHANG_LABEL+"的面积养更多的"+GameConf.FISH_LABEL;
 			vo.level = poolLevel;
 			vo.percent = poolLevel;
 			vo.maxLevel=100;
 			ownShengjiList[INDEX_POOLLEVEL] = vo;
 			vo = new OwnShengJiVO();
 			vo.name = "育成速度";
-			vo.intro = "加快鱼儿的成长速度";
+			vo.intro = "加快"+GameConf.FISH_LABEL+"的成长速度";
 			vo.level = growUpLevel;
 			vo.percent = growUpPercent;
 			ownShengjiList[INDEX_GROWUP] = vo;
 			vo = new OwnShengJiVO();
 			vo.name = "消化速度";
-			vo.intro = "加快鱼儿的饥饿速度";
+			vo.intro = "加快"+GameConf.FISH_LABEL+"的饥饿速度";
 			vo.level = hungryLevel;
 			vo.percent = hungryLevel;
 			ownShengjiList[INDEX_HUNGRY] = vo;

@@ -44,6 +44,8 @@ import flash.desktop.NativeApplication;
 
 		${Fishes}
 
+		public static const FISH_LABEL:String = "${FISH_LABEL}";
+		public static const YUCHANG_LABEL:String = "${YUCHANG_LABEL}";
 
 		FishHungry1;FishHungry2;FishHungry3;
 		FishFood1;FishFood2;FishFood3;
