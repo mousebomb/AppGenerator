@@ -1,0 +1,9 @@
+# 需要上传的文件
+assets/Default-568h@2x.png
+assets/Default@2x.png
+assets/Default~ipad.png
+bgm.mp3
+timu
+lib/design.swc
+lib/Sfx.swc
+release.mobileprovision
