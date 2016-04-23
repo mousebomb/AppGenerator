@@ -82,7 +82,9 @@ public class JuHeGg extends EventDispatcher
 	// 应用ID
 	private var _appID:int = -1;
 	// 默认广告ID
-	private var _defBaiduId:String = "";
+	private var _defBaiduAppID:String = "";
+	private var _defBaiduBannerId:String = "";
+	private var _defBaiduInterstitialId:String = "";
 	private var _defAdmobBannerId:String = "";
 	private var _defAdmobInterstitialId:String = "";
 	private var _admobBannerPercent :int = 50;
@@ -94,17 +96,19 @@ public class JuHeGg extends EventDispatcher
 
 
 	/**
-	 * 初始化广告
+	 * 初始化广告 注意此版本不受后台控制百度ID
 	 * @param app_id 应用ID。
 	 */
-	public function init( app_id:int, baidu_id:String, admob_banner_id:String, admob_interstitial_id:String ):void
+	public function init( app_id:int, baiduAppID:String,baiduBanner:String,baiduInterstitial:String, admob_banner_id:String, admob_interstitial_id:String ):void
 	{
 		DebugHelper.log("初始化AD,AppID:"+app_id);
-		DebugHelper.log("预设:BAIDU:"+baidu_id +",admobBanner:"+admob_banner_id + ",admob_interstitial_id="+admob_interstitial_id);
+		DebugHelper.log("预设:BAIDU:"+baiduAppID+","+baiduBanner+","+baiduInterstitial +";admobBanner:"+admob_banner_id + ",admob_interstitial="+admob_interstitial_id);
 		initANEs();
 		// 从后台加载数据 成功或失败都派发对应消息
 		_appID = app_id;
-		_defBaiduId = baidu_id;
+		_defBaiduAppID = baiduAppID;
+		_defBaiduBannerId = baiduBanner;
+		_defBaiduInterstitialId = baiduInterstitial;
 		_defAdmobBannerId = admob_banner_id;
 		_defAdmobInterstitialId = admob_interstitial_id;
 
@@ -189,13 +193,10 @@ public class JuHeGg extends EventDispatcher
 				{
 					_baiduBannerPercent = bannerPercent;
 					_baiduInterstitialPercent = interstitialPercent;
-					var baiduAppID:String = "af25c5ae";
-					interstitialKey="2502793";
-					bannerKey="2502783";
-					_baidu.setKeys( baiduAppID, bannerKey, interstitialKey,interstitialKey );
+					_baidu.setKeys( _defBaiduAppID, _defBaiduBannerId, _defBaiduInterstitialId );
 					DebugHelper.log("_baiduBannerPercent="+ _baiduBannerPercent);
 					DebugHelper.log("_baiduInterstitialPercent="+ _baiduInterstitialPercent);
-					DebugHelper.log("_baidu.setKeys( "+ baiduAppID+", "+ bannerKey+", "+ interstitialKey+" );");
+					DebugHelper.log("_baidu.setKeys( "+ _defBaiduAppID+", "+ _defBaiduBannerId+", "+ _defBaiduInterstitialId+" );");
 				}
 			}
 			cacheInterstitial();
@@ -211,7 +212,7 @@ public class JuHeGg extends EventDispatcher
 	private function useDefaultKeys():void
 	{
 		_admob.setKeys( _defAdmobBannerId, _defAdmobInterstitialId );
-		_baidu.setKeys( _defBaiduId, _defBaiduId, _defBaiduId,_defBaiduId );
+		_baidu.setKeys( _defBaiduAppID, _defBaiduBannerId, _defBaiduInterstitialId );
 		DebugHelper.log("useDefaultKeys");
 		cacheInterstitial();
 	}
@@ -262,8 +263,8 @@ public class JuHeGg extends EventDispatcher
 			isBaidu = true;
 		}
 		if(isBaidu){
-//				_baidu.showBanner( BaiDu.BANNER, RelationPosition[vertical + "_" + horizontal]  );
-			_baidu.showBanner( BaiDu.BANNER, RelationPosition.BOTTOM_CENTER );
+			_baidu.showBanner( BaiDu.BANNER, RelationPosition[vertical + "_" + horizontal]  );
+//			_baidu.showBanner( BaiDu.BANNER, RelationPosition.BOTTOM_CENTER );
 			DebugHelper.log("_baidu.showBanner()");
 		}else{
 			_admob.showBanner( Admob.BANNER,AdmobPosition[vertical + "_" + horizontal]);
@@ -290,14 +291,38 @@ public class JuHeGg extends EventDispatcher
 	public function showInterstitial():void
 	{
 		if(_admobInterstitialPercent==0 && _baiduInterstitialPercent==0) return;
+
+		var roll:int = Math.random()* (_admobInterstitialPercent+_baiduInterstitialPercent);
+		var isBaidu:Boolean ;
+		if(roll < _admobInterstitialPercent)
+		{
+			isBaidu = false;
+			DebugHelper.log("roll="+roll+" admob");
+		}else{
+			isBaidu = true;
+			DebugHelper.log("roll="+roll+" baidu");
+		}
+
+		if(isBaidu){
 		if( _baidu.isInterstitialReady() )
 		{
 			_baidu.showInterstitial();
 			DebugHelper.log("_baidu.showInterstitial()");
 		} else if( _admob.isInterstitialReady() )
 		{
+				_admob.showInterstitial();
+				DebugHelper.log("baiduNotReady,_admob.showInterstitial()");
+			}
+		}else{
+			if( _admob.isInterstitialReady() )
+			{
 			_admob.showInterstitial();
 			DebugHelper.log("_admob.showInterstitial()");
+			} else if( _baidu.isInterstitialReady() )
+			{
+				_baidu.showInterstitial();
+				DebugHelper.log( "admobNotReady,_baidu.showInterstitial()" );
+			}
 		}
 	}
 

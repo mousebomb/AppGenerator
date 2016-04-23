@@ -26,13 +26,13 @@ public class AdFactory
         {
             CONFIG::IOS
             {
-                JuHeGg.instance.init( GameConf.AOAO_APP_ID, GameConf.BAIDU_IOS, GameConf.ADMOB_iOS_BANNER, GameConf.ADMOB_iOS_INTERSTITIAL );
+                JuHeGg.instance.init( GameConf.AOAO_APP_ID, GameConf.BAIDU_IOS_APPID, GameConf.BAIDU_IOS_BANNER, GameConf.BAIDU_IOS_INTERSTITIAL, GameConf.ADMOB_iOS_BANNER, GameConf.ADMOB_iOS_INTERSTITIAL );
                 JuHeGg.instance.addEventListener(JuHeGg.GET_DATA_SUCCESS, onAdConfigData);
                 JuHeGg.instance.addEventListener(JuHeGg.GET_DATA_FAIL, onAdConfigData);
             }
             CONFIG::ANDROID
             {
-                JuHeGg.instance.init( GameConf.AOAO_APP_ID, GameConf.BAIDU_ANDROID, GameConf.ADMOB_ANDROID_BANNER, GameConf.ADMOB_ANDROID_INTERSTITIAL );
+                JuHeGg.instance.init( GameConf.AOAO_APP_ID, GameConf.BAIDU_ANDROID_APPID,GameConf.BAIDU_ANDROID_BANNER,GameConf.BAIDU_ANDROID_INTERSTITIAL, GameConf.ADMOB_ANDROID_BANNER, GameConf.ADMOB_ANDROID_INTERSTITIAL );
                 JuHeGg.instance.addEventListener(JuHeGg.GET_DATA_SUCCESS, onAdConfigData);
                 JuHeGg.instance.addEventListener(JuHeGg.GET_DATA_FAIL, onAdConfigData);
             }

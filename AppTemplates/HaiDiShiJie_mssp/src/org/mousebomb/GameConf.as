@@ -34,9 +34,13 @@ import flash.desktop.NativeApplication;
         public static const ADMOB_ANDROID_INTERSTITIAL:String = "${androidAdmobInterstitial}";
 
         // baidu ios
-        public static const BAIDU_IOS:String = "${iosBaiduAd}";
+        public static const BAIDU_IOS_APPID:String = "${iosBaiduAppID}";
+        public static const BAIDU_IOS_BANNER:String = "${iosBaiduBanner}";
+        public static const BAIDU_IOS_INTERSTITIAL:String = "${iosBaiduInterstitial}";
         // baidu android
-        public static const BAIDU_ANDROID:String = "${androidBaiduAd}";
+        public static const BAIDU_ANDROID_APPID:String = "${androidBaiduAppID}";
+        public static const BAIDU_ANDROID_BANNER:String = "${androidBaiduBanner}";
+        public static const BAIDU_ANDROID_INTERSTITIAL:String = "${androidBaiduInterstitial}";
 
 
         //每N次调用才真正显示插屏
