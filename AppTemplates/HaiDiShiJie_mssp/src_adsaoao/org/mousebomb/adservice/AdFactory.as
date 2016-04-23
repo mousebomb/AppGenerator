@@ -77,7 +77,7 @@ public class AdFactory
         if(++nextInterstitialI % GameConf.INTERSTITIAL_AD_LEVEL == 0)
         {
             var now:int  = getTimer();
-            if(now - lastShowInterstitial > 1000)
+            if(now - lastShowInterstitial > 30000)
             {
                 lastShowInterstitial = now;
                 //                if(MAC.willShowInterstitial())
