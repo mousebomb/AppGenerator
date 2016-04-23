@@ -7,7 +7,7 @@ ${ADT}
  ${genapk}
  ${gen}/app-android.xml
 -C ${gen} HDSJ.swf
--e ${gen}/biduad_plugin_ssp/__pasys_remote_banner.jar biduad_plugin/__pasys_remote_banner.jar
+-e ${gen}/lib/biduad_plugin_ssp/__pasys_remote_banner.jar biduad_plugin/__pasys_remote_banner.jar
 -e ${icon}/36.png AppIcons/36x36-36.png
 -e ${icon}/48.png AppIcons/48x48-48.png
 -e ${icon}/72.png AppIcons/72x72-72.png
